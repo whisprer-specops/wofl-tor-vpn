@@ -1,0 +1,8 @@
+# Reference only; torrc is generated.
+ClientOnly 1
+SOCKSPort 127.0.0.1:9050
+DNSPort 127.0.0.1:5353
+ControlPort 127.0.0.1:9051
+CookieAuthentication 1
+AutomapHostsOnResolve 1
+AutomapHostsSuffixes .onion,.exit

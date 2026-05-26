@@ -1,0 +1,40 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/torvpn-core",
+    "crates/torvpn-svc",
+    "crates/torvpn-tray",
+]
+
+# Shared profile tuning — small fast binaries for the installer.
+[profile.release]
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+strip = "symbols"
+panic = "abort"
+
+[workspace.package]
+version = "0.2.0"
+edition = "2021"
+authors = ["wofl"]
+license = "MIT OR Apache-2.0"
+
+[workspace.dependencies]
+anyhow      = "1"
+thiserror   = "1"
+serde       = { version = "1", features = ["derive"] }
+serde_json  = "1"
+toml        = "0.8"
+clap        = { version = "4", features = ["derive"] }
+tokio       = { version = "1", features = ["macros", "process", "rt-multi-thread", "fs", "io-util", "signal", "time", "net", "sync"] }
+which       = "6"
+dirs        = "5"
+hex         = "0.4"
+hmac        = "0.12"
+sha2        = "0.10"
+rand        = "0.8"
+humantime   = "2"
+base64      = "0.22"
+log         = "0.4"
+env_logger  = "0.11"

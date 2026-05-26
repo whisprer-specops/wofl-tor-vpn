@@ -1,0 +1,52 @@
+# torvpn-win obfs4 profile example
+[tun]
+interface = "torvpn"
+mtu = 1400
+
+[tor]
+socks_port = 9050
+dns_port = 5353
+control_port = 9051
+use_bridges = true
+client_transport_plugin = "C:\\Program Files\\obfs4proxy\\obfs4proxy.exe"
+bridges = [
+  # "obfs4 <FPR> <IP>:<PORT> cert=<CERT> iat-mode=0"
+]
+tor_path_hint = ""
+
+[tun2socks]
+binary = "tun2socks.exe"
+
+[proxy]
+enabled = false
+rotation = "off"
+proxies = []
+
+[exit]
+countries = []
+strict = true
+
+[pqc]
+enabled = false
+algo_sig = "dilithium2"
+algo_kem = "kyber1024"
+
+[hop]
+enabled = false
+randomize = false
+loop_forever = true
+jitter = "0s"
+
+[[hop.sequence]]
+duration = "20m"
+exit_countries = ["us"]
+proxy = "next"
+
+[[hop.sequence]]
+duration = "15m"
+exit_countries = ["de"]
+proxy = "socks5://203.0.113.42:1080"
+
+[status]
+enabled = true
+listen = "127.0.0.1:18081"

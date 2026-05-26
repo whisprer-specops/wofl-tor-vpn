@@ -1,0 +1,94 @@
+# =============================================================================
+# TorVPN — Windows default profile (SPEED-FIRST)
+# =============================================================================
+# This is the bundled default. The installer drops a copy at
+#   %ProgramData%\torvpn\profile.toml
+# which users / admins can edit. The service falls back to this baked-in copy
+# if no override file exists.
+#
+# Tunable knobs you'll likely care about live in the [perf] section.
+# =============================================================================
+
+[status]
+enabled = true
+# Local-only control plane the tray and CLI talk to.
+listen  = "127.0.0.1:8787"
+
+# ---------- TUN / Wintun ------------------------------------------------------
+[tun]
+interface = "torvpn"
+mtu       = 1400
+
+# ---------- Tor daemon --------------------------------------------------------
+[tor]
+socks_port              = 9050
+dns_port                = 5353
+control_port            = 9051
+use_bridges             = false
+client_transport_plugin = ""
+bridges                 = []
+# Leave blank to auto-discover (bundled `tor\tor.exe` next to the service exe,
+# then PATH). Set to an absolute path to override.
+tor_path_hint           = ""
+
+# ---------- tun2socks ---------------------------------------------------------
+[tun2socks]
+binary = "tun2socks.exe"
+
+# ---------- Upstream proxy chain (off by default; Tor is the only hop) --------
+[proxy]
+enabled  = false
+rotation = "off"
+proxies  = []
+
+# ---------- Exit-country pinning ---------------------------------------------
+# Empty = let Tor pick fastest. Tray menu writes this at runtime via SETCONF.
+[exit]
+countries = []
+strict    = true
+
+# ---------- Post-quantum (opt-in, costs CPU) ---------------------------------
+[pqc]
+enabled  = false
+algo_sig = "dilithium2"
+algo_kem = "kyber1024"
+
+# ---------- Country/proxy hopping (off by default) ---------------------------
+[hop]
+enabled      = false
+randomize    = false
+loop_forever = true
+jitter       = "0s"
+sequence     = []
+
+# =============================================================================
+# [perf] — Speed tuning knobs
+# =============================================================================
+# These defaults assume you trust Tor's baseline anonymity and want throughput.
+# Every knob has a sane fallback in code, so removing one won't break anything.
+# =============================================================================
+[perf]
+# How many parallel SOCKS ports tor opens. Each maintains its own circuit pool
+# and tun2socks rotates connections across them, multiplying throughput on
+# parallel TCP downloads (browsers, package managers, anything that opens many
+# sockets). 1 = vanilla tor. 4 is the sweet spot for most home links.
+parallel_socks_ports        = 4
+
+# Tor drops circuits that take longer than this many seconds to build during
+# the learning phase. Lower = pickier = faster average latency, with the
+# tradeoff of slightly more rebuilds.
+circuit_build_timeout_secs  = 10
+
+# Number of guard nodes. Default tor = 1. Raising to 3 widens the fast-path
+# pool: if one guard is slow, traffic falls onto the next. Tiny anonymity cost,
+# big real-world latency win.
+num_entry_guards            = 3
+
+# Skip IPv6. Many exits have poor v6 connectivity and the dual-stack happy-
+# eyeballs race adds latency. Set false if you specifically need v6.
+ipv4_only                   = true
+
+# Disable circuit / connection padding. Padding exists to defeat traffic-
+# analysis fingerprinting; turning it off costs a small amount of that
+# protection in exchange for measurable latency reduction.
+disable_padding             = true
