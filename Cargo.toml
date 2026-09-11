@@ -1,0 +1,59 @@
+[workspace]
+resolver = "2"
+members = [
+    "crates/torvpn-core",
+    "crates/torvpn-svc",
+    "crates/torvpn-tray",
+]
+
+# Shared profile tuning — small fast binaries for the installer.
+[profile.release]
+#
+# panic = "abort" is deliberately NOT set here (it was, until this was found
+# to be a real bug, not just smaller-binary tuning): torvpn-svc's control
+# server spawns one tokio task per HTTP connection specifically so a bug in
+# one request (a bad script, an unexpected ControlPort response, anything in
+# the connect()/routing/firewall/DNS path) fails just that request — the task
+# panics, tokio's executor catches the unwind, the JoinHandle (discarded)
+# comes back Err, and the service keeps running everything else. With
+# panic = "abort" that isolation is a lie: ANY panic anywhere, in any task,
+# immediately calls abort() on the WHOLE process — no unwinding, so the
+# per-connection task boundary never even gets a chance to contain it. That's
+# exactly what happened on the first live full-tunnel connect(): the request
+# handler task hit a panic partway through, the entire torvpn-svc.exe process
+# (the persistent Windows service, not just that one HTTP request) died
+# instantly — client saw a truncated "malformed response" as the process died
+# mid-write, and every request after that got "connection refused" because
+# nothing was listening on 127.0.0.1:8787 anymore. Default (unwind) restores
+# the isolation the code was already written to rely on. See torvpn-svc's
+# panic hook (`init_panic_hook` in main.rs) for turning the *next* one from
+# "guess from a dead port" into "read the exact file:line out of svc.log".
+opt-level = 3
+lto = "thin"
+codegen-units = 1
+strip = "symbols"
+
+[workspace.package]
+version = "0.2.0"
+edition = "2021"
+authors = ["wofl"]
+license = "MIT OR Apache-2.0"
+
+[workspace.dependencies]
+anyhow      = "1"
+thiserror   = "1"
+serde       = { version = "1", features = ["derive"] }
+serde_json  = "1"
+toml        = "0.8"
+clap        = { version = "4", features = ["derive"] }
+tokio       = { version = "1", features = ["macros", "process", "rt-multi-thread", "fs", "io-util", "signal", "time", "net", "sync"] }
+which       = "6"
+dirs        = "5"
+hex         = "0.4"
+hmac        = "0.12"
+sha2        = "0.10"
+rand        = "0.8"
+humantime   = "2"
+base64      = "0.22"
+log         = "0.4"
+env_logger  = "0.11"

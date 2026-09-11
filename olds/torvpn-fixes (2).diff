@@ -1,0 +1,486 @@
+diff -ruN '--exclude=target' '--exclude=*.zip' '--exclude=delete' '--exclude=stop' '--exclude=Cargo.lock' '--exclude=Output' torvpn_extract/tor-vpn/torvpn-new/crates/torvpn-core/src/config.rs torvpn-build/crates/torvpn-core/src/config.rs
+--- torvpn_extract/tor-vpn/torvpn-new/crates/torvpn-core/src/config.rs	2026-05-22 07:14:40.000000000 +0000
++++ torvpn-build/crates/torvpn-core/src/config.rs	2026-09-06 16:44:23.257540476 +0000
+@@ -155,3 +155,27 @@
+     let s = include_str!("../../../profiles/default_win.toml");
+     Ok(toml::from_str(s).context("parsing bundled default profile")?)
+ }
++
++#[cfg(test)]
++mod tests {
++    use super::*;
++
++    /// The bundled default profile is compiled into the binary via include_str!;
++    /// if it ever stops parsing, BOTH the service (no control server) and the
++    /// tray (no client) die at startup — which looks exactly like "tray does
++    /// nothing". Lock it down.
++    #[test]
++    fn bundled_default_profile_parses() {
++        let cfg: Config = toml::from_str(include_str!("../../../profiles/default_win.toml"))
++            .expect("default_win.toml must parse");
++        assert!(cfg.status.enabled);
++        assert_eq!(cfg.status.listen, "127.0.0.1:8787");
++        assert!(cfg.perf.parallel_socks_ports >= 1);
++    }
++
++    #[test]
++    fn bundled_obfs4_profile_parses() {
++        let _cfg: Config = toml::from_str(include_str!("../../../profiles/obfs4_win.toml"))
++            .expect("obfs4_win.toml must parse");
++    }
++}
+diff -ruN '--exclude=target' '--exclude=*.zip' '--exclude=delete' '--exclude=stop' '--exclude=Cargo.lock' '--exclude=Output' torvpn_extract/tor-vpn/torvpn-new/crates/torvpn-core/src/tor_manager.rs torvpn-build/crates/torvpn-core/src/tor_manager.rs
+--- torvpn_extract/tor-vpn/torvpn-new/crates/torvpn-core/src/tor_manager.rs	2026-05-22 10:41:48.000000000 +0000
++++ torvpn-build/crates/torvpn-core/src/tor_manager.rs	2026-09-06 16:44:13.821540244 +0000
+@@ -58,7 +58,7 @@
+         fs::create_dir_all(&tor_data).await?;
+ 
+         let torrc_path = state_dir.join("torrc.generated");
+-        let torrc = generate_torrc(cfg, &tor_data)?;
++        let torrc = generate_torrc(cfg, &tor_data, &tor_path)?;
+         fs::write(&torrc_path, torrc).await?;
+ 
+         let mut cmd = Command::new(&tor_path);
+@@ -155,35 +155,76 @@
+     pct_str.trim().parse::<u8>().ok()
+ }
+ 
+-fn generate_torrc(cfg: &Config, data_dir: &Path) -> Result<String> {
++fn generate_torrc(cfg: &Config, data_dir: &Path, tor_path: &Path) -> Result<String> {
+     let mut s = String::with_capacity(2048);
+ 
+     s.push_str(&format!("DataDirectory {}\n", data_dir.display()));
+     s.push_str("ClientOnly 1\n");
+     s.push_str("AvoidDiskWrites 1\n");
+ 
++    // GeoIP data ships in <tor.exe dir>\data\. Tor needs it for country-based
++    // ExitNodes (the tray's "Exit country" menu). Without GeoIPFile tor loads
++    // no country map and silently ignores {us}, {de}, … selections, so point
++    // at the files when they're present next to the bundled tor.exe.
++    if let Some(tor_dir) = tor_path.parent() {
++        let geoip  = tor_dir.join("data").join("geoip");
++        let geoip6 = tor_dir.join("data").join("geoip6");
++        if geoip.exists()  { s.push_str(&format!("GeoIPFile {}\n",   geoip.display())); }
++        if geoip6.exists() { s.push_str(&format!("GeoIPv6File {}\n",  geoip6.display())); }
++    }
++
++    // Control plane: the service drives NEWNYM / SETCONF over the ControlPort.
++    s.push_str(&format!("ControlPort 127.0.0.1:{}\n", cfg.tor.control_port));
++    s.push_str("CookieAuthentication 1\n");
++    s.push_str(&format!("DNSPort 127.0.0.1:{}\n", cfg.tor.dns_port));
++
+     // ===== Speed knobs =====
+     let perf = &cfg.perf;
+ 
+-    // Multiple SOCKS ports. Apps that don't need isolation share circuits.
+-    let n = perf.parallel_socks_ports.max(1);
+-    for i in 0..n {
+-        let port = cfg.tor.socks_port + i as u16;
+-        // IsolateSOCKSAuth=0 + KeepAliveIsolateSOCKSAuth=0 = max sharing.
++    // SOCKS ports. tun2socks connects to the *base* port; any extra ports give
++    // additional isolated circuit pools for a future multi-dialer.
++    //
++    // Two hard rules are enforced here, because getting either wrong makes tor
++    // refuse to launch (and that's exactly what wedged this build):
++    //
++    //   1. A SOCKS port must never collide with ControlPort or DNSPort. The old
++    //      code emitted socks_port .. socks_port+N, which walked straight over
++    //      ControlPort — with the defaults (socks 9050, control 9051) tor was
++    //      told to bind 9051 as BOTH a SOCKSPort and the ControlPort. Fatal.
++    //
++    //   2. SOCKSPort isolation flags are bare keywords, optionally "No"-prefixed
++    //      — never "flag=0". The old line ("IsolateClientAddr=0" plus a
++    //      contradictory IsolateSOCKSAuth + NoIsolateSOCKSAuth pair) was invalid
++    //      syntax that tor rejects outright. We want *less* isolation for
++    //      throughput (every stream arrives from one loopback client via
++    //      tun2socks, so isolating buys nothing), so we use the documented
++    //      negations.
++    let base    = cfg.tor.socks_port;
++    let control = cfg.tor.control_port;
++    let dns     = cfg.tor.dns_port;
++
++    if base == control || base == dns {
++        bail!(
++            "config error: [tor].socks_port ({base}) must differ from \
++             control_port ({control}) and dns_port ({dns})"
++        );
++    }
++
++    let want = perf.parallel_socks_ports.max(1);
++    // Base port first — it's the one tun2socks dials.
++    let mut ports: Vec<u16> = vec![base];
++    let mut cand = base;
++    while (ports.len() as u8) < want {
++        cand = match cand.checked_add(1) { Some(p) => p, None => break };
++        if cand == control || cand == dns || ports.contains(&cand) { continue; }
++        ports.push(cand);
++    }
++    for port in &ports {
++        // NoIsolateClientAddr + NoIsolateSOCKSAuth = maximal circuit sharing.
+         s.push_str(&format!(
+-            "SOCKSPort 127.0.0.1:{port} IsolateSOCKSAuth IsolateClientAddr=0 NoIsolateSOCKSAuth\n"
++            "SOCKSPort 127.0.0.1:{port} NoIsolateClientAddr NoIsolateSOCKSAuth\n"
+         ));
+-        // Note: the documented spelling is IsolateSOCKSAuth/IsolateClientAddr in
+-        // newer tor. The "NoIsolateSOCKSAuth" flag form was added in 0.4.x.
+-        // Older tor will ignore unknown flags after a warning — non-fatal.
+-        let _ = i; let _ = port;
+     }
+-    // First SOCKS port — also the one tun2socks dials.
+-    // (Already emitted above for i=0; that's the canonical one.)
+-
+-    s.push_str(&format!("DNSPort 127.0.0.1:{}\n", cfg.tor.dns_port));
+-    s.push_str(&format!("ControlPort 127.0.0.1:{}\n", cfg.tor.control_port));
+-    s.push_str("CookieAuthentication 1\n");
+ 
+     s.push_str("AutomapHostsOnResolve 1\n");
+     s.push_str("AutomapHostsSuffixes .onion,.exit\n");
+@@ -287,3 +328,77 @@
+     let _ = ctl.signal_newnym().await;
+     Ok(())
+ }
++
++#[cfg(test)]
++mod tests {
++    use super::*;
++    use crate::config::Config;
++
++    fn default_cfg() -> Config {
++        toml::from_str(include_str!("../../../profiles/default_win.toml"))
++            .expect("bundled default profile must parse")
++    }
++
++    /// Pull the port out of every `SOCKSPort 127.0.0.1:<port> ...` line.
++    fn socks_ports(torrc: &str) -> Vec<u16> {
++        torrc
++            .lines()
++            .filter_map(|l| l.strip_prefix("SOCKSPort 127.0.0.1:"))
++            .filter_map(|rest| rest.split_whitespace().next())
++            .filter_map(|p| p.parse::<u16>().ok())
++            .collect()
++    }
++
++    #[test]
++    fn no_socks_port_collides_with_control_or_dns() {
++        let mut cfg = default_cfg();
++        // Force the worst case: 4 ports over the old contiguous layout that
++        // used to slam SOCKSPort onto ControlPort (9051).
++        cfg.perf.parallel_socks_ports = 4;
++        cfg.tor.socks_port = 9050;
++        cfg.tor.control_port = 9051;
++        cfg.tor.dns_port = 5353;
++
++        let torrc = generate_torrc(&cfg, Path::new("/nonexistent"), Path::new("/x/tor.exe"))
++            .expect("torrc generation");
++        let ports = socks_ports(&torrc);
++
++        assert_eq!(ports.len(), 4, "should emit exactly the requested port count");
++        assert_eq!(ports[0], 9050, "tun2socks dials the base port, emit it first");
++        assert!(!ports.contains(&9051), "must not reuse ControlPort as a SOCKSPort");
++        assert!(!ports.contains(&5353), "must not reuse DNSPort as a SOCKSPort");
++        // No duplicates.
++        let mut sorted = ports.clone();
++        sorted.sort_unstable();
++        sorted.dedup();
++        assert_eq!(sorted.len(), ports.len(), "SOCKS ports must be unique");
++        // ControlPort still declared exactly once, on its own line.
++        assert_eq!(torrc.matches("ControlPort 127.0.0.1:9051").count(), 1);
++    }
++
++    #[test]
++    fn socks_lines_use_valid_isolation_flags() {
++        let cfg = default_cfg();
++        let torrc = generate_torrc(&cfg, Path::new("/nonexistent"), Path::new("/x/tor.exe"))
++            .expect("torrc generation");
++        for line in torrc.lines().filter(|l| l.starts_with("SOCKSPort")) {
++            // The invalid `flag=0` form is what tor rejected before.
++            assert!(!line.contains('='), "isolation flags are bare keywords: {line}");
++            // No contradictory Isolate + NoIsolate of the same knob.
++            assert!(
++                !(line.contains(" IsolateSOCKSAuth") && line.contains("NoIsolateSOCKSAuth")),
++                "contradictory isolation flags: {line}"
++            );
++        }
++    }
++
++    #[test]
++    fn base_port_colliding_with_control_is_a_hard_error() {
++        let mut cfg = default_cfg();
++        cfg.tor.socks_port = 9051;
++        cfg.tor.control_port = 9051;
++        let err = generate_torrc(&cfg, Path::new("/nonexistent"), Path::new("/x/tor.exe"))
++            .unwrap_err();
++        assert!(err.to_string().contains("must differ"), "got: {err}");
++    }
++}
+diff -ruN '--exclude=target' '--exclude=*.zip' '--exclude=delete' '--exclude=stop' '--exclude=Cargo.lock' '--exclude=Output' torvpn_extract/tor-vpn/torvpn-new/crates/torvpn-svc/src/main.rs torvpn-build/crates/torvpn-svc/src/main.rs
+--- torvpn_extract/tor-vpn/torvpn-new/crates/torvpn-svc/src/main.rs	2026-05-23 03:39:35.000000000 +0000
++++ torvpn-build/crates/torvpn-svc/src/main.rs	2026-09-06 16:49:52.649548575 +0000
+@@ -15,7 +15,9 @@
+ use clap::{Parser, Subcommand};
+ use std::path::PathBuf;
+ 
+-use torvpn_core::{api, config, paths, state::Engagement, control_server};
++use torvpn_core::{api, config, paths};
++#[cfg(windows)]
++use torvpn_core::{state::Engagement, control_server};
+ 
+ #[cfg(windows)]
+ mod service;
+@@ -136,8 +138,13 @@
+     // kebab-cased, so we MUST register "service-run" (not "ServiceRun") or
+     // the binary will exit 0 on every start and the tray will see nothing.
+     let real_binpath = format!("\"{}\" service-run", exe.display());
++    #[cfg(windows)]
+     write_service_image_path(&real_binpath)
+         .context("write ImagePath in registry")?;
++    // On non-Windows this line is never reached (the sc.exe calls above already
++    // error out); keep a use of `real_binpath` so the dev-host build is clean.
++    #[cfg(not(windows))]
++    let _ = &real_binpath;
+ 
+     // Description (cosmetic; sc.exe handles this one fine).
+     let _ = tokio::process::Command::new("sc.exe")
+diff -ruN '--exclude=target' '--exclude=*.zip' '--exclude=delete' '--exclude=stop' '--exclude=Cargo.lock' '--exclude=Output' torvpn_extract/tor-vpn/torvpn-new/crates/torvpn-tray/src/main.rs torvpn-build/crates/torvpn-tray/src/main.rs
+--- torvpn_extract/tor-vpn/torvpn-new/crates/torvpn-tray/src/main.rs	2026-05-22 10:49:01.000000000 +0000
++++ torvpn-build/crates/torvpn-tray/src/main.rs	2026-09-06 16:48:30.017546543 +0000
+@@ -37,7 +37,8 @@
+ }
+ 
+ fn main() -> anyhow::Result<()> {
+-    env_logger::Builder::from_env(env_logger::Env::default().default_filter_or("info")).init();
++    init_logging();
++    log::info!("torvpn-tray {} starting", env!("CARGO_PKG_VERSION"));
+ 
+     let event_loop = EventLoopBuilder::<UserEvent>::with_user_event().build();
+     let proxy = event_loop.create_proxy();
+@@ -325,6 +326,44 @@
+     if p.exists() { Some(p) } else { None }
+ }
+ 
++/// Per-user log directory for the tray: `%LOCALAPPDATA%\torvpn`.
++///
++/// NOT `%ProgramData%\torvpn` — the installer grants Users only read/execute
++/// there (it's where the LocalSystem service writes the token for us to read),
++/// so a user-mode write would be denied. LOCALAPPDATA is the tray's own,
++/// always-writable home.
++fn tray_log_dir() -> PathBuf {
++    std::env::var_os("LOCALAPPDATA")
++        .map(PathBuf::from)
++        .unwrap_or_else(std::env::temp_dir)
++        .join("torvpn")
++}
++
++/// Send logs to a file the user can actually read.
++///
++/// This binary is compiled with the Windows GUI subsystem (no console), so
++/// every `log::warn!`/`log::error!` — "service unreachable", "toggle failed",
++/// "client: reading token …" — otherwise goes to a stderr that doesn't exist.
++/// That silent-swallowing is a big part of why a misconfigured service felt
++/// like the tray "did nothing". Now those lines land in
++/// `%LOCALAPPDATA%\torvpn\tray.log`. Falls back to stderr if the file can't
++/// be opened.
++fn init_logging() {
++    let mut builder = env_logger::Builder::from_env(
++        env_logger::Env::default().default_filter_or("info"),
++    );
++    let dir = tray_log_dir();
++    let _ = std::fs::create_dir_all(&dir);
++    if let Ok(file) = std::fs::OpenOptions::new()
++        .create(true)
++        .append(true)
++        .open(dir.join("tray.log"))
++    {
++        builder.target(env_logger::Target::Pipe(Box::new(file)));
++    }
++    builder.init();
++}
++
+ /// 32x32 solid-colour RGBA icon with a soft circular highlight, so it
+ /// reads as a status dot in the tray.
+ fn make_solid_icon(r: u8, g: u8, b: u8) -> Icon {
+diff -ruN '--exclude=target' '--exclude=*.zip' '--exclude=delete' '--exclude=stop' '--exclude=Cargo.lock' '--exclude=Output' torvpn_extract/tor-vpn/torvpn-new/profiles/default_win.toml torvpn-build/profiles/default_win.toml
+--- torvpn_extract/tor-vpn/torvpn-new/profiles/default_win.toml	2026-05-22 07:24:06.000000000 +0000
++++ torvpn-build/profiles/default_win.toml	2026-09-06 16:44:38.101540841 +0000
+@@ -68,11 +68,15 @@
+ # Every knob has a sane fallback in code, so removing one won't break anything.
+ # =============================================================================
+ [perf]
+-# How many parallel SOCKS ports tor opens. Each maintains its own circuit pool
+-# and tun2socks rotates connections across them, multiplying throughput on
+-# parallel TCP downloads (browsers, package managers, anything that opens many
+-# sockets). 1 = vanilla tor. 4 is the sweet spot for most home links.
+-parallel_socks_ports        = 4
++# How many SOCKS ports tor opens.
++#
++# IMPORTANT: the bundled tun2socks bridge dials a SINGLE SOCKS port, so any
++# extra ports here just make tor build and maintain circuit pools that nothing
++# uses — wasted CPU and slower warm-up, not more throughput. Keep this at 1 for
++# this build; only raise it if you wire up a client that actually spreads load
++# across multiple ports. (The torrc generator guarantees these never collide
++# with the control/DNS ports, but there's no reason to open ports you can't use.)
++parallel_socks_ports        = 1
+ 
+ # Tor drops circuits that take longer than this many seconds to build during
+ # the learning phase. Lower = pickier = faster average latency, with the
+diff -ruN '--exclude=target' '--exclude=*.zip' '--exclude=delete' '--exclude=stop' '--exclude=Cargo.lock' '--exclude=Output' torvpn_extract/tor-vpn/torvpn-new/profiles/obfs4_win.toml torvpn-build/profiles/obfs4_win.toml
+--- torvpn_extract/tor-vpn/torvpn-new/profiles/obfs4_win.toml	2026-05-22 07:24:18.000000000 +0000
++++ torvpn-build/profiles/obfs4_win.toml	2026-09-06 16:44:40.897540910 +0000
+@@ -56,8 +56,9 @@
+ 
+ [perf]
+ # Bridges already constrain throughput; we relax the speed knobs a touch so
+-# we don't churn circuits unnecessarily on a slower path.
+-parallel_socks_ports       = 2
++# we don't churn circuits unnecessarily on a slower path. tun2socks dials one
++# SOCKS port, so 1 is correct here too (see default_win.toml for the why).
++parallel_socks_ports       = 1
+ circuit_build_timeout_secs = 20
+ num_entry_guards           = 1
+ ipv4_only                  = true
+diff -ruN '--exclude=target' '--exclude=*.zip' '--exclude=delete' '--exclude=stop' '--exclude=Cargo.lock' '--exclude=Output' torvpn_extract/tor-vpn/torvpn-new/scripts/fw-apply.ps1 torvpn-build/scripts/fw-apply.ps1
+--- torvpn_extract/tor-vpn/torvpn-new/scripts/fw-apply.ps1	2026-05-22 08:17:38.000000000 +0000
++++ torvpn-build/scripts/fw-apply.ps1	2026-09-06 16:45:37.797542309 +0000
+@@ -1,14 +1,25 @@
+-﻿# =============================================================================
++# =============================================================================
+ # TorVPN -- Firewall apply (kill-switch)
+ # =============================================================================
+ # Called by the service when engaging. Receives a JSON arg with:
+ #   { "AdapterHint": "torvpn", "TorPath": "C:\Program Files\TorVPN\tor\tor.exe" }
+ #
+-# Strategy: Windows Firewall has no true "default-deny per rule-group", so we:
+-#   1. Wipe any existing TORVPN rules
+-#   2. Add an outbound Block-All rule tagged to our group
+-#   3. Add explicit Allow rules for tor.exe and the Wintun adapter
+-# Teardown removes everything tagged with the group.
++# WHY THIS SCRIPT WAS REWRITTEN
++# -----------------------------
++# The previous version added an explicit "Block All Outbound" *rule* and then
++# explicit Allow rules for tor.exe / Wintun. On Windows Filtering Platform,
++# an explicit Block rule ALWAYS wins over an explicit Allow rule, so that
++# design blocked tor.exe too -- tor could never reach the network, so it never
++# bootstrapped, so "Connect" did nothing.
++#
++# The correct kill-switch pattern (what commercial VPNs use):
++#   * Set the profile DefaultOutboundAction to Block. The default action is the
++#     LOWEST-priority fallback -- it only applies when no explicit rule matches.
++#   * Add explicit Allow rules for exactly what must escape: tor.exe (the only
++#     process that legitimately talks to the public internet), loopback (the
++#     tray <-> service and tun2socks <-> tor plumbing), and the Wintun adapter.
++# Everything else falls through to the default -> blocked. Teardown restores
++# DefaultOutboundAction = Allow.
+ # =============================================================================
+ param($jsonArgs)
+ 
+@@ -28,15 +39,13 @@
+ Get-NetFirewallRule -Group $group -ErrorAction SilentlyContinue |
+     Remove-NetFirewallRule -ErrorAction SilentlyContinue | Out-Null
+ 
+-# ----- Global outbound block (tagged) -----------------------------------------
+-New-NetFirewallRule `
+-    -DisplayName "TORVPN Block All Outbound" `
+-    -Group       $group `
+-    -Direction   Outbound `
+-    -Action      Block `
+-    -Enabled     True | Out-Null
++# =============================================================================
++# 1. ALLOW rules first, so there is never a window where tor is blocked once we
++#    flip the default action.
++# =============================================================================
+ 
+-# ----- Allow tor.exe ----------------------------------------------------------
++# ----- Allow tor.exe (the only process that egresses to the real internet) ---
++$torAllowed = $false
+ if (-not [string]::IsNullOrEmpty($TorPath) -and (Test-Path $TorPath)) {
+     New-NetFirewallRule `
+         -DisplayName "TORVPN Allow Tor" `
+@@ -45,8 +54,9 @@
+         -Direction   Outbound `
+         -Action      Allow `
+         -Enabled     True | Out-Null
++    $torAllowed = $true
+ } else {
+-    # Fall back to whatever's in PATH (unusual; bundled deployment should hit the branch above)
++    # Fall back to whatever's in PATH (bundled deployments should hit the branch above).
+     $tor = Get-Command tor.exe -ErrorAction SilentlyContinue
+     if ($tor) {
+         New-NetFirewallRule `
+@@ -56,12 +66,29 @@
+             -Direction   Outbound `
+             -Action      Allow `
+             -Enabled     True | Out-Null
+-    } else {
+-        Write-Warning "[!] tor.exe not found -- connection will fail closed"
++        $torAllowed = $true
+     }
+ }
+ 
+-# ----- Allow traffic through the Wintun adapter -------------------------------
++if (-not $torAllowed) {
++    # No tor allow rule == a kill-switch that blocks EVERYTHING including tor.
++    # Refuse to flip the default action; that would just kill the user's
++    # network for no benefit. Fail loud so the service reports an error.
++    throw "[TORVPN] tor.exe not found (TorPath='$TorPath') -- refusing to enable kill-switch with no Tor allow rule"
++}
++
++# ----- Allow loopback (tray <-> svc, tun2socks <-> tor) ----------------------
++# Windows normally exempts loopback from WFP, but make it explicit so the
++# control plane is guaranteed to work under DefaultOutboundAction=Block.
++New-NetFirewallRule `
++    -DisplayName   "TORVPN Allow Loopback" `
++    -Group         $group `
++    -Direction     Outbound `
++    -Action        Allow `
++    -RemoteAddress "127.0.0.0/8" `
++    -Enabled       True | Out-Null
++
++# ----- Allow traffic bound to the Wintun adapter (belt-and-braces) -----------
+ $adapter = Get-NetAdapter |
+     Where-Object {
+         $_.InterfaceDescription -like "*Wintun*" -or
+@@ -78,7 +105,13 @@
+         -Action         Allow `
+         -Enabled        True | Out-Null
+ } else {
+-    Write-Warning "[!] Wintun adapter not found (hint='$AdapterHint') -- kill-switch active but no tunnel allow rule"
++    Write-Warning "[!] Wintun adapter not found (hint='$AdapterHint') -- tunnel allow rule skipped"
+ }
+ 
+-Write-Host "[+] Firewall rules applied for group $group"
++# =============================================================================
++# 2. Flip the kill-switch: default-deny outbound on all profiles. Explicit
++#    Allow rules above are the only holes.
++# =============================================================================
++Set-NetFirewallProfile -All -DefaultOutboundAction Block | Out-Null
++
++Write-Host "[+] Kill-switch active (default-deny outbound; tor + loopback + Wintun allowed) for group $group"
+diff -ruN '--exclude=target' '--exclude=*.zip' '--exclude=delete' '--exclude=stop' '--exclude=Cargo.lock' '--exclude=Output' torvpn_extract/tor-vpn/torvpn-new/scripts/fw-teardown.ps1 torvpn-build/scripts/fw-teardown.ps1
+--- torvpn_extract/tor-vpn/torvpn-new/scripts/fw-teardown.ps1	2026-05-22 08:17:38.000000000 +0000
++++ torvpn-build/scripts/fw-teardown.ps1	2026-09-06 16:45:44.681542478 +0000
+@@ -1,13 +1,22 @@
+-﻿# =============================================================================
++# =============================================================================
+ # TorVPN -- Firewall teardown
+ # =============================================================================
+-# Called by the service on disengage. Removes every rule tagged with our group.
++# Called by the service on disengage. Reverses fw-apply.ps1:
++#   1. Restore DefaultOutboundAction = Allow on all profiles (this is the
++#      Windows factory default -- without it, disengaging would leave the
++#      machine with NO internet).
++#   2. Remove every rule tagged with our group.
+ # Safe to call repeatedly.
+ # =============================================================================
+ $ErrorActionPreference = "SilentlyContinue"
+ $group = "TORVPN"
+ 
++# 1. Lift the kill-switch FIRST, so connectivity is restored even if rule
++#    removal below hiccups.
++Set-NetFirewallProfile -All -DefaultOutboundAction Allow | Out-Null
++
++# 2. Remove our allow/loopback/wintun rules.
+ Get-NetFirewallRule -Group $group |
+     Remove-NetFirewallRule | Out-Null
+ 
+-Write-Host "[+] Firewall rules removed for group $group"
++Write-Host "[+] Kill-switch lifted (default-allow restored) and group $group rules removed"
