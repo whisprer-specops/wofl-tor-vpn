@@ -1,0 +1,154 @@
+TorVPN diagnostic - 2026-10-25T21:29:33.6315730Z
+
+Name      : TorVPN
+State     : Running
+StartMode : Auto
+ExitCode  : 0
+PathName  : "C:\Program Files\TorVPN\torvpn-svc.exe" service-run
+
+
+
+--- state.json (last 100 lines) ---
+{
+  "phase": "error",
+  "message": "firewall setup: fw-apply.ps1 failed (exit code: 1): Policy-managed outbound allow rules detected; cannot safely arm this local firewall kill switch\r\nAt C:\\Program Files\\TorVPN\\scripts\\fw-apply.ps1:28 char:5\r\n+     throw 'Policy-managed outbound allow rules detected; cannot safel ...\r\n+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : OperationStopped: (Policy-managed ...all kill switch:String) [], RuntimeException\r\n    + FullyQualifiedErrorId : Policy-managed outbound allow rules detected; cannot safely arm this local firewall kill \r\n    switch",
+  "since_ms": 1792963713562,
+  "tor_pid": null,
+  "tun2socks_pid": null,
+  "full_tunnel": true,
+  "exit_ip": null
+}
+
+
+--- svc.log (last 100 lines) ---
+    +     New-NetFirewallRule `
+    +     ~~~~~~~~~~~~~~~~~~~~~
+        + CategoryInfo          : InvalidArgument: (MSFT_NetFirewallRule:root/standardcimv2/MSFT_NetFirewallRule) [New-Net 
+       FirewallRule], CimException
+        + FullyQualifiedErrorId : HRESULT 0x80070057,New-NetFirewallRule (script: C:\github\tor-vpn\target\release\scripts\fw-apply.ps1)
+[2026-09-09T15:47:07Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "status"]
+[2026-09-09T16:28:15Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "connect"]
+[2026-09-09T16:28:15Z INFO  torvpn_core::state] [state] Engaging: applying kill-switch
+[2026-09-09T16:28:23Z INFO  torvpn_core::state] [state] Error: firewall: fw-apply.ps1 exited with Some(1): New-NetFirewallRule : The application contains invalid characters or is an invalid length.
+    At C:\github\tor-vpn\target\release\scripts\fw-apply.ps1:50 char:5
+    +     New-NetFirewallRule `
+    +     ~~~~~~~~~~~~~~~~~~~~~
+        + CategoryInfo          : InvalidArgument: (MSFT_NetFirewallRule:root/standardcimv2/MSFT_NetFirewallRule) [New-Net 
+       FirewallRule], CimException
+        + FullyQualifiedErrorId : HRESULT 0x80070057,New-NetFirewallRule (script: C:\github\tor-vpn\target\release\scripts\fw-apply.ps1)
+[2026-09-09T16:28:56Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "status"]
+[2026-09-09T16:29:05Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "service-uninstall"]
+[2026-09-09T16:29:06Z INFO  torvpn_core::state] [state] Disengaging: restoring routes
+[2026-09-09T16:29:10Z INFO  torvpn_core::state] [state] Disengaging: stopping tun2socks
+[2026-09-09T16:29:10Z INFO  torvpn_core::state] [state] Disengaging: stopping tor
+[2026-09-09T16:29:11Z INFO  torvpn_core::state] [state] Disengaging: restoring DNS + firewall
+[2026-09-09T16:29:13Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "service-install"]
+[2026-09-09T16:29:25Z INFO  torvpn_core::state] [state] Disengaged: disengaged
+[2026-09-09T16:29:35Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "connect"]
+[2026-09-09T16:29:47Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "service-uninstall"]
+[2026-09-09T16:29:53Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "service-install"]
+[2026-09-09T16:29:53Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "service-run"]
+[2026-09-09T16:30:10Z INFO  torvpn_svc] [service] startup cleanup done (cleared any stale kill-switch/DNS/route state)
+[2026-09-09T16:30:10Z INFO  torvpn_core::control_server] control server: listening on 127.0.0.1:8787
+[2026-09-09T16:30:10Z INFO  torvpn_svc] [service] control server ready
+[2026-09-09T16:30:20Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "connect"]
+[2026-09-09T16:30:20Z INFO  torvpn_core::state] [state] Engaging: applying kill-switch
+[2026-09-09T16:30:26Z INFO  torvpn_core::state] [state] Error: firewall: fw-apply.ps1 exited with Some(1): New-NetFirewallRule : The application contains invalid characters or is an invalid length.
+    At C:\github\tor-vpn\target\release\scripts\fw-apply.ps1:50 char:5
+    +     New-NetFirewallRule `
+    +     ~~~~~~~~~~~~~~~~~~~~~
+        + CategoryInfo          : InvalidArgument: (MSFT_NetFirewallRule:root/standardcimv2/MSFT_NetFirewallRule) [New-Net 
+       FirewallRule], CimException
+        + FullyQualifiedErrorId : HRESULT 0x80070057,New-NetFirewallRule (script: C:\github\tor-vpn\target\release\scripts\fw-apply.ps1)
+[2026-09-09T16:30:55Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "status"]
+[2026-09-15T11:29:41Z INFO  torvpn_core::state] [state] Disengaging: restoring routes
+[2026-09-15T11:30:23Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "service-run"]
+[2026-09-15T11:30:44Z INFO  torvpn_svc] [service] startup cleanup done (cleared any stale kill-switch/DNS/route state)
+[2026-09-15T11:30:44Z INFO  torvpn_core::control_server] control server: listening on 127.0.0.1:8787
+[2026-09-15T11:30:44Z INFO  torvpn_svc] [service] control server ready
+[2026-09-15T11:31:46Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "service-run"]
+[2026-09-15T11:31:59Z INFO  torvpn_svc] [service] startup cleanup done (cleared any stale kill-switch/DNS/route state)
+[2026-09-15T11:31:59Z INFO  torvpn_core::control_server] control server: listening on 127.0.0.1:8787
+[2026-09-15T11:31:59Z INFO  torvpn_svc] [service] control server ready
+[2026-09-21T09:08:05Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "service-run"]
+[2026-09-21T09:08:38Z INFO  torvpn_svc] [service] startup cleanup done (cleared any stale kill-switch/DNS/route state)
+[2026-09-21T09:08:38Z INFO  torvpn_core::control_server] control server: listening on 127.0.0.1:8787
+[2026-09-21T09:08:38Z INFO  torvpn_svc] [service] control server ready
+[2026-09-23T09:44:08Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "service-run"]
+[2026-09-23T09:44:21Z INFO  torvpn_svc] [service] startup cleanup done (cleared any stale kill-switch/DNS/route state)
+[2026-09-23T09:44:21Z INFO  torvpn_core::control_server] control server: listening on 127.0.0.1:8787
+[2026-09-23T09:44:21Z INFO  torvpn_svc] [service] control server ready
+[2026-09-23T09:46:18Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "service-run"]
+[2026-09-23T09:46:35Z INFO  torvpn_svc] [service] startup cleanup done (cleared any stale kill-switch/DNS/route state)
+[2026-09-23T09:46:35Z INFO  torvpn_core::control_server] control server: listening on 127.0.0.1:8787
+[2026-09-23T09:46:35Z INFO  torvpn_svc] [service] control server ready
+[2026-09-26T07:25:18Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "service-run"]
+[2026-09-26T07:25:38Z INFO  torvpn_svc] [service] startup cleanup done (cleared any stale kill-switch/DNS/route state)
+[2026-09-26T07:25:38Z INFO  torvpn_core::control_server] control server: listening on 127.0.0.1:8787
+[2026-09-26T07:25:38Z INFO  torvpn_svc] [service] control server ready
+[2026-10-02T14:23:21Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "service-run"]
+[2026-10-02T14:23:43Z INFO  torvpn_svc] [service] startup cleanup done (cleared any stale kill-switch/DNS/route state)
+[2026-10-02T14:23:43Z INFO  torvpn_core::control_server] control server: listening on 127.0.0.1:8787
+[2026-10-02T14:23:43Z INFO  torvpn_svc] [service] control server ready
+[2026-10-08T16:43:34Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "service-run"]
+[2026-10-08T16:44:13Z INFO  torvpn_svc] [service] startup cleanup done (cleared any stale kill-switch/DNS/route state)
+[2026-10-08T16:44:13Z INFO  torvpn_core::control_server] control server: listening on 127.0.0.1:8787
+[2026-10-08T16:44:13Z INFO  torvpn_svc] [service] control server ready
+[2026-10-14T17:03:49Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "service-run"]
+[2026-10-14T17:04:10Z INFO  torvpn_svc] [service] startup cleanup done (cleared any stale kill-switch/DNS/route state)
+[2026-10-14T17:04:10Z INFO  torvpn_core::control_server] control server: listening on 127.0.0.1:8787
+[2026-10-14T17:04:10Z INFO  torvpn_svc] [service] control server ready
+[2026-10-14T17:06:05Z INFO  torvpn_svc] torvpn-svc 0.2.0 starting, args: ["C:\\github\\tor-vpn\\target\\release\\torvpn-svc.exe", "service-run"]
+[2026-10-14T17:06:29Z INFO  torvpn_svc] [service] startup cleanup done (cleared any stale kill-switch/DNS/route state)
+[2026-10-14T17:06:29Z INFO  torvpn_core::control_server] control server: listening on 127.0.0.1:8787
+[2026-10-14T17:06:29Z INFO  torvpn_svc] [service] control server ready
+[2026-10-25T21:28:05Z INFO  torvpn_svc] torvpn-svc 0.3.0 starting, args: ["C:\\Program Files\\TorVPN\\torvpn-svc.exe", "service-run"]
+[2026-10-25T21:28:15Z INFO  torvpn_core::control_server] control server: listening on 127.0.0.1:8787
+[2026-10-25T21:28:15Z INFO  torvpn_svc] [service] control server ready
+[2026-10-25T21:28:15Z INFO  torvpn_core::state] [state] Engaging: Recovering previous session settings
+[2026-10-25T21:28:22Z INFO  torvpn_core::state] [state] Engaging: Applying firewall protection
+[2026-10-25T21:28:33Z INFO  torvpn_core::state] [state] Error: firewall setup: fw-apply.ps1 failed (exit code: 1): Policy-managed outbound allow rules detected; cannot safely arm this local firewall kill switch
+    At C:\Program Files\TorVPN\scripts\fw-apply.ps1:28 char:5
+    +     throw 'Policy-managed outbound allow rules detected; cannot safel ...
+    +     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        + CategoryInfo          : OperationStopped: (Policy-managed ...all kill switch:String) [], RuntimeException
+        + FullyQualifiedErrorId : Policy-managed outbound allow rules detected; cannot safely arm this local firewall kill 
+        switch
+[2026-10-25T21:28:33Z ERROR torvpn_svc] [service] automatic connect failed: firewall setup: fw-apply.ps1 failed (exit code: 1): Policy-managed outbound allow rules detected; cannot safely arm this local firewall kill switch
+    At C:\Program Files\TorVPN\scripts\fw-apply.ps1:28 char:5
+    +     throw 'Policy-managed outbound allow rules detected; cannot safel ...
+    +     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        + CategoryInfo          : OperationStopped: (Policy-managed ...all kill switch:String) [], RuntimeException
+        + FullyQualifiedErrorId : Policy-managed outbound allow rules detected; cannot safely arm this local firewall kill 
+        switch
+
+
+--- tun2socks.log (last 100 lines) ---
+File absent
+
+--- tray.log (last 50 lines) ---
+[2026-09-06T18:12:04Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-07T01:06:58Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-09T10:29:56Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-15T12:19:28Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-21T09:11:10Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-23T09:49:47Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-26T07:26:43Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-10-02T14:25:14Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-10-08T16:46:50Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-10-14T17:13:13Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-10-25T21:28:35Z INFO  torvpn_tray] torvpn-tray 0.3.0 starting
+
+
+--- TorVPN adapter ---
+
+
+--- firewall profiles ---
+
+Name    Enabled DefaultOutboundAction
+----    ------- ---------------------
+Domain     True                 Allow
+Private    True                 Allow
+Public     True                 Allow
+
+

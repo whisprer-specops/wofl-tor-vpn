@@ -1,0 +1,48 @@
+# =============================================================================
+# Reference torrc — for reading, not for tor to use directly.
+# =============================================================================
+# torvpn-core/src/tor_manager.rs writes the *real* torrc at runtime into
+# %ProgramData%\torvpn\torrc, derived from the active profile's [perf]
+# section. This file exists only to document the shape of what we produce
+# so reviewers can sanity-check the speed tunings.
+# =============================================================================
+
+# Disk hygiene
+DataDirectory   %PROGRAMDATA%\torvpn\tordata
+GeoIPFile       <bundle>\tor\data\geoip
+GeoIPv6File     <bundle>\tor\data\geoip6
+AvoidDiskWrites 1
+
+# Control / SOCKS / DNS
+ControlPort     127.0.0.1:9051
+CookieAuthentication 0
+HashedControlPassword <generated>
+
+# Multiple SOCKS ports for parallelism. tun2socks rotates across them.
+# IsolateSOCKSAuth disabled so the same circuit pool serves all clients on
+# each port (we *want* sharing for speed; isolation is a privacy/anonymity
+# feature we're trading away).
+SOCKSPort 127.0.0.1:9050 IsolateClientAddr=0 NoIsolateSOCKSAuth
+SOCKSPort 127.0.0.1:9060 IsolateClientAddr=0 NoIsolateSOCKSAuth
+SOCKSPort 127.0.0.1:9070 IsolateClientAddr=0 NoIsolateSOCKSAuth
+SOCKSPort 127.0.0.1:9080 IsolateClientAddr=0 NoIsolateSOCKSAuth
+
+DNSPort 127.0.0.1:5353
+
+# Speed
+CircuitBuildTimeout        10
+LearnCircuitBuildTimeout   0
+NumEntryGuards             3
+ClientUseIPv4              1
+ClientUseIPv6              0
+ClientPreferIPv6ORPort     0
+CircuitPadding             0
+ConnectionPadding          0
+MaxCircuitDirtiness        600
+
+# Logs — minimal, to stdout
+Log notice stdout
+
+# Exit policy (set at runtime via ControlPort SETCONF if user picks a country)
+# ExitNodes {us}
+# StrictNodes 1

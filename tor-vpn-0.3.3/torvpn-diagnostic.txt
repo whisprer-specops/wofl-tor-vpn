@@ -1,0 +1,456 @@
+TorVPN diagnostic - 2026-10-25T23:31:56.8521260Z
+
+Name      : TorVPN
+State     : Running
+StartMode : Auto
+ExitCode  : 0
+PathName  : "C:\Program Files\TorVPN\torvpn-svc.exe" service-run
+
+
+
+--- state.json (last 100 lines) ---
+{
+  "phase": "engaging",
+  "message": "Verifying HTTPS connection through Tor",
+  "since_ms": 1792971116921,
+  "tor_pid": 8792,
+  "tun2socks_pid": 24936,
+  "full_tunnel": true,
+  "exit_ip": null
+}
+
+
+--- svc.log (last 100 lines) ---
+[2026-10-25T23:26:48Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:26:48.000 [notice] Starting with guard context "default"
+[2026-10-25T23:26:49Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:26:49.000 [notice] Bootstrapped 5% (conn): Connecting to a relay
+[2026-10-25T23:26:49Z INFO  torvpn_core::tor_manager] tor bootstrap: 5%
+[2026-10-25T23:26:49Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:26:49.000 [notice] All current guards excluded by path restriction type 2; using an additional guard.
+[2026-10-25T23:26:49Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:26:49.000 [notice] Bootstrapped 10% (conn_done): Connected to a relay
+[2026-10-25T23:26:49Z INFO  torvpn_core::tor_manager] tor bootstrap: 10%
+[2026-10-25T23:26:49Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:26:49.000 [notice] Bootstrapped 14% (handshake): Handshaking with a relay
+[2026-10-25T23:26:49Z INFO  torvpn_core::tor_manager] tor bootstrap: 14%
+[2026-10-25T23:26:50Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:26:50.000 [notice] Bootstrapped 15% (handshake_done): Handshake with a relay done
+[2026-10-25T23:26:50Z INFO  torvpn_core::tor_manager] tor bootstrap: 15%
+[2026-10-25T23:26:50Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:26:50.000 [notice] Bootstrapped 75% (enough_dirinfo): Loaded enough directory info to build circuits
+[2026-10-25T23:26:50Z INFO  torvpn_core::tor_manager] tor bootstrap: 75%
+[2026-10-25T23:26:50Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:26:50.000 [notice] Bootstrapped 90% (ap_handshake_done): Handshake finished with a relay to build circuits
+[2026-10-25T23:26:50Z INFO  torvpn_core::tor_manager] tor bootstrap: 90%
+[2026-10-25T23:26:50Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:26:50.000 [notice] Bootstrapped 95% (circuit_create): Establishing a Tor circuit
+[2026-10-25T23:26:50Z INFO  torvpn_core::tor_manager] tor bootstrap: 95%
+[2026-10-25T23:26:50Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:26:50.000 [notice] Bootstrapped 100% (done): Done
+[2026-10-25T23:26:50Z INFO  torvpn_core::tor_manager] tor bootstrap: 100%
+[2026-10-25T23:26:50Z INFO  torvpn_core::state] [state] Engaging: Creating Wintun adapter
+[2026-10-25T23:26:51Z INFO  torvpn_core::windows_script] [script] fw-apply.ps1 starting; output: C:\ProgramData\torvpn\script-fw-apply.ps1.log
+[2026-10-25T23:26:54Z INFO  torvpn_core::windows_script] [script] fw-apply.ps1 completed
+[2026-10-25T23:26:54Z INFO  torvpn_core::state] [state] Engaging: Routing DNS through Tor
+[2026-10-25T23:26:54Z INFO  torvpn_core::windows_script] [script] dns-apply.ps1 starting; output: C:\ProgramData\torvpn\script-dns-apply.ps1.log
+[2026-10-25T23:26:59Z INFO  torvpn_core::windows_script] [script] dns-apply.ps1 completed
+[2026-10-25T23:26:59Z INFO  torvpn_core::state] [state] Engaging: Installing tunnel routes
+[2026-10-25T23:26:59Z INFO  torvpn_core::windows_script] [script] route-apply.ps1 starting; output: C:\ProgramData\torvpn\script-route-apply.ps1.log
+[2026-10-25T23:27:03Z INFO  torvpn_core::windows_script] [script] route-apply.ps1 completed
+[2026-10-25T23:27:03Z INFO  torvpn_core::state] [state] Engaging: Verifying HTTPS connection through Tor
+[2026-10-25T23:27:03Z INFO  torvpn_core::connection_check] Verifying system-route HTTPS, attempt 1/3
+[2026-10-25T23:27:08Z INFO  torvpn_core::connection_check] Verifying system-route HTTPS, attempt 2/3
+[2026-10-25T23:27:20Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 starting; output: C:\ProgramData\torvpn\script-fw-audit.ps1.log
+[2026-10-25T23:27:21Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 completed
+[2026-10-25T23:27:21Z INFO  torvpn_core::state] [state] Engaged: TCP tunnel verified; exit 185.220.101.18. Native IPv6 and non-DNS UDP blocked.
+[2026-10-25T23:28:56Z INFO  torvpn_core::state] [state] Disengaging: Restoring network settings
+[2026-10-25T23:28:56Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-route-teardown.ps1.log
+[2026-10-25T23:28:58Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 completed
+[2026-10-25T23:28:58Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-dns-teardown.ps1.log
+[2026-10-25T23:29:02Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 completed
+[2026-10-25T23:29:02Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-fw-teardown.ps1.log
+[2026-10-25T23:29:52Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 completed
+[2026-10-25T23:29:52Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 starting; output: C:\ProgramData\torvpn\script-fw-audit.ps1.log
+[2026-10-25T23:29:53Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 completed
+[2026-10-25T23:29:53Z INFO  torvpn_core::state] [state] Disengaged: Disconnected; original network settings restored
+[2026-10-25T23:30:48Z INFO  torvpn_core::state] [state] Engaging: Recovering previous session settings
+[2026-10-25T23:30:48Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-route-teardown.ps1.log
+[2026-10-25T23:30:48Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 completed
+[2026-10-25T23:30:48Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-dns-teardown.ps1.log
+[2026-10-25T23:30:52Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 completed
+[2026-10-25T23:30:52Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-fw-teardown.ps1.log
+[2026-10-25T23:30:55Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 completed
+[2026-10-25T23:30:55Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 starting; output: C:\ProgramData\torvpn\script-fw-audit.ps1.log
+[2026-10-25T23:30:55Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 completed
+[2026-10-25T23:30:55Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 starting; output: C:\ProgramData\torvpn\script-fw-audit.ps1.log
+[2026-10-25T23:30:56Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 completed
+[2026-10-25T23:30:56Z INFO  torvpn_core::state] [state] Engaging: Applying firewall protection
+[2026-10-25T23:30:56Z INFO  torvpn_core::windows_script] [script] fw-apply.ps1 starting; output: C:\ProgramData\torvpn\script-fw-apply.ps1.log
+[2026-10-25T23:31:37Z INFO  torvpn_core::windows_script] [script] fw-apply.ps1 completed
+[2026-10-25T23:31:37Z INFO  torvpn_core::state] [state] Engaging: Starting Tor; bootstrap progress is in svc.log
+[2026-10-25T23:31:37Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:37.987 [notice] Tor 0.4.9.14 (git-8fe2745aee2c3511) running on Windows 8 [or later] with Libevent 2.1.13-stable, OpenSSL 3.5.9, Zlib 1.3.2, Liblzma N/A, Libzstd N/A and Unknown N/A as libc.
+[2026-10-25T23:31:37Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:37.988 [notice] Tor can't help you if you use it wrong! Learn how to be safe at https://support.torproject.org/faq/staying-anonymous/
+[2026-10-25T23:31:38Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:38.029 [notice] Read configuration file "C:\ProgramData\torvpn\torrc.generated".
+[2026-10-25T23:31:38Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:38.034 [notice] Opening Socks listener on 127.0.0.1:9050
+[2026-10-25T23:31:38Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:38.034 [notice] Opened Socks listener connection (ready) on 127.0.0.1:9050
+[2026-10-25T23:31:38Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:38.034 [notice] Opening DNS listener on 127.0.0.1:53
+[2026-10-25T23:31:38Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:38.034 [notice] Opened DNS listener connection (ready) on 127.0.0.1:53
+[2026-10-25T23:31:38Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:38.034 [notice] Opening Control listener on 127.0.0.1:9051
+[2026-10-25T23:31:38Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:38.034 [notice] Opened Control listener connection (ready) on 127.0.0.1:9051
+[2026-10-25T23:31:38Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:38.000 [notice] Parsing GEOIP IPv4 file C:\Program Files\TorVPN\tor\data\geoip.
+[2026-10-25T23:31:38Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:38.000 [notice] Parsing GEOIP IPv6 file C:\Program Files\TorVPN\tor\data\geoip6.
+[2026-10-25T23:31:39Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:39.000 [notice] Set list of supported TLS groups to: ?*X25519MLKEM768 / ?SecP256r1MLKEM768 / *P-256:?X25519:P-224
+[2026-10-25T23:31:39Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:39.000 [notice] Bootstrapped 0% (starting): Starting
+[2026-10-25T23:31:41Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:41.000 [notice] Starting with guard context "default"
+[2026-10-25T23:31:42Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:42.000 [notice] Bootstrapped 5% (conn): Connecting to a relay
+[2026-10-25T23:31:42Z INFO  torvpn_core::tor_manager] tor bootstrap: 5%
+[2026-10-25T23:31:42Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:42.000 [notice] All current guards excluded by path restriction type 2; using an additional guard.
+[2026-10-25T23:31:42Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:42.000 [notice] Bootstrapped 10% (conn_done): Connected to a relay
+[2026-10-25T23:31:42Z INFO  torvpn_core::tor_manager] tor bootstrap: 10%
+[2026-10-25T23:31:42Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:42.000 [notice] Bootstrapped 14% (handshake): Handshaking with a relay
+[2026-10-25T23:31:42Z INFO  torvpn_core::tor_manager] tor bootstrap: 14%
+[2026-10-25T23:31:42Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:42.000 [notice] Bootstrapped 15% (handshake_done): Handshake with a relay done
+[2026-10-25T23:31:42Z INFO  torvpn_core::tor_manager] tor bootstrap: 15%
+[2026-10-25T23:31:42Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:42.000 [notice] Bootstrapped 75% (enough_dirinfo): Loaded enough directory info to build circuits
+[2026-10-25T23:31:42Z INFO  torvpn_core::tor_manager] tor bootstrap: 75%
+[2026-10-25T23:31:42Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:42.000 [notice] Bootstrapped 90% (ap_handshake_done): Handshake finished with a relay to build circuits
+[2026-10-25T23:31:42Z INFO  torvpn_core::tor_manager] tor bootstrap: 90%
+[2026-10-25T23:31:42Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:42.000 [notice] Bootstrapped 95% (circuit_create): Establishing a Tor circuit
+[2026-10-25T23:31:42Z INFO  torvpn_core::tor_manager] tor bootstrap: 95%
+[2026-10-25T23:31:42Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:31:42.000 [notice] Bootstrapped 100% (done): Done
+[2026-10-25T23:31:42Z INFO  torvpn_core::tor_manager] tor bootstrap: 100%
+[2026-10-25T23:31:42Z INFO  torvpn_core::state] [state] Engaging: Creating Wintun adapter
+[2026-10-25T23:31:43Z INFO  torvpn_core::windows_script] [script] fw-apply.ps1 starting; output: C:\ProgramData\torvpn\script-fw-apply.ps1.log
+[2026-10-25T23:31:47Z INFO  torvpn_core::windows_script] [script] fw-apply.ps1 completed
+[2026-10-25T23:31:47Z INFO  torvpn_core::state] [state] Engaging: Routing DNS through Tor
+[2026-10-25T23:31:47Z INFO  torvpn_core::windows_script] [script] dns-apply.ps1 starting; output: C:\ProgramData\torvpn\script-dns-apply.ps1.log
+[2026-10-25T23:31:52Z INFO  torvpn_core::windows_script] [script] dns-apply.ps1 completed
+[2026-10-25T23:31:52Z INFO  torvpn_core::state] [state] Engaging: Installing tunnel routes
+[2026-10-25T23:31:52Z INFO  torvpn_core::windows_script] [script] route-apply.ps1 starting; output: C:\ProgramData\torvpn\script-route-apply.ps1.log
+[2026-10-25T23:31:56Z INFO  torvpn_core::windows_script] [script] route-apply.ps1 completed
+[2026-10-25T23:31:56Z INFO  torvpn_core::state] [state] Engaging: Verifying HTTPS connection through Tor
+[2026-10-25T23:31:56Z INFO  torvpn_core::connection_check] Verifying system-route HTTPS, attempt 1/3
+
+
+--- tun2socks.log (last 100 lines) ---
+2026/10/25 23:31:43 Using existing driver 0.14
+2026/10/25 23:31:43 Creating adapter
+{"level":"info","ts":1792971103.5600839,"caller":"engine/engine.go:237","msg":"[STACK] tun://torvpn <-> socks5://127.0.0.1:9050"}
+2026/10/25 23:31:43 Removed orphaned adapter "torvpn 1"
+{"level":"info","ts":1792971117.0861444,"caller":"tunnel/tcp.go:42","msg":"[TCP] 169.254.3.62:62572 <-> 150.171.109.197:443"}
+{"level":"info","ts":1792971117.3910918,"caller":"tunnel/tcp.go:42","msg":"[TCP] 169.254.3.62:62574 <-> 116.202.120.181:443"}
+{"level":"info","ts":1792971117.9029708,"caller":"tunnel/tcp.go:42","msg":"[TCP] 169.254.3.62:62578 <-> 184.24.145.128:80"}
+
+
+--- admin-progress.json (last 100 lines) ---
+{"message":"Verifying system-route HTTPS, attempt 1/3","script":"HTTPS check","updated_ms":1792971116923}
+
+
+--- admin-steps.log (last 100 lines) ---
+[2026-10-25T22:45:31.4878556+00:00] fw-audit.ps1 - Temporarily enabling blocked-connection evidence
+[2026-10-25T22:45:32.6916373+00:00] fw-apply.ps1 - Reading effective firewall profiles
+[2026-10-25T22:45:33.6599697+00:00] fw-apply.ps1 - Reading traced outbound allow rules
+[2026-10-25T22:45:37.2159835+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities
+[2026-10-25T22:45:37.4022282+00:00] fw-apply.ps1 - Removing stale TorVPN rules
+[2026-10-25T22:45:38.9219188+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch
+[2026-10-25T22:46:05.2704620+00:00] fw-apply.ps1 - Local batch suspension returned
+[2026-10-25T22:46:05.2894883+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects
+[2026-10-25T22:46:05.3448437+00:00] fw-apply.ps1 - Dynamic suspension returned
+[2026-10-25T22:46:05.3705244+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension
+[2026-10-25T22:46:08.5457747+00:00] fw-apply.ps1 - Adding IPv4-only Tor and loopback allow rules
+[2026-10-25T22:46:08.8445800+00:00] fw-apply.ps1 - Setting default outbound policy to Block
+[2026-10-25T22:46:09.2064712+00:00] fw-apply.ps1 - Verifying effective default outbound policy
+[2026-10-25T22:46:09.2737454+00:00] fw-apply.ps1 - Verifying the effective Tor executable exception: C:\Program Files\TorVPN\tor\tor.exe
+[2026-10-25T22:46:12.8884447+00:00] fw-apply.ps1 - Firewall protection applied and verified
+[2026-10-25T22:47:36.8639622+00:00] fw-audit.ps1 - Saving effective rules and Tor blocking-filter evidence before recovery
+[2026-10-25T22:48:10.5390016+00:00] fw-teardown.ps1 - Reading saved firewall recovery state
+[2026-10-25T22:48:10.5947265+00:00] fw-teardown.ps1 - Restoring original firewall profile defaults
+[2026-10-25T22:48:11.8440742+00:00] fw-teardown.ps1 - Reading current Local and Dynamic recovery rules
+[2026-10-25T22:48:19.7321218+00:00] fw-teardown.ps1 - Restoring 187 Local rules in one batch
+[2026-10-25T22:48:44.7185341+00:00] fw-teardown.ps1 - Restoring 1 Dynamic rules through live objects
+[2026-10-25T22:48:44.7640961+00:00] fw-teardown.ps1 - Verifying restored rule states
+[2026-10-25T22:48:56.5693429+00:00] fw-teardown.ps1 - Firewall recovery completed and verified
+[2026-10-25T23:07:31.0359424+00:00] fw-audit.ps1 - Temporarily enabling blocked-connection evidence
+[2026-10-25T23:07:32.0158480+00:00] fw-apply.ps1 - Reading effective firewall profiles
+[2026-10-25T23:07:32.9746704+00:00] fw-apply.ps1 - Reading traced outbound allow rules
+[2026-10-25T23:07:36.6794221+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities
+[2026-10-25T23:07:36.8268856+00:00] fw-apply.ps1 - Removing stale TorVPN rules
+[2026-10-25T23:07:38.3857380+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch
+[2026-10-25T23:08:06.5150897+00:00] fw-apply.ps1 - Local batch suspension returned
+[2026-10-25T23:08:06.5332288+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects
+[2026-10-25T23:08:06.5853162+00:00] fw-apply.ps1 - Dynamic suspension returned
+[2026-10-25T23:08:06.6021039+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension
+[2026-10-25T23:08:09.8229538+00:00] fw-apply.ps1 - Setting default outbound policy to Block
+[2026-10-25T23:08:10.1239826+00:00] fw-apply.ps1 - Verifying effective default outbound policy
+[2026-10-25T23:08:10.2073332+00:00] fw-apply.ps1 - Adding IPv4-only exceptions after default-block activation
+[2026-10-25T23:08:10.5847787+00:00] fw-apply.ps1 - Verifying the effective Tor executable exception: C:\Program Files\TorVPN\tor\tor.exe
+[2026-10-25T23:08:14.0160088+00:00] fw-apply.ps1 - Saving effective Tor address and TCP port filters
+[2026-10-25T23:08:14.2112566+00:00] fw-apply.ps1 - Firewall protection applied and verified
+[2026-10-25T23:08:31.0219166+00:00] fw-apply.ps1 - Waiting for the named tunnel adapter
+[2026-10-25T23:08:33.2402560+00:00] fw-apply.ps1 - Adding the tunnel-interface allow rule
+[2026-10-25T23:08:55.4786817+00:00] fw-audit.ps1 - Saving effective rules and Tor blocking-filter evidence before recovery
+[2026-10-25T23:08:55.6029101+00:00] fw-audit.ps1 - Reading Tor block events first
+[2026-10-25T23:08:56.1428404+00:00] fw-audit.ps1 - Reading effective profiles
+[2026-10-25T23:08:57.1096155+00:00] fw-audit.ps1 - Reading TorVPN rules
+[2026-10-25T23:09:00.6757127+00:00] fw-audit.ps1 - Reading Tor Application filters
+[2026-10-25T23:09:00.7769385+00:00] fw-audit.ps1 - Reading Tor Address filters
+[2026-10-25T23:09:00.8640840+00:00] fw-audit.ps1 - Reading Tor Port filters
+[2026-10-25T23:09:00.9556349+00:00] fw-audit.ps1 - Reading enabled outbound blocks
+[2026-10-25T23:09:04.3428156+00:00] fw-audit.ps1 - Reading WFP dump; earlier evidence already saved
+[2026-10-25T23:09:11.2507411+00:00] fw-teardown.ps1 - Reading saved firewall recovery state
+[2026-10-25T23:09:11.3068651+00:00] fw-teardown.ps1 - Restoring original firewall profile defaults
+[2026-10-25T23:09:12.6201590+00:00] fw-teardown.ps1 - Reading current Local and Dynamic recovery rules
+[2026-10-25T23:09:22.9920150+00:00] fw-teardown.ps1 - Restoring 187 Local rules in one batch
+[2026-10-25T23:09:47.9708649+00:00] fw-teardown.ps1 - Restoring 1 Dynamic rules through live objects
+[2026-10-25T23:09:48.0157801+00:00] fw-teardown.ps1 - Verifying restored rule states
+[2026-10-25T23:09:59.5229803+00:00] fw-teardown.ps1 - Firewall recovery completed and verified
+[2026-10-25T23:26:01.8291433+00:00] fw-audit.ps1 - Temporarily enabling blocked-connection evidence
+[2026-10-25T23:26:02.8032282+00:00] fw-apply.ps1 - Reading effective firewall profiles
+[2026-10-25T23:26:03.8055935+00:00] fw-apply.ps1 - Reading traced outbound allow rules
+[2026-10-25T23:26:07.4767273+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities
+[2026-10-25T23:26:07.6356604+00:00] fw-apply.ps1 - Removing stale TorVPN rules
+[2026-10-25T23:26:09.1830374+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch
+[2026-10-25T23:26:35.3874295+00:00] fw-apply.ps1 - Local batch suspension returned
+[2026-10-25T23:26:35.3973995+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects
+[2026-10-25T23:26:35.4361625+00:00] fw-apply.ps1 - Dynamic suspension returned
+[2026-10-25T23:26:35.4528413+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension
+[2026-10-25T23:26:38.7093866+00:00] fw-apply.ps1 - Setting default outbound policy to Block
+[2026-10-25T23:26:39.0378710+00:00] fw-apply.ps1 - Verifying effective default outbound policy
+[2026-10-25T23:26:39.1089190+00:00] fw-apply.ps1 - Adding IPv4-only exceptions after default-block activation
+[2026-10-25T23:26:39.3375547+00:00] fw-apply.ps1 - Verifying the effective Tor executable exception: C:\Program Files\TorVPN\tor\tor.exe
+[2026-10-25T23:26:42.6365534+00:00] fw-apply.ps1 - Saving effective Tor address and TCP port filters
+[2026-10-25T23:26:42.8331646+00:00] fw-apply.ps1 - Firewall protection applied and verified
+[2026-10-25T23:26:51.9166656+00:00] fw-apply.ps1 - Waiting for the named tunnel adapter
+[2026-10-25T23:26:53.2155597+00:00] fw-apply.ps1 - Adding the tunnel-interface allow rule
+[2026-10-25T23:29:02.9071900+00:00] fw-teardown.ps1 - Reading saved firewall recovery state
+[2026-10-25T23:29:02.9685894+00:00] fw-teardown.ps1 - Restoring original firewall profile defaults
+[2026-10-25T23:29:04.2015839+00:00] fw-teardown.ps1 - Reading current Local and Dynamic recovery rules
+[2026-10-25T23:29:15.8606378+00:00] fw-teardown.ps1 - Restoring 187 Local rules in one batch
+[2026-10-25T23:29:41.6972566+00:00] fw-teardown.ps1 - Restoring 1 Dynamic rules through live objects
+[2026-10-25T23:29:41.7529005+00:00] fw-teardown.ps1 - Verifying restored rule states
+[2026-10-25T23:29:52.6816266+00:00] fw-teardown.ps1 - Firewall recovery completed and verified
+[2026-10-25T23:30:56.1594104+00:00] fw-audit.ps1 - Temporarily enabling blocked-connection evidence
+[2026-10-25T23:30:57.1094192+00:00] fw-apply.ps1 - Reading effective firewall profiles
+[2026-10-25T23:30:58.0515922+00:00] fw-apply.ps1 - Reading traced outbound allow rules
+[2026-10-25T23:31:01.4563410+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities
+[2026-10-25T23:31:01.6251582+00:00] fw-apply.ps1 - Removing stale TorVPN rules
+[2026-10-25T23:31:03.1468604+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch
+[2026-10-25T23:31:29.8076290+00:00] fw-apply.ps1 - Local batch suspension returned
+[2026-10-25T23:31:29.8247831+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects
+[2026-10-25T23:31:29.8841285+00:00] fw-apply.ps1 - Dynamic suspension returned
+[2026-10-25T23:31:29.9033376+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension
+[2026-10-25T23:31:33.2316872+00:00] fw-apply.ps1 - Setting default outbound policy to Block
+[2026-10-25T23:31:33.6361506+00:00] fw-apply.ps1 - Verifying effective default outbound policy
+[2026-10-25T23:31:33.7170296+00:00] fw-apply.ps1 - Adding IPv4-only exceptions after default-block activation
+[2026-10-25T23:31:34.0358416+00:00] fw-apply.ps1 - Verifying the effective Tor executable exception: C:\Program Files\TorVPN\tor\tor.exe
+[2026-10-25T23:31:37.6044182+00:00] fw-apply.ps1 - Saving effective Tor address and TCP port filters
+[2026-10-25T23:31:37.7952393+00:00] fw-apply.ps1 - Firewall protection applied and verified
+[2026-10-25T23:31:44.2740670+00:00] fw-apply.ps1 - Waiting for the named tunnel adapter
+[2026-10-25T23:31:46.1448797+00:00] fw-apply.ps1 - Adding the tunnel-interface allow rule
+
+
+--- script-fw-apply.ps1.log (last 100 lines) ---
+[2026-10-25T23:31:44.2740670+00:00] fw-apply.ps1 - Waiting for the named tunnel adapter
+[2026-10-25T23:31:46.1448797+00:00] fw-apply.ps1 - Adding the tunnel-interface allow rule
+
+
+--- script-fw-teardown.ps1.log (last 100 lines) ---
+
+
+--- tor-start.json ---
+{"path":"C:\\Program Files\\TorVPN\\tor\\tor.exe","process_id":8792,"started_utc":1792971097}
+
+--- verification.json ---
+{
+  "endpoint": "https://check.torproject.org/api/ip",
+  "full_tunnel": true,
+  "accepted": false,
+  "attempts": []
+}
+
+--- route-applied.json ---
+{
+    "AddedRoutes":  [
+                        {
+                            "DestinationPrefix":  "107.189.2.128/32",
+                            "NextHop":  "192.168.1.1",
+                            "InterfaceIndex":  10
+                        },
+                        {
+                            "DestinationPrefix":  "64.65.62.226/32",
+                            "NextHop":  "192.168.1.1",
+                            "InterfaceIndex":  10
+                        },
+                        {
+                            "DestinationPrefix":  "0.0.0.0/1",
+                            "NextHop":  "0.0.0.0",
+                            "InterfaceIndex":  36
+                        },
+                        {
+                            "DestinationPrefix":  "128.0.0.0/1",
+                            "NextHop":  "0.0.0.0",
+                            "InterfaceIndex":  36
+                        }
+                    ],
+    "AppliedUtc":  "2026-10-25T23:31:56.8422029Z",
+    "Physical":  {
+                     "NextHop":  "192.168.1.1",
+                     "InterfaceIndex":  10
+                 },
+    "Interface":  "torvpn",
+    "GuardIps":  [
+                     "107.189.2.128",
+                     "64.65.62.226"
+                 ]
+}
+
+
+--- firewall-armed.json ---
+{
+    "RequestedIPv4Scope":  [
+                               "0.0.0.0/1",
+                               "128.0.0.0/1"
+                           ],
+    "ExpectedProgram":  "C:\\Program Files\\TorVPN\\tor\\tor.exe",
+    "ApplicationFilters":  [
+                               {
+                                   "Program":  "C:\\Program Files\\TorVPN\\tor\\tor.exe",
+                                   "Package":  null
+                               }
+                           ],
+    "AddressFilters":  [
+                           {
+                               "LocalAddress":  "Any",
+                               "RemoteAddress":  {
+                                                     "value":  [
+                                                                   "0.0.0.0/128.0.0.0",
+                                                                   "128.0.0.0/128.0.0.0"
+                                                               ],
+                                                     "Count":  2
+                                                 }
+                           }
+                       ],
+    "Profiles":  [
+                     {
+                         "Name":  "Domain",
+                         "Enabled":  1,
+                         "DefaultOutboundAction":  4,
+                         "AllowLocalFirewallRules":  1,
+                         "AllowLocalIPsecRules":  1,
+                         "DisabledInterfaceAliases":  null
+                     },
+                     {
+                         "Name":  "Private",
+                         "Enabled":  1,
+                         "DefaultOutboundAction":  4,
+                         "AllowLocalFirewallRules":  1,
+                         "AllowLocalIPsecRules":  1,
+                         "DisabledInterfaceAliases":  null
+                     },
+                     {
+                         "Name":  "Public",
+                         "Enabled":  1,
+                         "DefaultOutboundAction":  4,
+                         "AllowLocalFirewallRules":  1,
+                         "AllowLocalIPsecRules":  1,
+                         "DisabledInterfaceAliases":  null
+                     }
+                 ],
+    "PortFilters":  [
+                        {
+                            "Protocol":  "TCP",
+                            "LocalPort":  "Any",
+                            "RemotePort":  "Any"
+                        }
+                    ],
+    "TorRules":  [
+                     {
+                         "Name":  "{9f277ed4-c3c8-481a-a4d0-e354854da2e6}",
+                         "DisplayName":  "TORVPN Allow Tor TCP",
+                         "Enabled":  1,
+                         "Action":  2,
+                         "Direction":  2,
+                         "Profile":  0,
+                         "PrimaryStatus":  1,
+                         "Status":  "The rule was parsed successfully from the store. (65536)",
+                         "EnforcementStatus":  {
+                                                   "value":  [
+                                                                 "ProfileInactive",
+                                                                 "Enforced"
+                                                             ],
+                                                   "Count":  2
+                                               },
+                         "PolicyStoreSourceType":  1,
+                         "PolicyStoreSource":  "PersistentStore"
+                     }
+                 ]
+}
+
+
+--- firewall-events.json ---
+File absent
+
+--- firewall-evidence.json ---
+File absent
+
+--- audit-backup.json ---
+{
+    "OriginalFlags":  0,
+    "AppliedFlags":  2
+}
+
+
+--- audit-session.json ---
+{
+    "TorPath":  "C:\\Program Files\\TorVPN\\tor\\tor.exe",
+    "StartedUtc":  "2026-10-25T23:30:56.2536060Z"
+}
+
+
+--- script-fw-audit.ps1.log ---
+[2026-10-25T23:30:56.1594104+00:00] fw-audit.ps1 - Temporarily enabling blocked-connection evidence
+
+
+--- tray.log (last 50 lines) ---
+[2026-09-06T18:12:04Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-07T01:06:58Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-09T10:29:56Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-15T12:19:28Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-21T09:11:10Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-23T09:49:47Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-26T07:26:43Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-10-02T14:25:14Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-10-08T16:46:50Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-10-14T17:13:13Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-10-25T21:28:35Z INFO  torvpn_tray] torvpn-tray 0.3.0 starting
+[2026-10-25T21:34:59Z WARN  torvpn_tray] status: connect 127.0.0.1:8787: No connection could be made because the target machine actively refused it. (os error 10061)
+[2026-10-25T21:35:03Z WARN  torvpn_tray] status: connect 127.0.0.1:8787: No connection could be made because the target machine actively refused it. (os error 10061)
+[2026-10-25T21:43:06Z WARN  torvpn_tray] status: connect 127.0.0.1:8787: No connection could be made because the target machine actively refused it. (os error 10061)
+[2026-10-25T21:43:09Z WARN  torvpn_tray] status: connect 127.0.0.1:8787: No connection could be made because the target machine actively refused it. (os error 10061)
+[2026-10-25T21:49:04Z ERROR torvpn_tray] action: HTTP 500: {"error":"firewall setup: fw-apply.ps1 timed out: deadline has elapsed"}
+[2026-10-25T22:04:31Z INFO  torvpn_tray] torvpn-tray 0.3.1 starting
+[2026-10-25T22:14:18Z INFO  torvpn_tray] torvpn-tray 0.3.1 starting
+[2026-10-25T22:23:15Z INFO  torvpn_tray] torvpn-tray 0.3.1 starting
+[2026-10-25T22:45:25Z INFO  torvpn_tray] torvpn-tray 0.3.2 starting
+[2026-10-25T23:07:23Z INFO  torvpn_tray] torvpn-tray 0.3.2 starting
+[2026-10-25T23:25:55Z INFO  torvpn_tray] torvpn-tray 0.3.3 starting
+
+
+--- TorVPN adapter ---
+
+Name                 : torvpn
+Status               : Up
+ifIndex              : 36
+InterfaceDescription : tun2socks Tunnel
+
+
+
+--- firewall profiles ---
+
+Name    Enabled DefaultOutboundAction
+----    ------- ---------------------
+Domain     True                 Block
+Private    True                 Block
+Public     True                 Block
+
+
+
+--- Traced outbound allow rule origins ---
+
+Name  Count
+----  -----
+Local     3
+
+
+All enabled outbound allow rules have traced Local origin.

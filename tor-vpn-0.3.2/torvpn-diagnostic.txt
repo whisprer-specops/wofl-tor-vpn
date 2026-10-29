@@ -1,0 +1,368 @@
+TorVPN diagnostic - 2026-10-25T22:48:58.1395045Z
+
+Name      : TorVPN
+State     : Running
+StartMode : Auto
+ExitCode  : 0
+PathName  : "C:\Program Files\TorVPN\torvpn-svc.exe" service-run
+
+
+
+--- state.json (last 100 lines) ---
+{
+  "phase": "error",
+  "message": "Tor startup: Tor outbound connections repeatedly denied by Windows (WSAEACCES; three bootstrap warnings at 0%). Stopped retries early. Firewall evidence will be saved before recovery; see firewall-evidence.json and svc.log. Last warning: Oct 25 22:47:36.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 12; recommendation warn; host B96C0E69BC1B056F64A3195695AF6D475303C500 at 78.17.213.22:443)",
+  "since_ms": 1792968537830,
+  "tor_pid": null,
+  "tun2socks_pid": null,
+  "full_tunnel": true,
+  "exit_ip": null
+}
+
+
+--- svc.log (last 100 lines) ---
+[2026-10-25T22:23:55Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:23:55.068 [notice] Opened Socks listener connection (ready) on 127.0.0.1:9050
+[2026-10-25T22:23:55Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:23:55.069 [notice] Opening DNS listener on 127.0.0.1:53
+[2026-10-25T22:23:55Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:23:55.069 [notice] Opened DNS listener connection (ready) on 127.0.0.1:53
+[2026-10-25T22:23:55Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:23:55.069 [notice] Opening Control listener on 127.0.0.1:9051
+[2026-10-25T22:23:55Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:23:55.069 [notice] Opened Control listener connection (ready) on 127.0.0.1:9051
+[2026-10-25T22:23:55Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:23:55.000 [notice] Parsing GEOIP IPv4 file C:\Program Files\TorVPN\tor\data\geoip.
+[2026-10-25T22:23:55Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:23:55.000 [notice] Parsing GEOIP IPv6 file C:\Program Files\TorVPN\tor\data\geoip6.
+[2026-10-25T22:23:55Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:23:55.000 [notice] Set list of supported TLS groups to: ?*X25519MLKEM768 / ?SecP256r1MLKEM768 / *P-256:?X25519:P-224
+[2026-10-25T22:23:55Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:23:55.000 [notice] Bootstrapped 0% (starting): Starting
+[2026-10-25T22:23:57Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:23:57.000 [notice] Starting with guard context "default"
+[2026-10-25T22:24:11Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:24:11.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 10; recommendation warn; host AE4A7A092139C0B7EAEA842011F76B613AD00C3F at 212.132.125.165:443)
+[2026-10-25T22:24:13Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:24:13.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 11; recommendation warn; host 8DB119112E814ACFD8CC2E7994FC98AC775E51FE at 185.44.211.23:9091)
+[2026-10-25T22:24:16Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:24:16.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 12; recommendation warn; host 35F5A0B2F017FD09F7EBF33A565A53D8EB2C9272 at 194.13.83.131:9001)
+[2026-10-25T22:24:18Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:24:18.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 13; recommendation warn; host 1FEAAE1E1D982D13DDD3ACAD56EE6C8358D6EF7A at 81.17.28.95:9001)
+[2026-10-25T22:24:20Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:24:20.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 14; recommendation warn; host E3E42D35F801C9D5AB23584E0025D56FE2B33396 at 216.218.219.41:443)
+[2026-10-25T22:24:23Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:24:23.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 15; recommendation warn; host 5626DD3A077F79B9946A00FA3486A451134D9E5E at 83.148.245.77:9002)
+[2026-10-25T22:24:31Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:24:31.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 16; recommendation warn; host CADE2883ECC27C6B37C89485B15FE5F4DA962BA8 at 36.255.97.124:443)
+[2026-10-25T22:24:40Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:24:40.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 17; recommendation warn; host 7305F66295FB55C010E26FF9CC35CE8B97253D89 at 188.98.66.207:9001)
+[2026-10-25T22:24:40Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:24:40.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 18; recommendation warn; host 74A910646BCEEFBCD2E874FC1DC997430F968145 at 199.58.81.140:443)
+[2026-10-25T22:24:49Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:24:49.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 19; recommendation warn; host F2044413DAC2E02E3D6BCF4735A19BCA1DE97281 at 131.188.40.189:443)
+[2026-10-25T22:25:00Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:25:00.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 20; recommendation warn; host D99E2901A6AABD8F7A05CBDA04F39B11B920D776 at 151.242.132.124:9001)
+[2026-10-25T22:25:05Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:25:05.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 21; recommendation warn; host 24E2F139121D4394C54B5BCC368B3B411857C413 at 204.13.164.118:443)
+[2026-10-25T22:25:14Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:25:14.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 22; recommendation warn; host 7BE683E65D48141321C5ED92F075C55364AC7123 at 193.23.244.244:443)
+[2026-10-25T22:25:40Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:25:40.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 23; recommendation warn; host FAA4BCA4A6AC0FB4CA2F8AD5A11D9E122BA894F6 at 217.196.147.77:443)
+[2026-10-25T22:25:53Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:25:53.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 24; recommendation warn; host E2D501EC5FEB15ADF753741F6F19C6D24535CD6B at 195.122.183.170:9001)
+[2026-10-25T22:26:15Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:26:15.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 25; recommendation warn; host 7EA6EAD6FD83083C538F44038BBFA077587DD755 at 45.66.35.11:443)
+[2026-10-25T22:26:26Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:26:26.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 26; recommendation warn; host 2F51D0746765580A0A48BCAA21B56ECF797B903E at 78.42.200.34:8082)
+[2026-10-25T22:26:54Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-route-teardown.ps1.log
+[2026-10-25T22:26:55Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 completed
+[2026-10-25T22:26:55Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-dns-teardown.ps1.log
+[2026-10-25T22:26:59Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 completed
+[2026-10-25T22:26:59Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-fw-teardown.ps1.log
+[2026-10-25T22:27:44Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 completed
+[2026-10-25T22:27:44Z INFO  torvpn_core::state] [state] Error: Tor startup: Tor bootstrap timed out at 0%; recent output: ["Oct 25 22:24:49.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 19; recommendation warn; host F2044413DAC2E02E3D6BCF4735A19BCA1DE97281 at 131.188.40.189:443)", "Oct 25 22:25:00.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 20; recommendation warn; host D99E2901A6AABD8F7A05CBDA04F39B11B920D776 at 151.242.132.124:9001)", "Oct 25 22:25:05.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 21; recommendation warn; host 24E2F139121D4394C54B5BCC368B3B411857C413 at 204.13.164.118:443)", "Oct 25 22:25:14.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 22; recommendation warn; host 7BE683E65D48141321C5ED92F075C55364AC7123 at 193.23.244.244:443)", "Oct 25 22:25:40.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 23; recommendation warn; host FAA4BCA4A6AC0FB4CA2F8AD5A11D9E122BA894F6 at 217.196.147.77:443)", "Oct 25 22:25:53.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 24; recommendation warn; host E2D501EC5FEB15ADF753741F6F19C6D24535CD6B at 195.122.183.170:9001)", "Oct 25 22:26:15.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 25; recommendation warn; host 7EA6EAD6FD83083C538F44038BBFA077587DD755 at 45.66.35.11:443)", "Oct 25 22:26:26.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 26; recommendation warn; host 2F51D0746765580A0A48BCAA21B56ECF797B903E at 78.42.200.34:8082)"]
+[2026-10-25T22:27:44Z ERROR torvpn_svc] [service] automatic connect failed: Tor startup: Tor bootstrap timed out at 0%; recent output: ["Oct 25 22:24:49.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 19; recommendation warn; host F2044413DAC2E02E3D6BCF4735A19BCA1DE97281 at 131.188.40.189:443)", "Oct 25 22:25:00.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 20; recommendation warn; host D99E2901A6AABD8F7A05CBDA04F39B11B920D776 at 151.242.132.124:9001)", "Oct 25 22:25:05.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 21; recommendation warn; host 24E2F139121D4394C54B5BCC368B3B411857C413 at 204.13.164.118:443)", "Oct 25 22:25:14.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 22; recommendation warn; host 7BE683E65D48141321C5ED92F075C55364AC7123 at 193.23.244.244:443)", "Oct 25 22:25:40.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 23; recommendation warn; host FAA4BCA4A6AC0FB4CA2F8AD5A11D9E122BA894F6 at 217.196.147.77:443)", "Oct 25 22:25:53.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 24; recommendation warn; host E2D501EC5FEB15ADF753741F6F19C6D24535CD6B at 195.122.183.170:9001)", "Oct 25 22:26:15.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 25; recommendation warn; host 7EA6EAD6FD83083C538F44038BBFA077587DD755 at 45.66.35.11:443)", "Oct 25 22:26:26.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 26; recommendation warn; host 2F51D0746765580A0A48BCAA21B56ECF797B903E at 78.42.200.34:8082)"]
+[2026-10-25T22:45:06Z INFO  torvpn_core::state] [state] Disengaging: Restoring network settings
+[2026-10-25T22:45:06Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-route-teardown.ps1.log
+[2026-10-25T22:45:07Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 completed
+[2026-10-25T22:45:07Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-dns-teardown.ps1.log
+[2026-10-25T22:45:13Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 completed
+[2026-10-25T22:45:13Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-fw-teardown.ps1.log
+[2026-10-25T22:45:16Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 completed
+[2026-10-25T22:45:16Z INFO  torvpn_core::state] [state] Disengaged: Disconnected; original network settings restored
+[2026-10-25T22:45:16Z INFO  torvpn_svc] torvpn-svc 0.3.2 starting, args: ["C:\\Program Files\\TorVPN\\torvpn-svc.exe", "service-run"]
+[2026-10-25T22:45:16Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-route-teardown.ps1.log
+[2026-10-25T22:45:17Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 completed
+[2026-10-25T22:45:17Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-dns-teardown.ps1.log
+[2026-10-25T22:45:20Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 completed
+[2026-10-25T22:45:20Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-fw-teardown.ps1.log
+[2026-10-25T22:45:23Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 completed
+[2026-10-25T22:45:23Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 starting; output: C:\ProgramData\torvpn\script-fw-audit.ps1.log
+[2026-10-25T22:45:23Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 completed
+[2026-10-25T22:45:23Z INFO  torvpn_core::control_server] control server: listening on 127.0.0.1:8787
+[2026-10-25T22:45:23Z INFO  torvpn_svc] [service] control server ready
+[2026-10-25T22:45:23Z INFO  torvpn_core::state] [state] Engaging: Recovering previous session settings
+[2026-10-25T22:45:24Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-route-teardown.ps1.log
+[2026-10-25T22:45:24Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 completed
+[2026-10-25T22:45:24Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-dns-teardown.ps1.log
+[2026-10-25T22:45:27Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 completed
+[2026-10-25T22:45:27Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-fw-teardown.ps1.log
+[2026-10-25T22:45:30Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 completed
+[2026-10-25T22:45:30Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 starting; output: C:\ProgramData\torvpn\script-fw-audit.ps1.log
+[2026-10-25T22:45:31Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 completed
+[2026-10-25T22:45:31Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 starting; output: C:\ProgramData\torvpn\script-fw-audit.ps1.log
+[2026-10-25T22:45:32Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 completed
+[2026-10-25T22:45:32Z INFO  torvpn_core::state] [state] Engaging: Applying firewall protection
+[2026-10-25T22:45:32Z INFO  torvpn_core::windows_script] [script] fw-apply.ps1 starting; output: C:\ProgramData\torvpn\script-fw-apply.ps1.log
+[2026-10-25T22:46:13Z INFO  torvpn_core::windows_script] [script] fw-apply.ps1 completed
+[2026-10-25T22:46:13Z INFO  torvpn_core::state] [state] Engaging: Starting Tor; bootstrap progress is in svc.log
+[2026-10-25T22:46:13Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:46:13.094 [notice] Tor 0.4.9.14 (git-8fe2745aee2c3511) running on Windows 8 [or later] with Libevent 2.1.13-stable, OpenSSL 3.5.9, Zlib 1.3.2, Liblzma N/A, Libzstd N/A and Unknown N/A as libc.
+[2026-10-25T22:46:13Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:46:13.094 [notice] Tor can't help you if you use it wrong! Learn how to be safe at https://support.torproject.org/faq/staying-anonymous/
+[2026-10-25T22:46:13Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:46:13.153 [notice] Read configuration file "C:\ProgramData\torvpn\torrc.generated".
+[2026-10-25T22:46:13Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:46:13.161 [notice] Opening Socks listener on 127.0.0.1:9050
+[2026-10-25T22:46:13Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:46:13.161 [notice] Opened Socks listener connection (ready) on 127.0.0.1:9050
+[2026-10-25T22:46:13Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:46:13.161 [notice] Opening DNS listener on 127.0.0.1:53
+[2026-10-25T22:46:13Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:46:13.161 [notice] Opened DNS listener connection (ready) on 127.0.0.1:53
+[2026-10-25T22:46:13Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:46:13.161 [notice] Opening Control listener on 127.0.0.1:9051
+[2026-10-25T22:46:13Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:46:13.161 [notice] Opened Control listener connection (ready) on 127.0.0.1:9051
+[2026-10-25T22:46:13Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:46:13.000 [notice] Parsing GEOIP IPv4 file C:\Program Files\TorVPN\tor\data\geoip.
+[2026-10-25T22:46:13Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:46:13.000 [notice] Parsing GEOIP IPv6 file C:\Program Files\TorVPN\tor\data\geoip6.
+[2026-10-25T22:46:14Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:46:14.000 [notice] Set list of supported TLS groups to: ?*X25519MLKEM768 / ?SecP256r1MLKEM768 / *P-256:?X25519:P-224
+[2026-10-25T22:46:14Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:46:14.000 [notice] Bootstrapped 0% (starting): Starting
+[2026-10-25T22:46:15Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:46:15.000 [notice] Starting with guard context "default"
+[2026-10-25T22:47:03Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:47:03.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 10; recommendation warn; host 1A25C6358DB91342AA51720A5038B72742732498 at 128.31.0.39:9201)
+[2026-10-25T22:47:20Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:47:20.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 11; recommendation warn; host 7BE683E65D48141321C5ED92F075C55364AC7123 at 193.23.244.244:443)
+[2026-10-25T22:47:36Z INFO  torvpn_core::tor_manager] [tor] Oct 25 22:47:36.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 12; recommendation warn; host B96C0E69BC1B056F64A3195695AF6D475303C500 at 78.17.213.22:443)
+[2026-10-25T22:47:36Z INFO  torvpn_core::state] [state] Disengaging: Connection failed; saving firewall evidence before recovery
+[2026-10-25T22:47:36Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 starting; output: C:\ProgramData\torvpn\script-fw-audit.ps1.log
+[2026-10-25T22:48:06Z WARN  torvpn_core::state] firewall evidence collection failed: fw-audit.ps1 timed out after 30s; last stage: fw-audit.ps1: Saving effective rules and Tor blocking-filter evidence before recovery; output: C:\ProgramData\torvpn\script-fw-audit.ps1.log
+[2026-10-25T22:48:06Z INFO  torvpn_core::state] [state] Disengaging: Connection failed; restoring original network settings
+[2026-10-25T22:48:06Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-route-teardown.ps1.log
+[2026-10-25T22:48:06Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 completed
+[2026-10-25T22:48:06Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-dns-teardown.ps1.log
+[2026-10-25T22:48:10Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 completed
+[2026-10-25T22:48:10Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-fw-teardown.ps1.log
+[2026-10-25T22:48:56Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 completed
+[2026-10-25T22:48:56Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 starting; output: C:\ProgramData\torvpn\script-fw-audit.ps1.log
+[2026-10-25T22:48:57Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 completed
+[2026-10-25T22:48:57Z INFO  torvpn_core::state] [state] Error: Tor startup: Tor outbound connections repeatedly denied by Windows (WSAEACCES; three bootstrap warnings at 0%). Stopped retries early. Firewall evidence will be saved before recovery; see firewall-evidence.json and svc.log. Last warning: Oct 25 22:47:36.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 12; recommendation warn; host B96C0E69BC1B056F64A3195695AF6D475303C500 at 78.17.213.22:443)
+[2026-10-25T22:48:57Z ERROR torvpn_svc] [service] automatic connect failed: Tor startup: Tor outbound connections repeatedly denied by Windows (WSAEACCES; three bootstrap warnings at 0%). Stopped retries early. Firewall evidence will be saved before recovery; see firewall-evidence.json and svc.log. Last warning: Oct 25 22:47:36.000 [warn] Problem bootstrapping. Stuck at 0% (starting): Starting. (Permission denied [WSAEACCES ]; RESOURCELIMIT; count 12; recommendation warn; host B96C0E69BC1B056F64A3195695AF6D475303C500 at 78.17.213.22:443)
+
+
+--- tun2socks.log (last 100 lines) ---
+File absent
+
+--- admin-progress.json (last 100 lines) ---
+{"message":"Starting administrative script","script":"fw-audit.ps1","updated_ms":1792968536703}
+
+
+--- admin-steps.log (last 100 lines) ---
+[2026-10-25T22:04:37.5149388+00:00] fw-apply.ps1 - Reading effective firewall profiles
+[2026-10-25T22:04:38.4832143+00:00] fw-apply.ps1 - Reading traced outbound allow rules
+[2026-10-25T22:04:41.9317865+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities
+[2026-10-25T22:04:42.0625341+00:00] fw-apply.ps1 - Removing stale TorVPN rules
+[2026-10-25T22:04:43.3713041+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch
+[2026-10-25T22:05:07.5428285+00:00] fw-apply.ps1 - Local batch suspension returned
+[2026-10-25T22:05:07.5540599+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects
+[2026-10-25T22:05:07.5857255+00:00] fw-apply.ps1 - Dynamic suspension returned
+[2026-10-25T22:05:07.5976503+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension
+[2026-10-25T22:05:14.6546556+00:00] fw-teardown.ps1 - Reading saved firewall recovery state
+[2026-10-25T22:05:14.7387871+00:00] fw-teardown.ps1 - Restoring original firewall profile defaults
+[2026-10-25T22:05:15.8862499+00:00] fw-teardown.ps1 - Reading current Local and Dynamic recovery rules
+[2026-10-25T22:05:24.8803593+00:00] fw-teardown.ps1 - Restoring 187 Local rules in one batch
+[2026-10-25T22:05:45.6318322+00:00] fw-teardown.ps1 - Restoring 1 Dynamic rules through live objects
+[2026-10-25T22:05:45.6617426+00:00] fw-teardown.ps1 - Verifying restored rule states
+[2026-10-25T22:05:55.5600101+00:00] fw-teardown.ps1 - Firewall recovery completed and verified
+[2026-10-25T22:14:24.5658497+00:00] fw-apply.ps1 - Reading effective firewall profiles
+[2026-10-25T22:14:25.5419432+00:00] fw-apply.ps1 - Reading traced outbound allow rules
+[2026-10-25T22:14:28.9841229+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities
+[2026-10-25T22:14:29.1181781+00:00] fw-apply.ps1 - Removing stale TorVPN rules
+[2026-10-25T22:14:30.5608676+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch
+[2026-10-25T22:14:54.0663061+00:00] fw-apply.ps1 - Local batch suspension returned
+[2026-10-25T22:14:54.0840649+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects
+[2026-10-25T22:14:54.1261841+00:00] fw-apply.ps1 - Dynamic suspension returned
+[2026-10-25T22:14:54.1397990+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension
+[2026-10-25T22:14:57.0983813+00:00] fw-apply.ps1 - Adding Tor, loopback and IPv6-block rules
+[2026-10-25T22:15:01.3068608+00:00] fw-teardown.ps1 - Reading saved firewall recovery state
+[2026-10-25T22:15:01.3689083+00:00] fw-teardown.ps1 - Restoring original firewall profile defaults
+[2026-10-25T22:15:02.4546718+00:00] fw-teardown.ps1 - Reading current Local and Dynamic recovery rules
+[2026-10-25T22:15:11.6504518+00:00] fw-teardown.ps1 - Restoring 187 Local rules in one batch
+[2026-10-25T22:15:33.2750091+00:00] fw-teardown.ps1 - Restoring 1 Dynamic rules through live objects
+[2026-10-25T22:15:33.3129433+00:00] fw-teardown.ps1 - Verifying restored rule states
+[2026-10-25T22:15:43.2762726+00:00] fw-teardown.ps1 - Firewall recovery completed and verified
+[2026-10-25T22:23:21.6444023+00:00] fw-apply.ps1 - Reading effective firewall profiles
+[2026-10-25T22:23:22.6869724+00:00] fw-apply.ps1 - Reading traced outbound allow rules
+[2026-10-25T22:23:25.9707923+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities
+[2026-10-25T22:23:26.1976760+00:00] fw-apply.ps1 - Removing stale TorVPN rules
+[2026-10-25T22:23:27.5900915+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch
+[2026-10-25T22:23:50.4741248+00:00] fw-apply.ps1 - Local batch suspension returned
+[2026-10-25T22:23:50.4831499+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects
+[2026-10-25T22:23:50.5303127+00:00] fw-apply.ps1 - Dynamic suspension returned
+[2026-10-25T22:23:50.5443132+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension
+[2026-10-25T22:23:53.5745393+00:00] fw-apply.ps1 - Adding IPv4-only Tor and loopback allow rules
+[2026-10-25T22:23:53.8390413+00:00] fw-apply.ps1 - Setting default outbound policy to Block
+[2026-10-25T22:23:54.1877381+00:00] fw-apply.ps1 - Verifying effective default outbound policy
+[2026-10-25T22:23:54.2528078+00:00] fw-apply.ps1 - Firewall protection applied and verified
+[2026-10-25T22:27:00.3892197+00:00] fw-teardown.ps1 - Reading saved firewall recovery state
+[2026-10-25T22:27:00.4542956+00:00] fw-teardown.ps1 - Restoring original firewall profile defaults
+[2026-10-25T22:27:01.8949700+00:00] fw-teardown.ps1 - Reading current Local and Dynamic recovery rules
+[2026-10-25T22:27:11.4514675+00:00] fw-teardown.ps1 - Restoring 187 Local rules in one batch
+[2026-10-25T22:27:33.9775044+00:00] fw-teardown.ps1 - Restoring 1 Dynamic rules through live objects
+[2026-10-25T22:27:34.0120419+00:00] fw-teardown.ps1 - Verifying restored rule states
+[2026-10-25T22:27:44.0046967+00:00] fw-teardown.ps1 - Firewall recovery completed and verified
+[2026-10-25T22:45:31.4878556+00:00] fw-audit.ps1 - Temporarily enabling blocked-connection evidence
+[2026-10-25T22:45:32.6916373+00:00] fw-apply.ps1 - Reading effective firewall profiles
+[2026-10-25T22:45:33.6599697+00:00] fw-apply.ps1 - Reading traced outbound allow rules
+[2026-10-25T22:45:37.2159835+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities
+[2026-10-25T22:45:37.4022282+00:00] fw-apply.ps1 - Removing stale TorVPN rules
+[2026-10-25T22:45:38.9219188+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch
+[2026-10-25T22:46:05.2704620+00:00] fw-apply.ps1 - Local batch suspension returned
+[2026-10-25T22:46:05.2894883+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects
+[2026-10-25T22:46:05.3448437+00:00] fw-apply.ps1 - Dynamic suspension returned
+[2026-10-25T22:46:05.3705244+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension
+[2026-10-25T22:46:08.5457747+00:00] fw-apply.ps1 - Adding IPv4-only Tor and loopback allow rules
+[2026-10-25T22:46:08.8445800+00:00] fw-apply.ps1 - Setting default outbound policy to Block
+[2026-10-25T22:46:09.2064712+00:00] fw-apply.ps1 - Verifying effective default outbound policy
+[2026-10-25T22:46:09.2737454+00:00] fw-apply.ps1 - Verifying the effective Tor executable exception: C:\Program Files\TorVPN\tor\tor.exe
+[2026-10-25T22:46:12.8884447+00:00] fw-apply.ps1 - Firewall protection applied and verified
+[2026-10-25T22:47:36.8639622+00:00] fw-audit.ps1 - Saving effective rules and Tor blocking-filter evidence before recovery
+[2026-10-25T22:48:10.5390016+00:00] fw-teardown.ps1 - Reading saved firewall recovery state
+[2026-10-25T22:48:10.5947265+00:00] fw-teardown.ps1 - Restoring original firewall profile defaults
+[2026-10-25T22:48:11.8440742+00:00] fw-teardown.ps1 - Reading current Local and Dynamic recovery rules
+[2026-10-25T22:48:19.7321218+00:00] fw-teardown.ps1 - Restoring 187 Local rules in one batch
+[2026-10-25T22:48:44.7185341+00:00] fw-teardown.ps1 - Restoring 1 Dynamic rules through live objects
+[2026-10-25T22:48:44.7640961+00:00] fw-teardown.ps1 - Verifying restored rule states
+[2026-10-25T22:48:56.5693429+00:00] fw-teardown.ps1 - Firewall recovery completed and verified
+
+
+--- script-fw-apply.ps1.log (last 100 lines) ---
+[2026-10-25T22:45:32.6916373+00:00] fw-apply.ps1 - Reading effective firewall profiles
+[2026-10-25T22:45:33.6599697+00:00] fw-apply.ps1 - Reading traced outbound allow rules
+[2026-10-25T22:45:37.2159835+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities
+[2026-10-25T22:45:37.4022282+00:00] fw-apply.ps1 - Removing stale TorVPN rules
+[2026-10-25T22:45:38.9219188+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch
+[2026-10-25T22:46:05.2704620+00:00] fw-apply.ps1 - Local batch suspension returned
+[2026-10-25T22:46:05.2894883+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects
+[2026-10-25T22:46:05.3448437+00:00] fw-apply.ps1 - Dynamic suspension returned
+[2026-10-25T22:46:05.3705244+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension
+[2026-10-25T22:46:08.5457747+00:00] fw-apply.ps1 - Adding IPv4-only Tor and loopback allow rules
+[2026-10-25T22:46:08.8445800+00:00] fw-apply.ps1 - Setting default outbound policy to Block
+[2026-10-25T22:46:09.2064712+00:00] fw-apply.ps1 - Verifying effective default outbound policy
+[2026-10-25T22:46:09.2737454+00:00] fw-apply.ps1 - Verifying the effective Tor executable exception: C:\Program Files\TorVPN\tor\tor.exe
+[2026-10-25T22:46:12.8884447+00:00] fw-apply.ps1 - Firewall protection applied and verified
+Firewall armed; pre-existing Local/Dynamic outbound allow rules temporarily disabled.
+
+
+--- script-fw-teardown.ps1.log (last 100 lines) ---
+[2026-10-25T22:48:10.5390016+00:00] fw-teardown.ps1 - Reading saved firewall recovery state
+[2026-10-25T22:48:10.5947265+00:00] fw-teardown.ps1 - Restoring original firewall profile defaults
+[2026-10-25T22:48:11.8440742+00:00] fw-teardown.ps1 - Reading current Local and Dynamic recovery rules
+[2026-10-25T22:48:19.7321218+00:00] fw-teardown.ps1 - Restoring 187 Local rules in one batch
+[2026-10-25T22:48:44.7185341+00:00] fw-teardown.ps1 - Restoring 1 Dynamic rules through live objects
+[2026-10-25T22:48:44.7640961+00:00] fw-teardown.ps1 - Verifying restored rule states
+[2026-10-25T22:48:56.5693429+00:00] fw-teardown.ps1 - Firewall recovery completed and verified
+Original firewall profiles and saved Local/Dynamic allow rules restored.
+
+
+--- tor-start.json ---
+{"path":"C:\\Program Files\\TorVPN\\tor\\tor.exe","process_id":2976,"started_utc":1792968373}
+
+--- firewall-armed.json ---
+{
+    "ApplicationFilters":  [
+                               {
+                                   "Program":  "C:\\Program Files\\TorVPN\\tor\\tor.exe",
+                                   "Package":  null
+                               }
+                           ],
+    "Profiles":  [
+                     {
+                         "Name":  "Domain",
+                         "Enabled":  1,
+                         "DefaultOutboundAction":  4,
+                         "AllowLocalFirewallRules":  1,
+                         "AllowLocalIPsecRules":  1,
+                         "DisabledInterfaceAliases":  null
+                     },
+                     {
+                         "Name":  "Private",
+                         "Enabled":  1,
+                         "DefaultOutboundAction":  4,
+                         "AllowLocalFirewallRules":  1,
+                         "AllowLocalIPsecRules":  1,
+                         "DisabledInterfaceAliases":  null
+                     },
+                     {
+                         "Name":  "Public",
+                         "Enabled":  1,
+                         "DefaultOutboundAction":  4,
+                         "AllowLocalFirewallRules":  1,
+                         "AllowLocalIPsecRules":  1,
+                         "DisabledInterfaceAliases":  null
+                     }
+                 ],
+    "TorRules":  [
+                     {
+                         "Name":  "{ffb41649-9f32-4c9f-8313-40f95cb8df5f}",
+                         "DisplayName":  "TORVPN Allow Tor TCP",
+                         "Enabled":  1,
+                         "Action":  2,
+                         "Direction":  2,
+                         "Profile":  0,
+                         "PrimaryStatus":  1,
+                         "Status":  "The rule was parsed successfully from the store. (65536)",
+                         "EnforcementStatus":  {
+                                                   "value":  [
+                                                                 "OptimizedOut",
+                                                                 "Enforced"
+                                                             ],
+                                                   "Count":  2
+                                               },
+                         "PolicyStoreSourceType":  1,
+                         "PolicyStoreSource":  "PersistentStore"
+                     }
+                 ],
+    "ExpectedProgram":  "C:\\Program Files\\TorVPN\\tor\\tor.exe"
+}
+
+
+--- firewall-evidence.json ---
+File absent
+
+--- audit-backup.json ---
+File absent
+
+--- audit-session.json ---
+{
+    "TorPath":  "C:\\Program Files\\TorVPN\\tor\\tor.exe",
+    "StartedUtc":  "2026-10-25T22:45:31.5787820Z"
+}
+
+
+--- script-fw-audit.ps1.log ---
+
+--- tray.log (last 50 lines) ---
+[2026-09-06T18:12:04Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-07T01:06:58Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-09T10:29:56Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-15T12:19:28Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-21T09:11:10Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-23T09:49:47Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-26T07:26:43Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-10-02T14:25:14Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-10-08T16:46:50Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-10-14T17:13:13Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-10-25T21:28:35Z INFO  torvpn_tray] torvpn-tray 0.3.0 starting
+[2026-10-25T21:34:59Z WARN  torvpn_tray] status: connect 127.0.0.1:8787: No connection could be made because the target machine actively refused it. (os error 10061)
+[2026-10-25T21:35:03Z WARN  torvpn_tray] status: connect 127.0.0.1:8787: No connection could be made because the target machine actively refused it. (os error 10061)
+[2026-10-25T21:43:06Z WARN  torvpn_tray] status: connect 127.0.0.1:8787: No connection could be made because the target machine actively refused it. (os error 10061)
+[2026-10-25T21:43:09Z WARN  torvpn_tray] status: connect 127.0.0.1:8787: No connection could be made because the target machine actively refused it. (os error 10061)
+[2026-10-25T21:49:04Z ERROR torvpn_tray] action: HTTP 500: {"error":"firewall setup: fw-apply.ps1 timed out: deadline has elapsed"}
+[2026-10-25T22:04:31Z INFO  torvpn_tray] torvpn-tray 0.3.1 starting
+[2026-10-25T22:14:18Z INFO  torvpn_tray] torvpn-tray 0.3.1 starting
+[2026-10-25T22:23:15Z INFO  torvpn_tray] torvpn-tray 0.3.1 starting
+[2026-10-25T22:45:25Z INFO  torvpn_tray] torvpn-tray 0.3.2 starting
+
+
+--- TorVPN adapter ---
+
+
+--- firewall profiles ---
+
+Name    Enabled DefaultOutboundAction
+----    ------- ---------------------
+Domain     True                 Allow
+Private    True                 Allow
+Public     True                 Allow
+
+
+
+--- Traced outbound allow rule origins ---
+
+Name    Count
+----    -----
+Local     187
+Dynamic     1
+
+
+
+Name                  : {d7a3cb97-faab-4142-9af4-abb9241b99e1}
+DisplayName           : Internet Connection Sharing (SharedAccess-Out)
+PolicyStoreSourceType : Dynamic
+PolicyStoreSource     : ActiveStore
+
+

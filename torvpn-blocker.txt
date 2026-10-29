@@ -1,0 +1,391 @@
+{
+  "Report": "TorVPN existing failure reader 1.0",
+  "CapturedUtc": "2026-10-25T22:56:56.9566920Z",
+  "ReadOnly": true,
+  "TorAttempt": {
+    "path": "C:\\Program Files\\TorVPN\\tor\\tor.exe",
+    "process_id": 2976,
+    "started_utc": 1792968373
+  },
+  "ArmedSnapshot": {
+    "ApplicationFilters": [
+      {
+        "Program": "C:\\Program Files\\TorVPN\\tor\\tor.exe",
+        "Package": null
+      }
+    ],
+    "Profiles": [
+      {
+        "Name": "Domain",
+        "Enabled": 1,
+        "DefaultOutboundAction": 4,
+        "AllowLocalFirewallRules": 1,
+        "AllowLocalIPsecRules": 1,
+        "DisabledInterfaceAliases": null
+      },
+      {
+        "Name": "Private",
+        "Enabled": 1,
+        "DefaultOutboundAction": 4,
+        "AllowLocalFirewallRules": 1,
+        "AllowLocalIPsecRules": 1,
+        "DisabledInterfaceAliases": null
+      },
+      {
+        "Name": "Public",
+        "Enabled": 1,
+        "DefaultOutboundAction": 4,
+        "AllowLocalFirewallRules": 1,
+        "AllowLocalIPsecRules": 1,
+        "DisabledInterfaceAliases": null
+      }
+    ],
+    "TorRules": [
+      {
+        "Name": "{ffb41649-9f32-4c9f-8313-40f95cb8df5f}",
+        "DisplayName": "TORVPN Allow Tor TCP",
+        "Enabled": 1,
+        "Action": 2,
+        "Direction": 2,
+        "Profile": 0,
+        "PrimaryStatus": 1,
+        "Status": "The rule was parsed successfully from the store. (65536)",
+        "EnforcementStatus": {
+          "value": [
+            "OptimizedOut",
+            "Enforced"
+          ],
+          "Count": 2
+        },
+        "PolicyStoreSourceType": 1,
+        "PolicyStoreSource": "PersistentStore"
+      }
+    ],
+    "ExpectedProgram": "C:\\Program Files\\TorVPN\\tor\\tor.exe"
+  },
+  "EventRead": {
+    "Stage": "Event query completed",
+    "Events": [
+      {
+        "TimeCreatedUtc": "2026-10-25T22:47:36.4133653Z",
+        "RecordId": 1539915,
+        "EventId": 5157,
+        "Data": {
+          "ProcessID": "2976",
+          "Application": "\\device\\harddiskvolume3\\program files\\torvpn\\tor\\tor.exe",
+          "Direction": "%%14593",
+          "SourceAddress": "192.168.1.167",
+          "SourcePort": "50718",
+          "DestAddress": "78.17.213.22",
+          "DestPort": "443",
+          "Protocol": "6",
+          "InterfaceIndex": "10",
+          "FilterOrigin": "Default Outbound",
+          "FilterRTID": "108583",
+          "LayerName": "%%14611",
+          "LayerRTID": "48",
+          "RemoteUserID": "S-1-0-0",
+          "RemoteMachineID": "S-1-0-0",
+          "OriginalProfile": "%%14644",
+          "CurrentProfile": "%%14644",
+          "IsLoopback": "%%1826",
+          "HasRemoteDynamicKeywordAddress": "%%1826"
+        }
+      },
+      {
+        "TimeCreatedUtc": "2026-10-25T22:47:20.2327851Z",
+        "RecordId": 1539821,
+        "EventId": 5157,
+        "Data": {
+          "ProcessID": "2976",
+          "Application": "\\device\\harddiskvolume3\\program files\\torvpn\\tor\\tor.exe",
+          "Direction": "%%14593",
+          "SourceAddress": "192.168.1.167",
+          "SourcePort": "54750",
+          "DestAddress": "193.23.244.244",
+          "DestPort": "443",
+          "Protocol": "6",
+          "InterfaceIndex": "10",
+          "FilterOrigin": "Default Outbound",
+          "FilterRTID": "108583",
+          "LayerName": "%%14611",
+          "LayerRTID": "48",
+          "RemoteUserID": "S-1-0-0",
+          "RemoteMachineID": "S-1-0-0",
+          "OriginalProfile": "%%14644",
+          "CurrentProfile": "%%14644",
+          "IsLoopback": "%%1826",
+          "HasRemoteDynamicKeywordAddress": "%%1826"
+        }
+      },
+      {
+        "TimeCreatedUtc": "2026-10-25T22:47:03.0665857Z",
+        "RecordId": 1539698,
+        "EventId": 5157,
+        "Data": {
+          "ProcessID": "2976",
+          "Application": "\\device\\harddiskvolume3\\program files\\torvpn\\tor\\tor.exe",
+          "Direction": "%%14593",
+          "SourceAddress": "192.168.1.167",
+          "SourcePort": "50890",
+          "DestAddress": "128.31.0.39",
+          "DestPort": "9201",
+          "Protocol": "6",
+          "InterfaceIndex": "10",
+          "FilterOrigin": "Default Outbound",
+          "FilterRTID": "108583",
+          "LayerName": "%%14611",
+          "LayerRTID": "48",
+          "RemoteUserID": "S-1-0-0",
+          "RemoteMachineID": "S-1-0-0",
+          "OriginalProfile": "%%14644",
+          "CurrentProfile": "%%14644",
+          "IsLoopback": "%%1826",
+          "HasRemoteDynamicKeywordAddress": "%%1826"
+        }
+      },
+      {
+        "TimeCreatedUtc": "2026-10-25T22:46:56.0045101Z",
+        "RecordId": 1539657,
+        "EventId": 5157,
+        "Data": {
+          "ProcessID": "2976",
+          "Application": "\\device\\harddiskvolume3\\program files\\torvpn\\tor\\tor.exe",
+          "Direction": "%%14593",
+          "SourceAddress": "192.168.1.167",
+          "SourcePort": "56053",
+          "DestAddress": "178.85.175.222",
+          "DestPort": "443",
+          "Protocol": "6",
+          "InterfaceIndex": "10",
+          "FilterOrigin": "Default Outbound",
+          "FilterRTID": "108583",
+          "LayerName": "%%14611",
+          "LayerRTID": "48",
+          "RemoteUserID": "S-1-0-0",
+          "RemoteMachineID": "S-1-0-0",
+          "OriginalProfile": "%%14644",
+          "CurrentProfile": "%%14644",
+          "IsLoopback": "%%1826",
+          "HasRemoteDynamicKeywordAddress": "%%1826"
+        }
+      },
+      {
+        "TimeCreatedUtc": "2026-10-25T22:46:38.841341Z",
+        "RecordId": 1539003,
+        "EventId": 5157,
+        "Data": {
+          "ProcessID": "2976",
+          "Application": "\\device\\harddiskvolume3\\program files\\torvpn\\tor\\tor.exe",
+          "Direction": "%%14593",
+          "SourceAddress": "192.168.1.167",
+          "SourcePort": "53362",
+          "DestAddress": "171.25.193.9",
+          "DestPort": "80",
+          "Protocol": "6",
+          "InterfaceIndex": "10",
+          "FilterOrigin": "Default Outbound",
+          "FilterRTID": "108583",
+          "LayerName": "%%14611",
+          "LayerRTID": "48",
+          "RemoteUserID": "S-1-0-0",
+          "RemoteMachineID": "S-1-0-0",
+          "OriginalProfile": "%%14644",
+          "CurrentProfile": "%%14644",
+          "IsLoopback": "%%1826",
+          "HasRemoteDynamicKeywordAddress": "%%1826"
+        }
+      },
+      {
+        "TimeCreatedUtc": "2026-10-25T22:46:36.8137673Z",
+        "RecordId": 1538882,
+        "EventId": 5157,
+        "Data": {
+          "ProcessID": "2976",
+          "Application": "\\device\\harddiskvolume3\\program files\\torvpn\\tor\\tor.exe",
+          "Direction": "%%14593",
+          "SourceAddress": "192.168.1.167",
+          "SourcePort": "56055",
+          "DestAddress": "195.47.238.50",
+          "DestPort": "443",
+          "Protocol": "6",
+          "InterfaceIndex": "10",
+          "FilterOrigin": "Default Outbound",
+          "FilterRTID": "108583",
+          "LayerName": "%%14611",
+          "LayerRTID": "48",
+          "RemoteUserID": "S-1-0-0",
+          "RemoteMachineID": "S-1-0-0",
+          "OriginalProfile": "%%14644",
+          "CurrentProfile": "%%14644",
+          "IsLoopback": "%%1826",
+          "HasRemoteDynamicKeywordAddress": "%%1826"
+        }
+      },
+      {
+        "TimeCreatedUtc": "2026-10-25T22:46:28.7814375Z",
+        "RecordId": 1538385,
+        "EventId": 5157,
+        "Data": {
+          "ProcessID": "2976",
+          "Application": "\\device\\harddiskvolume3\\program files\\torvpn\\tor\\tor.exe",
+          "Direction": "%%14593",
+          "SourceAddress": "192.168.1.167",
+          "SourcePort": "59255",
+          "DestAddress": "131.188.40.189",
+          "DestPort": "443",
+          "Protocol": "6",
+          "InterfaceIndex": "10",
+          "FilterOrigin": "Default Outbound",
+          "FilterRTID": "108583",
+          "LayerName": "%%14611",
+          "LayerRTID": "48",
+          "RemoteUserID": "S-1-0-0",
+          "RemoteMachineID": "S-1-0-0",
+          "OriginalProfile": "%%14644",
+          "CurrentProfile": "%%14644",
+          "IsLoopback": "%%1826",
+          "HasRemoteDynamicKeywordAddress": "%%1826"
+        }
+      },
+      {
+        "TimeCreatedUtc": "2026-10-25T22:46:24.75379Z",
+        "RecordId": 1538143,
+        "EventId": 5157,
+        "Data": {
+          "ProcessID": "2976",
+          "Application": "\\device\\harddiskvolume3\\program files\\torvpn\\tor\\tor.exe",
+          "Direction": "%%14593",
+          "SourceAddress": "192.168.1.167",
+          "SourcePort": "64110",
+          "DestAddress": "23.191.200.34",
+          "DestPort": "443",
+          "Protocol": "6",
+          "InterfaceIndex": "10",
+          "FilterOrigin": "Default Outbound",
+          "FilterRTID": "108583",
+          "LayerName": "%%14611",
+          "LayerRTID": "48",
+          "RemoteUserID": "S-1-0-0",
+          "RemoteMachineID": "S-1-0-0",
+          "OriginalProfile": "%%14644",
+          "CurrentProfile": "%%14644",
+          "IsLoopback": "%%1826",
+          "HasRemoteDynamicKeywordAddress": "%%1826"
+        }
+      },
+      {
+        "TimeCreatedUtc": "2026-10-25T22:46:22.7504697Z",
+        "RecordId": 1538019,
+        "EventId": 5157,
+        "Data": {
+          "ProcessID": "2976",
+          "Application": "\\device\\harddiskvolume3\\program files\\torvpn\\tor\\tor.exe",
+          "Direction": "%%14593",
+          "SourceAddress": "192.168.1.167",
+          "SourcePort": "52313",
+          "DestAddress": "199.58.81.140",
+          "DestPort": "443",
+          "Protocol": "6",
+          "InterfaceIndex": "10",
+          "FilterOrigin": "Default Outbound",
+          "FilterRTID": "108583",
+          "LayerName": "%%14611",
+          "LayerRTID": "48",
+          "RemoteUserID": "S-1-0-0",
+          "RemoteMachineID": "S-1-0-0",
+          "OriginalProfile": "%%14644",
+          "CurrentProfile": "%%14644",
+          "IsLoopback": "%%1826",
+          "HasRemoteDynamicKeywordAddress": "%%1826"
+        }
+      },
+      {
+        "TimeCreatedUtc": "2026-10-25T22:46:19.7347751Z",
+        "RecordId": 1537852,
+        "EventId": 5157,
+        "Data": {
+          "ProcessID": "2976",
+          "Application": "\\device\\harddiskvolume3\\program files\\torvpn\\tor\\tor.exe",
+          "Direction": "%%14593",
+          "SourceAddress": "192.168.1.167",
+          "SourcePort": "52306",
+          "DestAddress": "204.8.96.103",
+          "DestPort": "444",
+          "Protocol": "6",
+          "InterfaceIndex": "10",
+          "FilterOrigin": "Default Outbound",
+          "FilterRTID": "108583",
+          "LayerName": "%%14611",
+          "LayerRTID": "48",
+          "RemoteUserID": "S-1-0-0",
+          "RemoteMachineID": "S-1-0-0",
+          "OriginalProfile": "%%14644",
+          "CurrentProfile": "%%14644",
+          "IsLoopback": "%%1826",
+          "HasRemoteDynamicKeywordAddress": "%%1826"
+        }
+      },
+      {
+        "TimeCreatedUtc": "2026-10-25T22:46:17.7243735Z",
+        "RecordId": 1537736,
+        "EventId": 5157,
+        "Data": {
+          "ProcessID": "2976",
+          "Application": "\\device\\harddiskvolume3\\program files\\torvpn\\tor\\tor.exe",
+          "Direction": "%%14593",
+          "SourceAddress": "192.168.1.167",
+          "SourcePort": "60753",
+          "DestAddress": "141.227.158.81",
+          "DestPort": "9200",
+          "Protocol": "6",
+          "InterfaceIndex": "10",
+          "FilterOrigin": "Default Outbound",
+          "FilterRTID": "108583",
+          "LayerName": "%%14611",
+          "LayerRTID": "48",
+          "RemoteUserID": "S-1-0-0",
+          "RemoteMachineID": "S-1-0-0",
+          "OriginalProfile": "%%14644",
+          "CurrentProfile": "%%14644",
+          "IsLoopback": "%%1826",
+          "HasRemoteDynamicKeywordAddress": "%%1826"
+        }
+      },
+      {
+        "TimeCreatedUtc": "2026-10-25T22:46:16.726802Z",
+        "RecordId": 1537674,
+        "EventId": 5157,
+        "Data": {
+          "ProcessID": "2976",
+          "Application": "\\device\\harddiskvolume3\\program files\\torvpn\\tor\\tor.exe",
+          "Direction": "%%14593",
+          "SourceAddress": "192.168.1.167",
+          "SourcePort": "59002",
+          "DestAddress": "212.132.125.165",
+          "DestPort": "443",
+          "Protocol": "6",
+          "InterfaceIndex": "10",
+          "FilterOrigin": "Default Outbound",
+          "FilterRTID": "108583",
+          "LayerName": "%%14611",
+          "LayerRTID": "48",
+          "RemoteUserID": "S-1-0-0",
+          "RemoteMachineID": "S-1-0-0",
+          "OriginalProfile": "%%14644",
+          "CurrentProfile": "%%14644",
+          "IsLoopback": "%%1826",
+          "HasRemoteDynamicKeywordAddress": "%%1826"
+        }
+      }
+    ],
+    "Errors": []
+  },
+  "OriginRead": null,
+  "Errors": [],
+  "Notes": [
+    "No connection attempt, service restart, firewall edit or audit-policy change was performed.",
+    "Only matching Tor block events are included; local paths and network addresses may appear.",
+    "Absence of an event is not evidence of absence of a block."
+  ]
+}

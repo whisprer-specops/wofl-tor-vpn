@@ -1,0 +1,29 @@
+[package]
+name        = "torvpn-tray"
+version.workspace     = true
+edition.workspace     = true
+authors.workspace     = true
+license.workspace     = true
+
+[[bin]]
+name = "torvpn-tray"
+path = "src/main.rs"
+
+# Windows GUI subsystem so no console window appears. We re-enable a
+# console attach in debug builds via a windows_subsystem attribute below.
+[package.metadata]
+description = "TorVPN system tray controller"
+
+[dependencies]
+torvpn-core = { path = "../torvpn-core" }
+anyhow      = { workspace = true }
+tokio       = { workspace = true }
+log         = { workspace = true }
+env_logger  = { workspace = true }
+serde_json  = { workspace = true }
+
+tray-icon   = "0.14"
+tao         = "0.30"
+
+[target.'cfg(windows)'.dependencies]
+windows-sys = { version = "0.59", features = ["Win32_UI_WindowsAndMessaging", "Win32_Foundation"] }

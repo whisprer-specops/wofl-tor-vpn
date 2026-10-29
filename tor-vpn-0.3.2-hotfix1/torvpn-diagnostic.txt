@@ -1,0 +1,503 @@
+TorVPN diagnostic - 2026-10-25T23:10:00.7809555Z
+
+Name      : TorVPN
+State     : Running
+StartMode : Auto
+ExitCode  : 0
+PathName  : "C:\Program Files\TorVPN\torvpn-svc.exe" service-run
+
+
+
+--- state.json (last 100 lines) ---
+{
+  "phase": "error",
+  "message": "Tor connection verification: HTTPS check failed: curl: (35) Send failure: Connection was reset\r\n",
+  "since_ms": 1792969800570,
+  "tor_pid": null,
+  "tun2socks_pid": null,
+  "full_tunnel": true,
+  "exit_ip": null
+}
+
+
+--- svc.log (last 100 lines) ---
+[2026-10-25T23:07:19Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 completed
+[2026-10-25T23:07:19Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-fw-teardown.ps1.log
+[2026-10-25T23:07:22Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 completed
+[2026-10-25T23:07:22Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 starting; output: C:\ProgramData\torvpn\script-fw-audit.ps1.log
+[2026-10-25T23:07:22Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 completed
+[2026-10-25T23:07:22Z INFO  torvpn_core::control_server] control server: listening on 127.0.0.1:8787
+[2026-10-25T23:07:22Z INFO  torvpn_svc] [service] control server ready
+[2026-10-25T23:07:22Z INFO  torvpn_core::state] [state] Engaging: Recovering previous session settings
+[2026-10-25T23:07:22Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-route-teardown.ps1.log
+[2026-10-25T23:07:23Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 completed
+[2026-10-25T23:07:23Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-dns-teardown.ps1.log
+[2026-10-25T23:07:27Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 completed
+[2026-10-25T23:07:27Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-fw-teardown.ps1.log
+[2026-10-25T23:07:30Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 completed
+[2026-10-25T23:07:30Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 starting; output: C:\ProgramData\torvpn\script-fw-audit.ps1.log
+[2026-10-25T23:07:30Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 completed
+[2026-10-25T23:07:30Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 starting; output: C:\ProgramData\torvpn\script-fw-audit.ps1.log
+[2026-10-25T23:07:31Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 completed
+[2026-10-25T23:07:31Z INFO  torvpn_core::state] [state] Engaging: Applying firewall protection
+[2026-10-25T23:07:31Z INFO  torvpn_core::windows_script] [script] fw-apply.ps1 starting; output: C:\ProgramData\torvpn\script-fw-apply.ps1.log
+[2026-10-25T23:08:14Z INFO  torvpn_core::windows_script] [script] fw-apply.ps1 completed
+[2026-10-25T23:08:14Z INFO  torvpn_core::state] [state] Engaging: Starting Tor; bootstrap progress is in svc.log
+[2026-10-25T23:08:14Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:14.409 [notice] Tor 0.4.9.14 (git-8fe2745aee2c3511) running on Windows 8 [or later] with Libevent 2.1.13-stable, OpenSSL 3.5.9, Zlib 1.3.2, Liblzma N/A, Libzstd N/A and Unknown N/A as libc.
+[2026-10-25T23:08:14Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:14.409 [notice] Tor can't help you if you use it wrong! Learn how to be safe at https://support.torproject.org/faq/staying-anonymous/
+[2026-10-25T23:08:14Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:14.499 [notice] Read configuration file "C:\ProgramData\torvpn\torrc.generated".
+[2026-10-25T23:08:14Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:14.507 [notice] Opening Socks listener on 127.0.0.1:9050
+[2026-10-25T23:08:14Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:14.508 [notice] Opened Socks listener connection (ready) on 127.0.0.1:9050
+[2026-10-25T23:08:14Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:14.508 [notice] Opening DNS listener on 127.0.0.1:53
+[2026-10-25T23:08:14Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:14.508 [notice] Opened DNS listener connection (ready) on 127.0.0.1:53
+[2026-10-25T23:08:14Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:14.508 [notice] Opening Control listener on 127.0.0.1:9051
+[2026-10-25T23:08:14Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:14.508 [notice] Opened Control listener connection (ready) on 127.0.0.1:9051
+[2026-10-25T23:08:14Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:14.000 [notice] Parsing GEOIP IPv4 file C:\Program Files\TorVPN\tor\data\geoip.
+[2026-10-25T23:08:14Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:14.000 [notice] Parsing GEOIP IPv6 file C:\Program Files\TorVPN\tor\data\geoip6.
+[2026-10-25T23:08:15Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:15.000 [notice] Set list of supported TLS groups to: ?*X25519MLKEM768 / ?SecP256r1MLKEM768 / *P-256:?X25519:P-224
+[2026-10-25T23:08:15Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:15.000 [notice] Bootstrapped 0% (starting): Starting
+[2026-10-25T23:08:17Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:17.000 [notice] Starting with guard context "default"
+[2026-10-25T23:08:18Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:18.000 [notice] Bootstrapped 5% (conn): Connecting to a relay
+[2026-10-25T23:08:18Z INFO  torvpn_core::tor_manager] tor bootstrap: 5%
+[2026-10-25T23:08:19Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:19.000 [notice] Bootstrapped 10% (conn_done): Connected to a relay
+[2026-10-25T23:08:19Z INFO  torvpn_core::tor_manager] tor bootstrap: 10%
+[2026-10-25T23:08:20Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:20.000 [notice] Bootstrapped 14% (handshake): Handshaking with a relay
+[2026-10-25T23:08:20Z INFO  torvpn_core::tor_manager] tor bootstrap: 14%
+[2026-10-25T23:08:20Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:20.000 [notice] Bootstrapped 15% (handshake_done): Handshake with a relay done
+[2026-10-25T23:08:20Z INFO  torvpn_core::tor_manager] tor bootstrap: 15%
+[2026-10-25T23:08:20Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:20.000 [notice] Bootstrapped 20% (onehop_create): Establishing an encrypted directory connection
+[2026-10-25T23:08:20Z INFO  torvpn_core::tor_manager] tor bootstrap: 20%
+[2026-10-25T23:08:20Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:20.000 [notice] Bootstrapped 25% (requesting_status): Asking for networkstatus consensus
+[2026-10-25T23:08:20Z INFO  torvpn_core::tor_manager] tor bootstrap: 25%
+[2026-10-25T23:08:20Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:20.000 [notice] Bootstrapped 30% (loading_status): Loading networkstatus consensus
+[2026-10-25T23:08:20Z INFO  torvpn_core::tor_manager] tor bootstrap: 30%
+[2026-10-25T23:08:22Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:22.000 [notice] The current consensus has no exit nodes. Tor can only build internal paths, such as paths to onion services.
+[2026-10-25T23:08:22Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:22.000 [notice] Bootstrapped 45% (requesting_descriptors): Asking for relay descriptors
+[2026-10-25T23:08:22Z INFO  torvpn_core::tor_manager] tor bootstrap: 45%
+[2026-10-25T23:08:22Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:22.000 [notice] I learned some more directory information, but not enough to build a circuit: We need more microdescriptors: we have 15/9152, and can only build 0% of likely paths. (We have 0% of guards bw, 0% of midpoint bw, and 0% of end bw (no exits in consensus, using mid) = 0% of path bw.)
+[2026-10-25T23:08:22Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:22.000 [notice] I learned some more directory information, but not enough to build a circuit: We need more microdescriptors: we have 15/9152, and can only build 0% of likely paths. (We have 0% of guards bw, 0% of midpoint bw, and 0% of end bw (no exits in consensus, using mid) = 0% of path bw.)
+[2026-10-25T23:08:22Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:22.000 [notice] I learned some more directory information, but not enough to build a circuit: We need more microdescriptors: we have 15/9152, and can only build 0% of likely paths. (We have 0% of guards bw, 0% of midpoint bw, and 0% of end bw (no exits in consensus, using mid) = 0% of path bw.)
+[2026-10-25T23:08:22Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:22.000 [notice] Bootstrapped 50% (loading_descriptors): Loading relay descriptors
+[2026-10-25T23:08:22Z INFO  torvpn_core::tor_manager] tor bootstrap: 50%
+[2026-10-25T23:08:23Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:23.000 [notice] The current consensus contains exit nodes. Tor can build exit and internal paths.
+[2026-10-25T23:08:26Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:26.000 [notice] Bootstrapped 55% (loading_descriptors): Loading relay descriptors
+[2026-10-25T23:08:26Z INFO  torvpn_core::tor_manager] tor bootstrap: 55%
+[2026-10-25T23:08:27Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:27.000 [notice] Bootstrapped 61% (loading_descriptors): Loading relay descriptors
+[2026-10-25T23:08:27Z INFO  torvpn_core::tor_manager] tor bootstrap: 61%
+[2026-10-25T23:08:28Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:28.000 [notice] Bootstrapped 69% (loading_descriptors): Loading relay descriptors
+[2026-10-25T23:08:28Z INFO  torvpn_core::tor_manager] tor bootstrap: 69%
+[2026-10-25T23:08:28Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:28.000 [notice] Bootstrapped 75% (enough_dirinfo): Loaded enough directory info to build circuits
+[2026-10-25T23:08:28Z INFO  torvpn_core::tor_manager] tor bootstrap: 75%
+[2026-10-25T23:08:28Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:28.000 [notice] Bootstrapped 90% (ap_handshake_done): Handshake finished with a relay to build circuits
+[2026-10-25T23:08:28Z INFO  torvpn_core::tor_manager] tor bootstrap: 90%
+[2026-10-25T23:08:28Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:28.000 [notice] Bootstrapped 95% (circuit_create): Establishing a Tor circuit
+[2026-10-25T23:08:28Z INFO  torvpn_core::tor_manager] tor bootstrap: 95%
+[2026-10-25T23:08:28Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:28.000 [notice] All current guards excluded by path restriction type 2; using an additional guard.
+[2026-10-25T23:08:29Z INFO  torvpn_core::tor_manager] [tor] Oct 25 23:08:29.000 [notice] Bootstrapped 100% (done): Done
+[2026-10-25T23:08:29Z INFO  torvpn_core::tor_manager] tor bootstrap: 100%
+[2026-10-25T23:08:29Z INFO  torvpn_core::state] [state] Engaging: Creating Wintun adapter
+[2026-10-25T23:08:30Z INFO  torvpn_core::windows_script] [script] fw-apply.ps1 starting; output: C:\ProgramData\torvpn\script-fw-apply.ps1.log
+[2026-10-25T23:08:35Z INFO  torvpn_core::windows_script] [script] fw-apply.ps1 completed
+[2026-10-25T23:08:35Z INFO  torvpn_core::state] [state] Engaging: Routing DNS through Tor
+[2026-10-25T23:08:35Z INFO  torvpn_core::windows_script] [script] dns-apply.ps1 starting; output: C:\ProgramData\torvpn\script-dns-apply.ps1.log
+[2026-10-25T23:08:41Z INFO  torvpn_core::windows_script] [script] dns-apply.ps1 completed
+[2026-10-25T23:08:41Z INFO  torvpn_core::state] [state] Engaging: Installing tunnel routes
+[2026-10-25T23:08:41Z INFO  torvpn_core::windows_script] [script] route-apply.ps1 starting; output: C:\ProgramData\torvpn\script-route-apply.ps1.log
+[2026-10-25T23:08:46Z INFO  torvpn_core::windows_script] [script] route-apply.ps1 completed
+[2026-10-25T23:08:46Z INFO  torvpn_core::state] [state] Engaging: Verifying HTTPS connection through Tor
+[2026-10-25T23:08:54Z INFO  torvpn_core::state] [state] Disengaging: Connection failed; saving firewall evidence before recovery
+[2026-10-25T23:08:54Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 starting; output: C:\ProgramData\torvpn\script-fw-audit.ps1.log
+[2026-10-25T23:09:05Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 completed
+[2026-10-25T23:09:05Z INFO  torvpn_core::state] [state] Disengaging: Connection failed; restoring original network settings
+[2026-10-25T23:09:05Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-route-teardown.ps1.log
+[2026-10-25T23:09:07Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 completed
+[2026-10-25T23:09:07Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-dns-teardown.ps1.log
+[2026-10-25T23:09:10Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 completed
+[2026-10-25T23:09:10Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-fw-teardown.ps1.log
+[2026-10-25T23:09:59Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 completed
+[2026-10-25T23:09:59Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 starting; output: C:\ProgramData\torvpn\script-fw-audit.ps1.log
+[2026-10-25T23:10:00Z INFO  torvpn_core::windows_script] [script] fw-audit.ps1 completed
+[2026-10-25T23:10:00Z INFO  torvpn_core::state] [state] Error: Tor connection verification: HTTPS check failed: curl: (35) Send failure: Connection was reset
+    
+[2026-10-25T23:10:00Z ERROR torvpn_svc] [service] automatic connect failed: Tor connection verification: HTTPS check failed: curl: (35) Send failure: Connection was reset
+    
+
+
+--- tun2socks.log (last 100 lines) ---
+{"level":"warn","ts":1792969733.5801954,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 104.29.153.81:19340: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"info","ts":1792969734.0366135,"caller":"tunnel/tcp.go:42","msg":"[TCP] 10.86.1.2:57787 <-> 13.69.109.130:443"}
+{"level":"info","ts":1792969734.0366135,"caller":"tunnel/tcp.go:42","msg":"[TCP] 10.86.1.2:53926 <-> 142.251.153.2:443"}
+{"level":"warn","ts":1792969734.1195934,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.29.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969734.1859896,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 162.159.137.232:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969734.4124963,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.153.2:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969734.4894197,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 162.159.137.232:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"info","ts":1792969734.789658,"caller":"tunnel/tcp.go:42","msg":"[TCP] 10.86.1.2:55597 <-> 162.159.137.232:443"}
+{"level":"info","ts":1792969734.7923365,"caller":"tunnel/tcp.go:42","msg":"[TCP] 10.86.1.2:59461 <-> 162.125.21.3:443"}
+{"level":"info","ts":1792969734.7923365,"caller":"tunnel/tcp.go:42","msg":"[TCP] 10.86.1.2:59456 <-> 104.18.28.234:443"}
+{"level":"info","ts":1792969735.0840576,"caller":"tunnel/tcp.go:42","msg":"[TCP] 10.86.1.2:59358 <-> 104.18.39.21:443"}
+{"level":"warn","ts":1792969735.0958273,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 162.159.137.232:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969735.332824,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.29.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"info","ts":1792969735.7519803,"caller":"tunnel/tcp.go:42","msg":"[TCP] 10.86.1.2:61456 <-> 162.159.136.234:443"}
+{"level":"info","ts":1792969735.7519803,"caller":"tunnel/tcp.go:42","msg":"[TCP] 10.86.1.2:50420 <-> 4.207.247.139:443"}
+{"level":"warn","ts":1792969735.9589047,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 35.186.224.24:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969735.9617765,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 104.29.158.176:19307: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969736.1569557,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 104.18.27.48:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969736.266968,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 35.186.224.24:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969736.2824726,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.153.2:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969736.297344,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 162.159.137.232:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969736.3049018,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 104.29.153.81:19340: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"info","ts":1792969736.714057,"caller":"tunnel/tcp.go:42","msg":"[TCP] 10.86.1.2:55359 <-> 35.186.224.24:443"}
+{"level":"warn","ts":1792969736.8755715,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 35.186.224.24:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"info","ts":1792969737.2799466,"caller":"tunnel/tcp.go:42","msg":"[TCP] 10.86.1.2:51994 <-> 104.18.39.21:443"}
+{"level":"warn","ts":1792969737.3307807,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969737.3685362,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969737.4549708,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969737.4715562,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969737.4870164,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969737.5052683,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969737.5052683,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.29.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969737.5375516,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.29.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969737.5756588,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969737.6081643,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.29.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969737.6397738,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969737.7293844,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969737.7497573,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.29.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969737.764703,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.29.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969737.797707,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"info","ts":1792969737.799738,"caller":"tunnel/tcp.go:42","msg":"[TCP] 10.86.1.2:58468 <-> 104.18.28.234:443"}
+{"level":"warn","ts":1792969737.9539733,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969738.0320225,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.29.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969738.0367444,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969738.0763996,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 35.186.224.24:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969738.1086674,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969738.1890311,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 162.159.137.232:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969738.421777,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969738.4841275,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 104.29.158.176:19307: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969738.6012921,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.29.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969738.6536157,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969738.8440266,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.29.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969738.9641793,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.142.234:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969738.997426,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.142.234:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969739.0235696,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"info","ts":1792969739.0259902,"caller":"tunnel/tcp.go:42","msg":"[TCP] 10.86.1.2:52130 <-> 35.186.224.39:443"}
+{"level":"warn","ts":1792969739.0583146,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.142.234:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969739.1360035,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 160.79.104.10:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969739.1820593,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 160.79.104.10:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969739.1826217,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.142.234:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969739.2589946,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 104.29.158.176:19307: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969739.260705,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 160.79.104.10:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969739.4158413,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 160.79.104.10:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969739.433008,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.142.234:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969739.456904,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 104.29.153.81:19340: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969739.7281618,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 160.79.104.10:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"info","ts":1792969739.8156137,"caller":"tunnel/tcp.go:42","msg":"[TCP] 10.86.1.2:63867 <-> 35.186.224.39:443"}
+{"level":"info","ts":1792969739.9843335,"caller":"tunnel/tcp.go:42","msg":"[TCP] 10.86.1.2:51480 <-> 104.18.39.21:443"}
+{"level":"warn","ts":1792969739.9848511,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969739.9860923,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.142.234:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969739.9866433,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 35.186.224.24:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969740.2255,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969740.3264394,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 160.79.104.10:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"info","ts":1792969740.5667725,"caller":"tunnel/tcp.go:42","msg":"[TCP] 10.86.1.2:64567 <-> 129.212.136.190:443"}
+{"level":"warn","ts":1792969740.9145763,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.142.234:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969740.9650455,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 104.29.158.176:19307: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969741.3072493,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 104.29.153.81:19340: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"info","ts":1792969741.463878,"caller":"tunnel/tcp.go:42","msg":"[TCP] 10.86.1.2:50868 <-> 104.18.28.234:443"}
+{"level":"warn","ts":1792969741.5206807,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 160.79.104.10:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969741.9970248,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 104.29.158.176:19307: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969742.3464465,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969742.6257343,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969742.828862,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 104.18.27.48:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969742.8746414,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.142.234:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969742.9697914,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.142.234:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969742.9745605,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.142.234:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"info","ts":1792969743.0780306,"caller":"tunnel/tcp.go:42","msg":"[TCP] 10.86.1.2:63501 <-> 142.251.142.234:443"}
+{"level":"warn","ts":1792969743.2737448,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.142.234:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969743.549966,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.142.234:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"info","ts":1792969743.645,"caller":"tunnel/tcp.go:42","msg":"[TCP] 10.86.1.2:50848 <-> 142.251.142.234:443"}
+{"level":"warn","ts":1792969743.7769773,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.250.129.95:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969743.8561625,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.142.234:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969743.887177,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.142.234:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969743.9029777,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 160.79.104.10:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"info","ts":1792969744.2499483,"caller":"tunnel/tcp.go:42","msg":"[TCP] 10.86.1.2:57978 <-> 142.251.177.95:443"}
+{"level":"warn","ts":1792969744.4612107,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.142.234:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969744.553963,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 104.18.27.48:443: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969745.0094197,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 104.29.158.176:19307: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969745.0140285,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 104.29.153.81:19340: client handshake: UDP ASSOCIATE: command not supported"}
+{"level":"warn","ts":1792969745.1000183,"caller":"tunnel/udp.go:31","msg":"[UDP] dial 142.251.142.234:443: client handshake: UDP ASSOCIATE: command not supported"}
+
+
+--- admin-progress.json (last 100 lines) ---
+{"message":"Starting administrative script","script":"fw-audit.ps1","updated_ms":1792969799621}
+
+
+--- admin-steps.log (last 100 lines) ---
+[2026-10-25T22:05:14.7387871+00:00] fw-teardown.ps1 - Restoring original firewall profile defaults
+[2026-10-25T22:05:15.8862499+00:00] fw-teardown.ps1 - Reading current Local and Dynamic recovery rules
+[2026-10-25T22:05:24.8803593+00:00] fw-teardown.ps1 - Restoring 187 Local rules in one batch
+[2026-10-25T22:05:45.6318322+00:00] fw-teardown.ps1 - Restoring 1 Dynamic rules through live objects
+[2026-10-25T22:05:45.6617426+00:00] fw-teardown.ps1 - Verifying restored rule states
+[2026-10-25T22:05:55.5600101+00:00] fw-teardown.ps1 - Firewall recovery completed and verified
+[2026-10-25T22:14:24.5658497+00:00] fw-apply.ps1 - Reading effective firewall profiles
+[2026-10-25T22:14:25.5419432+00:00] fw-apply.ps1 - Reading traced outbound allow rules
+[2026-10-25T22:14:28.9841229+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities
+[2026-10-25T22:14:29.1181781+00:00] fw-apply.ps1 - Removing stale TorVPN rules
+[2026-10-25T22:14:30.5608676+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch
+[2026-10-25T22:14:54.0663061+00:00] fw-apply.ps1 - Local batch suspension returned
+[2026-10-25T22:14:54.0840649+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects
+[2026-10-25T22:14:54.1261841+00:00] fw-apply.ps1 - Dynamic suspension returned
+[2026-10-25T22:14:54.1397990+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension
+[2026-10-25T22:14:57.0983813+00:00] fw-apply.ps1 - Adding Tor, loopback and IPv6-block rules
+[2026-10-25T22:15:01.3068608+00:00] fw-teardown.ps1 - Reading saved firewall recovery state
+[2026-10-25T22:15:01.3689083+00:00] fw-teardown.ps1 - Restoring original firewall profile defaults
+[2026-10-25T22:15:02.4546718+00:00] fw-teardown.ps1 - Reading current Local and Dynamic recovery rules
+[2026-10-25T22:15:11.6504518+00:00] fw-teardown.ps1 - Restoring 187 Local rules in one batch
+[2026-10-25T22:15:33.2750091+00:00] fw-teardown.ps1 - Restoring 1 Dynamic rules through live objects
+[2026-10-25T22:15:33.3129433+00:00] fw-teardown.ps1 - Verifying restored rule states
+[2026-10-25T22:15:43.2762726+00:00] fw-teardown.ps1 - Firewall recovery completed and verified
+[2026-10-25T22:23:21.6444023+00:00] fw-apply.ps1 - Reading effective firewall profiles
+[2026-10-25T22:23:22.6869724+00:00] fw-apply.ps1 - Reading traced outbound allow rules
+[2026-10-25T22:23:25.9707923+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities
+[2026-10-25T22:23:26.1976760+00:00] fw-apply.ps1 - Removing stale TorVPN rules
+[2026-10-25T22:23:27.5900915+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch
+[2026-10-25T22:23:50.4741248+00:00] fw-apply.ps1 - Local batch suspension returned
+[2026-10-25T22:23:50.4831499+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects
+[2026-10-25T22:23:50.5303127+00:00] fw-apply.ps1 - Dynamic suspension returned
+[2026-10-25T22:23:50.5443132+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension
+[2026-10-25T22:23:53.5745393+00:00] fw-apply.ps1 - Adding IPv4-only Tor and loopback allow rules
+[2026-10-25T22:23:53.8390413+00:00] fw-apply.ps1 - Setting default outbound policy to Block
+[2026-10-25T22:23:54.1877381+00:00] fw-apply.ps1 - Verifying effective default outbound policy
+[2026-10-25T22:23:54.2528078+00:00] fw-apply.ps1 - Firewall protection applied and verified
+[2026-10-25T22:27:00.3892197+00:00] fw-teardown.ps1 - Reading saved firewall recovery state
+[2026-10-25T22:27:00.4542956+00:00] fw-teardown.ps1 - Restoring original firewall profile defaults
+[2026-10-25T22:27:01.8949700+00:00] fw-teardown.ps1 - Reading current Local and Dynamic recovery rules
+[2026-10-25T22:27:11.4514675+00:00] fw-teardown.ps1 - Restoring 187 Local rules in one batch
+[2026-10-25T22:27:33.9775044+00:00] fw-teardown.ps1 - Restoring 1 Dynamic rules through live objects
+[2026-10-25T22:27:34.0120419+00:00] fw-teardown.ps1 - Verifying restored rule states
+[2026-10-25T22:27:44.0046967+00:00] fw-teardown.ps1 - Firewall recovery completed and verified
+[2026-10-25T22:45:31.4878556+00:00] fw-audit.ps1 - Temporarily enabling blocked-connection evidence
+[2026-10-25T22:45:32.6916373+00:00] fw-apply.ps1 - Reading effective firewall profiles
+[2026-10-25T22:45:33.6599697+00:00] fw-apply.ps1 - Reading traced outbound allow rules
+[2026-10-25T22:45:37.2159835+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities
+[2026-10-25T22:45:37.4022282+00:00] fw-apply.ps1 - Removing stale TorVPN rules
+[2026-10-25T22:45:38.9219188+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch
+[2026-10-25T22:46:05.2704620+00:00] fw-apply.ps1 - Local batch suspension returned
+[2026-10-25T22:46:05.2894883+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects
+[2026-10-25T22:46:05.3448437+00:00] fw-apply.ps1 - Dynamic suspension returned
+[2026-10-25T22:46:05.3705244+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension
+[2026-10-25T22:46:08.5457747+00:00] fw-apply.ps1 - Adding IPv4-only Tor and loopback allow rules
+[2026-10-25T22:46:08.8445800+00:00] fw-apply.ps1 - Setting default outbound policy to Block
+[2026-10-25T22:46:09.2064712+00:00] fw-apply.ps1 - Verifying effective default outbound policy
+[2026-10-25T22:46:09.2737454+00:00] fw-apply.ps1 - Verifying the effective Tor executable exception: C:\Program Files\TorVPN\tor\tor.exe
+[2026-10-25T22:46:12.8884447+00:00] fw-apply.ps1 - Firewall protection applied and verified
+[2026-10-25T22:47:36.8639622+00:00] fw-audit.ps1 - Saving effective rules and Tor blocking-filter evidence before recovery
+[2026-10-25T22:48:10.5390016+00:00] fw-teardown.ps1 - Reading saved firewall recovery state
+[2026-10-25T22:48:10.5947265+00:00] fw-teardown.ps1 - Restoring original firewall profile defaults
+[2026-10-25T22:48:11.8440742+00:00] fw-teardown.ps1 - Reading current Local and Dynamic recovery rules
+[2026-10-25T22:48:19.7321218+00:00] fw-teardown.ps1 - Restoring 187 Local rules in one batch
+[2026-10-25T22:48:44.7185341+00:00] fw-teardown.ps1 - Restoring 1 Dynamic rules through live objects
+[2026-10-25T22:48:44.7640961+00:00] fw-teardown.ps1 - Verifying restored rule states
+[2026-10-25T22:48:56.5693429+00:00] fw-teardown.ps1 - Firewall recovery completed and verified
+[2026-10-25T23:07:31.0359424+00:00] fw-audit.ps1 - Temporarily enabling blocked-connection evidence
+[2026-10-25T23:07:32.0158480+00:00] fw-apply.ps1 - Reading effective firewall profiles
+[2026-10-25T23:07:32.9746704+00:00] fw-apply.ps1 - Reading traced outbound allow rules
+[2026-10-25T23:07:36.6794221+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities
+[2026-10-25T23:07:36.8268856+00:00] fw-apply.ps1 - Removing stale TorVPN rules
+[2026-10-25T23:07:38.3857380+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch
+[2026-10-25T23:08:06.5150897+00:00] fw-apply.ps1 - Local batch suspension returned
+[2026-10-25T23:08:06.5332288+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects
+[2026-10-25T23:08:06.5853162+00:00] fw-apply.ps1 - Dynamic suspension returned
+[2026-10-25T23:08:06.6021039+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension
+[2026-10-25T23:08:09.8229538+00:00] fw-apply.ps1 - Setting default outbound policy to Block
+[2026-10-25T23:08:10.1239826+00:00] fw-apply.ps1 - Verifying effective default outbound policy
+[2026-10-25T23:08:10.2073332+00:00] fw-apply.ps1 - Adding IPv4-only exceptions after default-block activation
+[2026-10-25T23:08:10.5847787+00:00] fw-apply.ps1 - Verifying the effective Tor executable exception: C:\Program Files\TorVPN\tor\tor.exe
+[2026-10-25T23:08:14.0160088+00:00] fw-apply.ps1 - Saving effective Tor address and TCP port filters
+[2026-10-25T23:08:14.2112566+00:00] fw-apply.ps1 - Firewall protection applied and verified
+[2026-10-25T23:08:31.0219166+00:00] fw-apply.ps1 - Waiting for the named tunnel adapter
+[2026-10-25T23:08:33.2402560+00:00] fw-apply.ps1 - Adding the tunnel-interface allow rule
+[2026-10-25T23:08:55.4786817+00:00] fw-audit.ps1 - Saving effective rules and Tor blocking-filter evidence before recovery
+[2026-10-25T23:08:55.6029101+00:00] fw-audit.ps1 - Reading Tor block events first
+[2026-10-25T23:08:56.1428404+00:00] fw-audit.ps1 - Reading effective profiles
+[2026-10-25T23:08:57.1096155+00:00] fw-audit.ps1 - Reading TorVPN rules
+[2026-10-25T23:09:00.6757127+00:00] fw-audit.ps1 - Reading Tor Application filters
+[2026-10-25T23:09:00.7769385+00:00] fw-audit.ps1 - Reading Tor Address filters
+[2026-10-25T23:09:00.8640840+00:00] fw-audit.ps1 - Reading Tor Port filters
+[2026-10-25T23:09:00.9556349+00:00] fw-audit.ps1 - Reading enabled outbound blocks
+[2026-10-25T23:09:04.3428156+00:00] fw-audit.ps1 - Reading WFP dump; earlier evidence already saved
+[2026-10-25T23:09:11.2507411+00:00] fw-teardown.ps1 - Reading saved firewall recovery state
+[2026-10-25T23:09:11.3068651+00:00] fw-teardown.ps1 - Restoring original firewall profile defaults
+[2026-10-25T23:09:12.6201590+00:00] fw-teardown.ps1 - Reading current Local and Dynamic recovery rules
+[2026-10-25T23:09:22.9920150+00:00] fw-teardown.ps1 - Restoring 187 Local rules in one batch
+[2026-10-25T23:09:47.9708649+00:00] fw-teardown.ps1 - Restoring 1 Dynamic rules through live objects
+[2026-10-25T23:09:48.0157801+00:00] fw-teardown.ps1 - Verifying restored rule states
+[2026-10-25T23:09:59.5229803+00:00] fw-teardown.ps1 - Firewall recovery completed and verified
+
+
+--- script-fw-apply.ps1.log (last 100 lines) ---
+[2026-10-25T23:08:31.0219166+00:00] fw-apply.ps1 - Waiting for the named tunnel adapter
+[2026-10-25T23:08:33.2402560+00:00] fw-apply.ps1 - Adding the tunnel-interface allow rule
+
+
+--- script-fw-teardown.ps1.log (last 100 lines) ---
+[2026-10-25T23:09:11.2507411+00:00] fw-teardown.ps1 - Reading saved firewall recovery state
+[2026-10-25T23:09:11.3068651+00:00] fw-teardown.ps1 - Restoring original firewall profile defaults
+[2026-10-25T23:09:12.6201590+00:00] fw-teardown.ps1 - Reading current Local and Dynamic recovery rules
+[2026-10-25T23:09:22.9920150+00:00] fw-teardown.ps1 - Restoring 187 Local rules in one batch
+[2026-10-25T23:09:47.9708649+00:00] fw-teardown.ps1 - Restoring 1 Dynamic rules through live objects
+[2026-10-25T23:09:48.0157801+00:00] fw-teardown.ps1 - Verifying restored rule states
+[2026-10-25T23:09:59.5229803+00:00] fw-teardown.ps1 - Firewall recovery completed and verified
+Original firewall profiles and saved Local/Dynamic allow rules restored.
+
+
+--- tor-start.json ---
+{"path":"C:\\Program Files\\TorVPN\\tor\\tor.exe","process_id":764,"started_utc":1792969694}
+
+--- firewall-armed.json ---
+{
+    "RequestedIPv4Scope":  [
+                               "0.0.0.0/1",
+                               "128.0.0.0/1"
+                           ],
+    "ExpectedProgram":  "C:\\Program Files\\TorVPN\\tor\\tor.exe",
+    "ApplicationFilters":  [
+                               {
+                                   "Program":  "C:\\Program Files\\TorVPN\\tor\\tor.exe",
+                                   "Package":  null
+                               }
+                           ],
+    "AddressFilters":  [
+                           {
+                               "LocalAddress":  "Any",
+                               "RemoteAddress":  {
+                                                     "value":  [
+                                                                   "0.0.0.0/128.0.0.0",
+                                                                   "128.0.0.0/128.0.0.0"
+                                                               ],
+                                                     "Count":  2
+                                                 }
+                           }
+                       ],
+    "Profiles":  [
+                     {
+                         "Name":  "Domain",
+                         "Enabled":  1,
+                         "DefaultOutboundAction":  4,
+                         "AllowLocalFirewallRules":  1,
+                         "AllowLocalIPsecRules":  1,
+                         "DisabledInterfaceAliases":  null
+                     },
+                     {
+                         "Name":  "Private",
+                         "Enabled":  1,
+                         "DefaultOutboundAction":  4,
+                         "AllowLocalFirewallRules":  1,
+                         "AllowLocalIPsecRules":  1,
+                         "DisabledInterfaceAliases":  null
+                     },
+                     {
+                         "Name":  "Public",
+                         "Enabled":  1,
+                         "DefaultOutboundAction":  4,
+                         "AllowLocalFirewallRules":  1,
+                         "AllowLocalIPsecRules":  1,
+                         "DisabledInterfaceAliases":  null
+                     }
+                 ],
+    "PortFilters":  [
+                        {
+                            "Protocol":  "TCP",
+                            "LocalPort":  "Any",
+                            "RemotePort":  "Any"
+                        }
+                    ],
+    "TorRules":  [
+                     {
+                         "Name":  "{585002e4-cd36-489b-9ce5-9e61136a9660}",
+                         "DisplayName":  "TORVPN Allow Tor TCP",
+                         "Enabled":  1,
+                         "Action":  2,
+                         "Direction":  2,
+                         "Profile":  0,
+                         "PrimaryStatus":  1,
+                         "Status":  "The rule was parsed successfully from the store. (65536)",
+                         "EnforcementStatus":  {
+                                                   "value":  [
+                                                                 "ProfileInactive",
+                                                                 "Enforced"
+                                                             ],
+                                                   "Count":  2
+                                               },
+                         "PolicyStoreSourceType":  1,
+                         "PolicyStoreSource":  "PersistentStore"
+                     }
+                 ]
+}
+
+
+--- firewall-evidence.json ---
+Large evidence file retained locally at C:\ProgramData\torvpn\firewall-evidence.json; omitted from this report.
+
+--- audit-backup.json ---
+File absent
+
+--- audit-session.json ---
+{
+    "TorPath":  "C:\\Program Files\\TorVPN\\tor\\tor.exe",
+    "StartedUtc":  "2026-10-25T23:07:31.1273884Z"
+}
+
+
+--- script-fw-audit.ps1.log ---
+
+--- tray.log (last 50 lines) ---
+[2026-09-06T18:12:04Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-07T01:06:58Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-09T10:29:56Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-15T12:19:28Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-21T09:11:10Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-23T09:49:47Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-26T07:26:43Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-10-02T14:25:14Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-10-08T16:46:50Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-10-14T17:13:13Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-10-25T21:28:35Z INFO  torvpn_tray] torvpn-tray 0.3.0 starting
+[2026-10-25T21:34:59Z WARN  torvpn_tray] status: connect 127.0.0.1:8787: No connection could be made because the target machine actively refused it. (os error 10061)
+[2026-10-25T21:35:03Z WARN  torvpn_tray] status: connect 127.0.0.1:8787: No connection could be made because the target machine actively refused it. (os error 10061)
+[2026-10-25T21:43:06Z WARN  torvpn_tray] status: connect 127.0.0.1:8787: No connection could be made because the target machine actively refused it. (os error 10061)
+[2026-10-25T21:43:09Z WARN  torvpn_tray] status: connect 127.0.0.1:8787: No connection could be made because the target machine actively refused it. (os error 10061)
+[2026-10-25T21:49:04Z ERROR torvpn_tray] action: HTTP 500: {"error":"firewall setup: fw-apply.ps1 timed out: deadline has elapsed"}
+[2026-10-25T22:04:31Z INFO  torvpn_tray] torvpn-tray 0.3.1 starting
+[2026-10-25T22:14:18Z INFO  torvpn_tray] torvpn-tray 0.3.1 starting
+[2026-10-25T22:23:15Z INFO  torvpn_tray] torvpn-tray 0.3.1 starting
+[2026-10-25T22:45:25Z INFO  torvpn_tray] torvpn-tray 0.3.2 starting
+[2026-10-25T23:07:23Z INFO  torvpn_tray] torvpn-tray 0.3.2 starting
+
+
+--- TorVPN adapter ---
+
+
+--- firewall profiles ---
+
+Name    Enabled DefaultOutboundAction
+----    ------- ---------------------
+Domain     True                 Allow
+Private    True                 Allow
+Public     True                 Allow
+
+
+
+--- Traced outbound allow rule origins ---
+
+Name    Count
+----    -----
+Local     187
+Dynamic     1
+
+
+
+Name                  : {d7a3cb97-faab-4142-9af4-abb9241b99e1}
+DisplayName           : Internet Connection Sharing (SharedAccess-Out)
+PolicyStoreSourceType : Dynamic
+PolicyStoreSource     : ActiveStore
+
+

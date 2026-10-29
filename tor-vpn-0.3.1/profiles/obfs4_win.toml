@@ -1,0 +1,71 @@
+[startup]
+auto_connect = true
+
+# =============================================================================
+# TorVPN — obfs4 example profile
+# =============================================================================
+# Use this profile if you're on a network that blocks/throttles Tor. Drop it
+# at %ProgramData%\torvpn\profile.toml and edit the [tor] section to point at
+# a real obfs4 bridge + obfs4proxy.exe binary.
+#
+# Speed will be lower than the default profile — bridges are slower than the
+# public guard pool — but reachability wins.
+# =============================================================================
+
+[status]
+enabled = true
+listen  = "127.0.0.1:8787"
+
+[tun]
+interface = "torvpn"
+mtu       = 1400
+# See default_win.toml for the full explanation. false = safe test mode.
+full_tunnel = false
+
+[tor]
+socks_port              = 9050
+# MUST be 53 for system DNS to resolve through tor (Windows NRPT only talks :53).
+dns_port                = 53
+control_port            = 9051
+use_bridges             = true
+client_transport_plugin = "C:\\Program Files\\TorVPN\\obfs4proxy\\obfs4proxy.exe"
+bridges = [
+  # Replace with real bridges from https://bridges.torproject.org/ — example
+  # format only:
+  # "obfs4 192.0.2.10:443 ABCDEF... cert=... iat-mode=0",
+]
+tor_path_hint = ""
+
+[tun2socks]
+binary = "tun2socks.exe"
+
+[proxy]
+enabled  = false
+rotation = "off"
+proxies  = []
+
+[exit]
+countries = []
+strict    = true
+
+[pqc]
+enabled  = false
+algo_sig = "dilithium2"
+algo_kem = "kyber1024"
+
+[hop]
+enabled      = false
+randomize    = false
+loop_forever = true
+jitter       = "0s"
+sequence     = []
+
+[perf]
+# Bridges already constrain throughput; we relax the speed knobs a touch so
+# we don't churn circuits unnecessarily on a slower path. tun2socks dials one
+# SOCKS port, so 1 is correct here too (see default_win.toml for the why).
+parallel_socks_ports       = 1
+circuit_build_timeout_secs = 20
+num_entry_guards           = 1
+ipv4_only                  = true
+disable_padding            = false   # keep padding on for bridge users

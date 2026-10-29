@@ -1,0 +1,53 @@
+# TorVPN 0.3.3 Windows profile. Restart the service after editing.
+[startup]
+auto_connect = true
+
+[status]
+enabled = true
+listen = "127.0.0.1:8787"
+
+[tun]
+interface = "torvpn"
+mtu = 1400
+# false is diagnostic SOCKS-only mode: it does not redirect Windows traffic.
+full_tunnel = true
+
+[tor]
+socks_port = 9050
+dns_port = 53
+control_port = 9051
+use_bridges = false
+client_transport_plugin = ""
+bridges = []
+tor_path_hint = ""
+
+[tun2socks]
+binary = "tun2socks.exe"
+
+[proxy]
+enabled = false
+rotation = "off"
+proxies = []
+
+[exit]
+countries = []
+strict = true
+
+[pqc]
+enabled = false
+algo_sig = "dilithium2"
+algo_kem = "kyber1024"
+
+[hop]
+enabled = false
+randomize = false
+loop_forever = true
+jitter = "0s"
+sequence = []
+
+[perf]
+parallel_socks_ports = 1
+circuit_build_timeout_secs = 60
+num_entry_guards = 1
+ipv4_only = true
+disable_padding = false

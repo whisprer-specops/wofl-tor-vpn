@@ -1,0 +1,253 @@
+TorVPN diagnostic - 2026-10-25T22:15:43.5316141Z
+
+Name      : TorVPN
+State     : Running
+StartMode : Auto
+ExitCode  : 0
+PathName  : "C:\Program Files\TorVPN\torvpn-svc.exe" service-run
+
+
+
+--- state.json (last 100 lines) ---
+{
+  "phase": "error",
+  "message": "firewall setup: fw-apply.ps1 failed (exit code: 1): [2026-10-25T22:14:24.5658497+00:00] fw-apply.ps1 - Reading effective firewall profiles\r\n[2026-10-25T22:14:25.5419432+00:00] fw-apply.ps1 - Reading traced outbound allow rules\r\n[2026-10-25T22:14:28.9841229+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities\r\n[2026-10-25T22:14:29.1181781+00:00] fw-apply.ps1 - Removing stale TorVPN rules\r\n[2026-10-25T22:14:30.5608676+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch\r\n[2026-10-25T22:14:54.0663061+00:00] fw-apply.ps1 - Local batch suspension returned\r\n[2026-10-25T22:14:54.0840649+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects\r\n[2026-10-25T22:14:54.1261841+00:00] fw-apply.ps1 - Dynamic suspension returned\r\n[2026-10-25T22:14:54.1397990+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension\r\n[2026-10-25T22:14:57.0983813+00:00] fw-apply.ps1 - Adding Tor, loopback and IPv6-block rules\r\nNew-NetFirewallRule : An unspecified, multicast, broadcast or loopback IPv6 address was specified.\r\nAt C:\\Program Files\\TorVPN\\scripts\\fw-apply.ps1:81 char:1\r\n+ New-NetFirewallRule -DisplayName 'TORVPN Allow Loopback v6' -Group $g ...\r\n+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : InvalidArgument: (MSFT_NetFirewallRule:root/standardcimv2/MSFT_NetFirewallRule) [New-Net \r\n   FirewallRule], CimException\r\n    + FullyQualifiedErrorId : HRESULT 0x80070057,New-NetFirewallRule (output: C:\\ProgramData\\torvpn\\script-fw-apply.ps1.log)",
+  "since_ms": 1792966543370,
+  "tor_pid": null,
+  "tun2socks_pid": null,
+  "full_tunnel": true,
+  "exit_ip": null
+}
+
+
+--- svc.log (last 100 lines) ---
+    [2026-10-25T22:04:38.4832143+00:00] fw-apply.ps1 - Reading traced outbound allow rules
+    [2026-10-25T22:04:41.9317865+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities
+    [2026-10-25T22:04:42.0625341+00:00] fw-apply.ps1 - Removing stale TorVPN rules
+    [2026-10-25T22:04:43.3713041+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch
+    [2026-10-25T22:05:07.5428285+00:00] fw-apply.ps1 - Local batch suspension returned
+    [2026-10-25T22:05:07.5540599+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects
+    [2026-10-25T22:05:07.5857255+00:00] fw-apply.ps1 - Dynamic suspension returned
+    [2026-10-25T22:05:07.5976503+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension
+    Get-NetFirewallRule : No matching MSFT_NetFirewallRule objects found by CIM query for instances of the 
+    root/standardcimv2/MSFT_NetFirewallRule class on the  CIM server: SELECT * FROM MSFT_NetFirewallRule  WHERE ((Enabled 
+    = 1)) AND ((Direction = 2)) AND ((Action = 2)). Verify query parameters and retry.
+    At C:\Program Files\TorVPN\scripts\fw-apply.ps1:72 char:16
+    + ... maining = @(Get-NetFirewallRule -PolicyStore ActiveStore -TracePolicy ...
+    +                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        + CategoryInfo          : ObjectNotFound: (MSFT_NetFirewallRule:String) [Get-NetFirewallRule], CimJobException
+        + FullyQualifiedErrorId : CmdletizationQuery_NotFound,Get-NetFirewallRule (output: C:\ProgramData\torvpn\script-fw-apply.ps1.log)
+[2026-10-25T22:05:55Z ERROR torvpn_svc] [service] automatic connect failed: firewall setup: fw-apply.ps1 failed (exit code: 1): [2026-10-25T22:04:37.5149388+00:00] fw-apply.ps1 - Reading effective firewall profiles
+    [2026-10-25T22:04:38.4832143+00:00] fw-apply.ps1 - Reading traced outbound allow rules
+    [2026-10-25T22:04:41.9317865+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities
+    [2026-10-25T22:04:42.0625341+00:00] fw-apply.ps1 - Removing stale TorVPN rules
+    [2026-10-25T22:04:43.3713041+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch
+    [2026-10-25T22:05:07.5428285+00:00] fw-apply.ps1 - Local batch suspension returned
+    [2026-10-25T22:05:07.5540599+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects
+    [2026-10-25T22:05:07.5857255+00:00] fw-apply.ps1 - Dynamic suspension returned
+    [2026-10-25T22:05:07.5976503+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension
+    Get-NetFirewallRule : No matching MSFT_NetFirewallRule objects found by CIM query for instances of the 
+    root/standardcimv2/MSFT_NetFirewallRule class on the  CIM server: SELECT * FROM MSFT_NetFirewallRule  WHERE ((Enabled 
+    = 1)) AND ((Direction = 2)) AND ((Action = 2)). Verify query parameters and retry.
+    At C:\Program Files\TorVPN\scripts\fw-apply.ps1:72 char:16
+    + ... maining = @(Get-NetFirewallRule -PolicyStore ActiveStore -TracePolicy ...
+    +                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        + CategoryInfo          : ObjectNotFound: (MSFT_NetFirewallRule:String) [Get-NetFirewallRule], CimJobException
+        + FullyQualifiedErrorId : CmdletizationQuery_NotFound,Get-NetFirewallRule (output: C:\ProgramData\torvpn\script-fw-apply.ps1.log)
+[2026-10-25T22:14:04Z INFO  torvpn_svc] torvpn-svc 0.3.1 starting, args: ["C:\\Program Files\\TorVPN\\torvpn-svc.exe", "--version"]
+[2026-10-25T22:14:04Z INFO  torvpn_core::state] [state] Disengaging: Restoring network settings
+[2026-10-25T22:14:04Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-route-teardown.ps1.log
+[2026-10-25T22:14:05Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 completed
+[2026-10-25T22:14:05Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-dns-teardown.ps1.log
+[2026-10-25T22:14:08Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 completed
+[2026-10-25T22:14:08Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-fw-teardown.ps1.log
+[2026-10-25T22:14:11Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 completed
+[2026-10-25T22:14:11Z INFO  torvpn_core::state] [state] Disengaged: Disconnected; original network settings restored
+[2026-10-25T22:14:11Z INFO  torvpn_svc] torvpn-svc 0.3.1 starting, args: ["C:\\Program Files\\TorVPN\\torvpn-svc.exe", "service-run"]
+[2026-10-25T22:14:11Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-route-teardown.ps1.log
+[2026-10-25T22:14:12Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 completed
+[2026-10-25T22:14:12Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-dns-teardown.ps1.log
+[2026-10-25T22:14:15Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 completed
+[2026-10-25T22:14:15Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-fw-teardown.ps1.log
+[2026-10-25T22:14:18Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 completed
+[2026-10-25T22:14:18Z INFO  torvpn_core::control_server] control server: listening on 127.0.0.1:8787
+[2026-10-25T22:14:18Z INFO  torvpn_svc] [service] control server ready
+[2026-10-25T22:14:18Z INFO  torvpn_core::state] [state] Engaging: Recovering previous session settings
+[2026-10-25T22:14:18Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-route-teardown.ps1.log
+[2026-10-25T22:14:18Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 completed
+[2026-10-25T22:14:18Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-dns-teardown.ps1.log
+[2026-10-25T22:14:21Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 completed
+[2026-10-25T22:14:21Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-fw-teardown.ps1.log
+[2026-10-25T22:14:24Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 completed
+[2026-10-25T22:14:24Z INFO  torvpn_core::state] [state] Engaging: Applying firewall protection
+[2026-10-25T22:14:24Z INFO  torvpn_core::windows_script] [script] fw-apply.ps1 starting; output: C:\ProgramData\torvpn\script-fw-apply.ps1.log
+[2026-10-25T22:14:57Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-route-teardown.ps1.log
+[2026-10-25T22:14:57Z INFO  torvpn_core::windows_script] [script] route-teardown.ps1 completed
+[2026-10-25T22:14:57Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-dns-teardown.ps1.log
+[2026-10-25T22:15:00Z INFO  torvpn_core::windows_script] [script] dns-teardown.ps1 completed
+[2026-10-25T22:15:00Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 starting; output: C:\ProgramData\torvpn\script-fw-teardown.ps1.log
+[2026-10-25T22:15:43Z INFO  torvpn_core::windows_script] [script] fw-teardown.ps1 completed
+[2026-10-25T22:15:43Z INFO  torvpn_core::state] [state] Error: firewall setup: fw-apply.ps1 failed (exit code: 1): [2026-10-25T22:14:24.5658497+00:00] fw-apply.ps1 - Reading effective firewall profiles
+    [2026-10-25T22:14:25.5419432+00:00] fw-apply.ps1 - Reading traced outbound allow rules
+    [2026-10-25T22:14:28.9841229+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities
+    [2026-10-25T22:14:29.1181781+00:00] fw-apply.ps1 - Removing stale TorVPN rules
+    [2026-10-25T22:14:30.5608676+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch
+    [2026-10-25T22:14:54.0663061+00:00] fw-apply.ps1 - Local batch suspension returned
+    [2026-10-25T22:14:54.0840649+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects
+    [2026-10-25T22:14:54.1261841+00:00] fw-apply.ps1 - Dynamic suspension returned
+    [2026-10-25T22:14:54.1397990+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension
+    [2026-10-25T22:14:57.0983813+00:00] fw-apply.ps1 - Adding Tor, loopback and IPv6-block rules
+    New-NetFirewallRule : An unspecified, multicast, broadcast or loopback IPv6 address was specified.
+    At C:\Program Files\TorVPN\scripts\fw-apply.ps1:81 char:1
+    + New-NetFirewallRule -DisplayName 'TORVPN Allow Loopback v6' -Group $g ...
+    + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        + CategoryInfo          : InvalidArgument: (MSFT_NetFirewallRule:root/standardcimv2/MSFT_NetFirewallRule) [New-Net 
+       FirewallRule], CimException
+        + FullyQualifiedErrorId : HRESULT 0x80070057,New-NetFirewallRule (output: C:\ProgramData\torvpn\script-fw-apply.ps1.log)
+[2026-10-25T22:15:43Z ERROR torvpn_svc] [service] automatic connect failed: firewall setup: fw-apply.ps1 failed (exit code: 1): [2026-10-25T22:14:24.5658497+00:00] fw-apply.ps1 - Reading effective firewall profiles
+    [2026-10-25T22:14:25.5419432+00:00] fw-apply.ps1 - Reading traced outbound allow rules
+    [2026-10-25T22:14:28.9841229+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities
+    [2026-10-25T22:14:29.1181781+00:00] fw-apply.ps1 - Removing stale TorVPN rules
+    [2026-10-25T22:14:30.5608676+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch
+    [2026-10-25T22:14:54.0663061+00:00] fw-apply.ps1 - Local batch suspension returned
+    [2026-10-25T22:14:54.0840649+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects
+    [2026-10-25T22:14:54.1261841+00:00] fw-apply.ps1 - Dynamic suspension returned
+    [2026-10-25T22:14:54.1397990+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension
+    [2026-10-25T22:14:57.0983813+00:00] fw-apply.ps1 - Adding Tor, loopback and IPv6-block rules
+    New-NetFirewallRule : An unspecified, multicast, broadcast or loopback IPv6 address was specified.
+    At C:\Program Files\TorVPN\scripts\fw-apply.ps1:81 char:1
+    + New-NetFirewallRule -DisplayName 'TORVPN Allow Loopback v6' -Group $g ...
+    + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+        + CategoryInfo          : InvalidArgument: (MSFT_NetFirewallRule:root/standardcimv2/MSFT_NetFirewallRule) [New-Net 
+       FirewallRule], CimException
+        + FullyQualifiedErrorId : HRESULT 0x80070057,New-NetFirewallRule (output: C:\ProgramData\torvpn\script-fw-apply.ps1.log)
+
+
+--- tun2socks.log (last 100 lines) ---
+File absent
+
+--- admin-progress.json (last 100 lines) ---
+{
+    "script":  "fw-teardown.ps1",
+    "message":  "Firewall recovery completed and verified",
+    "updated_ms":  1792966543276
+}
+
+
+--- admin-steps.log (last 100 lines) ---
+[2026-10-25T22:04:37.5149388+00:00] fw-apply.ps1 - Reading effective firewall profiles
+[2026-10-25T22:04:38.4832143+00:00] fw-apply.ps1 - Reading traced outbound allow rules
+[2026-10-25T22:04:41.9317865+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities
+[2026-10-25T22:04:42.0625341+00:00] fw-apply.ps1 - Removing stale TorVPN rules
+[2026-10-25T22:04:43.3713041+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch
+[2026-10-25T22:05:07.5428285+00:00] fw-apply.ps1 - Local batch suspension returned
+[2026-10-25T22:05:07.5540599+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects
+[2026-10-25T22:05:07.5857255+00:00] fw-apply.ps1 - Dynamic suspension returned
+[2026-10-25T22:05:07.5976503+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension
+[2026-10-25T22:05:14.6546556+00:00] fw-teardown.ps1 - Reading saved firewall recovery state
+[2026-10-25T22:05:14.7387871+00:00] fw-teardown.ps1 - Restoring original firewall profile defaults
+[2026-10-25T22:05:15.8862499+00:00] fw-teardown.ps1 - Reading current Local and Dynamic recovery rules
+[2026-10-25T22:05:24.8803593+00:00] fw-teardown.ps1 - Restoring 187 Local rules in one batch
+[2026-10-25T22:05:45.6318322+00:00] fw-teardown.ps1 - Restoring 1 Dynamic rules through live objects
+[2026-10-25T22:05:45.6617426+00:00] fw-teardown.ps1 - Verifying restored rule states
+[2026-10-25T22:05:55.5600101+00:00] fw-teardown.ps1 - Firewall recovery completed and verified
+[2026-10-25T22:14:24.5658497+00:00] fw-apply.ps1 - Reading effective firewall profiles
+[2026-10-25T22:14:25.5419432+00:00] fw-apply.ps1 - Reading traced outbound allow rules
+[2026-10-25T22:14:28.9841229+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities
+[2026-10-25T22:14:29.1181781+00:00] fw-apply.ps1 - Removing stale TorVPN rules
+[2026-10-25T22:14:30.5608676+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch
+[2026-10-25T22:14:54.0663061+00:00] fw-apply.ps1 - Local batch suspension returned
+[2026-10-25T22:14:54.0840649+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects
+[2026-10-25T22:14:54.1261841+00:00] fw-apply.ps1 - Dynamic suspension returned
+[2026-10-25T22:14:54.1397990+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension
+[2026-10-25T22:14:57.0983813+00:00] fw-apply.ps1 - Adding Tor, loopback and IPv6-block rules
+[2026-10-25T22:15:01.3068608+00:00] fw-teardown.ps1 - Reading saved firewall recovery state
+[2026-10-25T22:15:01.3689083+00:00] fw-teardown.ps1 - Restoring original firewall profile defaults
+[2026-10-25T22:15:02.4546718+00:00] fw-teardown.ps1 - Reading current Local and Dynamic recovery rules
+[2026-10-25T22:15:11.6504518+00:00] fw-teardown.ps1 - Restoring 187 Local rules in one batch
+[2026-10-25T22:15:33.2750091+00:00] fw-teardown.ps1 - Restoring 1 Dynamic rules through live objects
+[2026-10-25T22:15:33.3129433+00:00] fw-teardown.ps1 - Verifying restored rule states
+[2026-10-25T22:15:43.2762726+00:00] fw-teardown.ps1 - Firewall recovery completed and verified
+
+
+--- script-fw-apply.ps1.log (last 100 lines) ---
+[2026-10-25T22:14:24.5658497+00:00] fw-apply.ps1 - Reading effective firewall profiles
+[2026-10-25T22:14:25.5419432+00:00] fw-apply.ps1 - Reading traced outbound allow rules
+[2026-10-25T22:14:28.9841229+00:00] fw-apply.ps1 - Saving original profiles and enabled rule identities
+[2026-10-25T22:14:29.1181781+00:00] fw-apply.ps1 - Removing stale TorVPN rules
+[2026-10-25T22:14:30.5608676+00:00] fw-apply.ps1 - Suspending 187 Local rules in one batch
+[2026-10-25T22:14:54.0663061+00:00] fw-apply.ps1 - Local batch suspension returned
+[2026-10-25T22:14:54.0840649+00:00] fw-apply.ps1 - Suspending 1 Dynamic rules through live objects
+[2026-10-25T22:14:54.1261841+00:00] fw-apply.ps1 - Dynamic suspension returned
+[2026-10-25T22:14:54.1397990+00:00] fw-apply.ps1 - Verifying effective outbound allow rules after suspension
+[2026-10-25T22:14:57.0983813+00:00] fw-apply.ps1 - Adding Tor, loopback and IPv6-block rules
+New-NetFirewallRule : An unspecified, multicast, broadcast or loopback IPv6 address was specified.
+At C:\Program Files\TorVPN\scripts\fw-apply.ps1:81 char:1
++ New-NetFirewallRule -DisplayName 'TORVPN Allow Loopback v6' -Group $g ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (MSFT_NetFirewallRule:root/standardcimv2/MSFT_NetFirewallRule) [New-Net 
+   FirewallRule], CimException
+    + FullyQualifiedErrorId : HRESULT 0x80070057,New-NetFirewallRule
+ 
+
+
+--- script-fw-teardown.ps1.log (last 100 lines) ---
+[2026-10-25T22:15:01.3068608+00:00] fw-teardown.ps1 - Reading saved firewall recovery state
+[2026-10-25T22:15:01.3689083+00:00] fw-teardown.ps1 - Restoring original firewall profile defaults
+[2026-10-25T22:15:02.4546718+00:00] fw-teardown.ps1 - Reading current Local and Dynamic recovery rules
+[2026-10-25T22:15:11.6504518+00:00] fw-teardown.ps1 - Restoring 187 Local rules in one batch
+[2026-10-25T22:15:33.2750091+00:00] fw-teardown.ps1 - Restoring 1 Dynamic rules through live objects
+[2026-10-25T22:15:33.3129433+00:00] fw-teardown.ps1 - Verifying restored rule states
+[2026-10-25T22:15:43.2762726+00:00] fw-teardown.ps1 - Firewall recovery completed and verified
+Original firewall profiles and saved Local/Dynamic allow rules restored.
+
+
+--- tray.log (last 50 lines) ---
+[2026-09-06T18:12:04Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-07T01:06:58Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-09T10:29:56Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-15T12:19:28Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-21T09:11:10Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-23T09:49:47Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-09-26T07:26:43Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-10-02T14:25:14Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-10-08T16:46:50Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-10-14T17:13:13Z INFO  torvpn_tray] torvpn-tray 0.2.0 starting
+[2026-10-25T21:28:35Z INFO  torvpn_tray] torvpn-tray 0.3.0 starting
+[2026-10-25T21:34:59Z WARN  torvpn_tray] status: connect 127.0.0.1:8787: No connection could be made because the target machine actively refused it. (os error 10061)
+[2026-10-25T21:35:03Z WARN  torvpn_tray] status: connect 127.0.0.1:8787: No connection could be made because the target machine actively refused it. (os error 10061)
+[2026-10-25T21:43:06Z WARN  torvpn_tray] status: connect 127.0.0.1:8787: No connection could be made because the target machine actively refused it. (os error 10061)
+[2026-10-25T21:43:09Z WARN  torvpn_tray] status: connect 127.0.0.1:8787: No connection could be made because the target machine actively refused it. (os error 10061)
+[2026-10-25T21:49:04Z ERROR torvpn_tray] action: HTTP 500: {"error":"firewall setup: fw-apply.ps1 timed out: deadline has elapsed"}
+[2026-10-25T22:04:31Z INFO  torvpn_tray] torvpn-tray 0.3.1 starting
+[2026-10-25T22:14:18Z INFO  torvpn_tray] torvpn-tray 0.3.1 starting
+
+
+--- TorVPN adapter ---
+
+
+--- firewall profiles ---
+
+Name    Enabled DefaultOutboundAction
+----    ------- ---------------------
+Domain     True                 Allow
+Private    True                 Allow
+Public     True                 Allow
+
+
+
+--- Traced outbound allow rule origins ---
+
+Name    Count
+----    -----
+Local     187
+Dynamic     1
+
+
+
+Name                  : {d7a3cb97-faab-4142-9af4-abb9241b99e1}
+DisplayName           : Internet Connection Sharing (SharedAccess-Out)
+PolicyStoreSourceType : Dynamic
+PolicyStoreSource     : ActiveStore
+
+
