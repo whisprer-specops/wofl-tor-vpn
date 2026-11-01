@@ -1,0 +1,263 @@
+[
+  {
+    "InterfaceAlias": "Local Area Connection* 2",
+    "InterfaceIndex": 19,
+    "AddressFamily": 2,
+    "DestinationPrefix": "255.255.255.255/32",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "WiFi",
+    "InterfaceIndex": 11,
+    "AddressFamily": 2,
+    "DestinationPrefix": "255.255.255.255/32",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "vEthernet (Default Switch)",
+    "InterfaceIndex": 22,
+    "AddressFamily": 2,
+    "DestinationPrefix": "255.255.255.255/32",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "Local Area Connection* 1",
+    "InterfaceIndex": 10,
+    "AddressFamily": 2,
+    "DestinationPrefix": "255.255.255.255/32",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "Loopback Pseudo-Interface 1",
+    "InterfaceIndex": 1,
+    "AddressFamily": 2,
+    "DestinationPrefix": "255.255.255.255/32",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "Local Area Connection* 2",
+    "InterfaceIndex": 19,
+    "AddressFamily": 2,
+    "DestinationPrefix": "224.0.0.0/4",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "WiFi",
+    "InterfaceIndex": 11,
+    "AddressFamily": 2,
+    "DestinationPrefix": "224.0.0.0/4",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "vEthernet (Default Switch)",
+    "InterfaceIndex": 22,
+    "AddressFamily": 2,
+    "DestinationPrefix": "224.0.0.0/4",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "Local Area Connection* 1",
+    "InterfaceIndex": 10,
+    "AddressFamily": 2,
+    "DestinationPrefix": "224.0.0.0/4",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "Loopback Pseudo-Interface 1",
+    "InterfaceIndex": 1,
+    "AddressFamily": 2,
+    "DestinationPrefix": "224.0.0.0/4",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "WiFi",
+    "InterfaceIndex": 11,
+    "AddressFamily": 2,
+    "DestinationPrefix": "192.168.1.255/32",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "WiFi",
+    "InterfaceIndex": 11,
+    "AddressFamily": 2,
+    "DestinationPrefix": "192.168.1.171/32",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "WiFi",
+    "InterfaceIndex": 11,
+    "AddressFamily": 2,
+    "DestinationPrefix": "192.168.1.50/32",
+    "NextHop": "192.168.1.1",
+    "RouteMetric": 35,
+    "Protocol": 3
+  },
+  {
+    "InterfaceAlias": "WiFi",
+    "InterfaceIndex": 11,
+    "AddressFamily": 2,
+    "DestinationPrefix": "192.168.1.0/24",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "WiFi",
+    "InterfaceIndex": 11,
+    "AddressFamily": 2,
+    "DestinationPrefix": "185.159.156.141/32",
+    "NextHop": "192.168.1.1",
+    "RouteMetric": 35,
+    "Protocol": 3
+  },
+  {
+    "InterfaceAlias": "vEthernet (Default Switch)",
+    "InterfaceIndex": 22,
+    "AddressFamily": 2,
+    "DestinationPrefix": "172.24.47.255/32",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "vEthernet (Default Switch)",
+    "InterfaceIndex": 22,
+    "AddressFamily": 2,
+    "DestinationPrefix": "172.24.32.1/32",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "vEthernet (Default Switch)",
+    "InterfaceIndex": 22,
+    "AddressFamily": 2,
+    "DestinationPrefix": "172.24.32.0/20",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "Loopback Pseudo-Interface 1",
+    "InterfaceIndex": 1,
+    "AddressFamily": 2,
+    "DestinationPrefix": "127.255.255.255/32",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "Loopback Pseudo-Interface 1",
+    "InterfaceIndex": 1,
+    "AddressFamily": 2,
+    "DestinationPrefix": "127.0.0.1/32",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "Loopback Pseudo-Interface 1",
+    "InterfaceIndex": 1,
+    "AddressFamily": 2,
+    "DestinationPrefix": "127.0.0.0/8",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "ProtonVPN",
+    "InterfaceIndex": 41,
+    "AddressFamily": 2,
+    "DestinationPrefix": "10.2.0.2/32",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "ProtonVPN",
+    "InterfaceIndex": 41,
+    "AddressFamily": 2,
+    "DestinationPrefix": "0.0.0.0/0",
+    "NextHop": "0.0.0.0",
+    "RouteMetric": 0,
+    "Protocol": 3
+  },
+  {
+    "InterfaceAlias": "WiFi",
+    "InterfaceIndex": 11,
+    "AddressFamily": 2,
+    "DestinationPrefix": "0.0.0.0/0",
+    "NextHop": "192.168.1.1",
+    "RouteMetric": 0,
+    "Protocol": 3
+  },
+  {
+    "InterfaceAlias": "vEthernet (Default Switch)",
+    "InterfaceIndex": 22,
+    "AddressFamily": 23,
+    "DestinationPrefix": "ff00::/8",
+    "NextHop": "::",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "Loopback Pseudo-Interface 1",
+    "InterfaceIndex": 1,
+    "AddressFamily": 23,
+    "DestinationPrefix": "ff00::/8",
+    "NextHop": "::",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "vEthernet (Default Switch)",
+    "InterfaceIndex": 22,
+    "AddressFamily": 23,
+    "DestinationPrefix": "fe80::f6f2:e978:d779:fda/128",
+    "NextHop": "::",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "vEthernet (Default Switch)",
+    "InterfaceIndex": 22,
+    "AddressFamily": 23,
+    "DestinationPrefix": "fe80::/64",
+    "NextHop": "::",
+    "RouteMetric": 256,
+    "Protocol": 2
+  },
+  {
+    "InterfaceAlias": "Loopback Pseudo-Interface 1",
+    "InterfaceIndex": 1,
+    "AddressFamily": 23,
+    "DestinationPrefix": "::1/128",
+    "NextHop": "::",
+    "RouteMetric": 256,
+    "Protocol": 2
+  }
+]

@@ -1,0 +1,8 @@
+[
+  {
+    "Name": "ProtonVPN WireGuard",
+    "DisplayName": "ProtonVPN WireGuard",
+    "State": "Running",
+    "StartMode": "Manual"
+  }
+]

@@ -1,0 +1,86 @@
+[
+  {
+    "InterfaceAlias": "ProtonVPN",
+    "InterfaceIndex": 41,
+    "AddressFamily": 2,
+    "ServerAddresses": [
+      "10.2.0.1"
+    ]
+  },
+  {
+    "InterfaceAlias": "ProtonVPN",
+    "InterfaceIndex": 41,
+    "AddressFamily": 23,
+    "ServerAddresses": []
+  },
+  {
+    "InterfaceAlias": "Local Area Connection* 1",
+    "InterfaceIndex": 10,
+    "AddressFamily": 2,
+    "ServerAddresses": []
+  },
+  {
+    "InterfaceAlias": "Local Area Connection* 1",
+    "InterfaceIndex": 10,
+    "AddressFamily": 23,
+    "ServerAddresses": []
+  },
+  {
+    "InterfaceAlias": "Local Area Connection* 2",
+    "InterfaceIndex": 19,
+    "AddressFamily": 2,
+    "ServerAddresses": []
+  },
+  {
+    "InterfaceAlias": "Local Area Connection* 2",
+    "InterfaceIndex": 19,
+    "AddressFamily": 23,
+    "ServerAddresses": []
+  },
+  {
+    "InterfaceAlias": "WiFi",
+    "InterfaceIndex": 11,
+    "AddressFamily": 2,
+    "ServerAddresses": [
+      "192.168.1.1"
+    ]
+  },
+  {
+    "InterfaceAlias": "WiFi",
+    "InterfaceIndex": 11,
+    "AddressFamily": 23,
+    "ServerAddresses": []
+  },
+  {
+    "InterfaceAlias": "Loopback Pseudo-Interface 1",
+    "InterfaceIndex": 1,
+    "AddressFamily": 2,
+    "ServerAddresses": []
+  },
+  {
+    "InterfaceAlias": "Loopback Pseudo-Interface 1",
+    "InterfaceIndex": 1,
+    "AddressFamily": 23,
+    "ServerAddresses": [
+      "fec0:0:0:ffff::1",
+      "fec0:0:0:ffff::2",
+      "fec0:0:0:ffff::3"
+    ]
+  },
+  {
+    "InterfaceAlias": "vEthernet (Default Switch)",
+    "InterfaceIndex": 22,
+    "AddressFamily": 2,
+    "ServerAddresses": []
+  },
+  {
+    "InterfaceAlias": "vEthernet (Default Switch)",
+    "InterfaceIndex": 22,
+    "AddressFamily": 23,
+    "ServerAddresses": [
+      "fec0:0:0:ffff::1",
+      "fec0:0:0:ffff::2",
+      "fec0:0:0:ffff::3"
+    ]
+  }
+]

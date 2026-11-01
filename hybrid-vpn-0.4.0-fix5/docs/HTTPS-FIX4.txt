@@ -1,0 +1,9 @@
+HTTPS verifier fix4
+
+The user's fix3 session reached Tor bootstrap and TUN/listener readiness, then Windows curl failed with error 56, Schannel missing close_notify. The TCP exit and UDP exit were not verified. No claim of a harmless error or a working UDP path follows from this log. The guard remains armed until explicit recovery.
+
+Fix4 replaces both curl checks with .NET HttpClient through the same SOCKS5 listener. Certificate and hostname validation use normal platform trust; no callback or TLS verification bypass is installed. Redirects are rejected. A complete explicitly framed HTTP 200 response with bounded JSON, boolean IsTor=true and a valid IP is required. Three attempts are bounded at 30 seconds each. Failures retain protection and produce detailed verification-tcp.json diagnostics. No routing/firewall/kernel behavior was changed by this fix.
+
+Update-Client.ps1 patches the successful fix3 client only after recovery. It validates source/installed hashes and core compatibility, takes the session mutex, requires DISARMED/no TUN, backs up the two changed scripts and manifest, preserves downloaded binary checksums, and restores the previous scripts/manifest on update failure. It uses no server login or sudo. Full Install.ps1 remains available for fresh installs.
+
+Tests run on Linux with real PowerShell 7.6.9/.NET and a local SOCKS5 TLS fixture: complete Content-Length and chunked responses without TLS close_notify accepted; truncated, ambiguous close-delimited, IsTor=false, unknown certificate and trusted-but-wrong-hostname responses rejected. Ephemeral trust is confined to child process SSL_CERT_FILE/SSL_CERT_DIR, never global trust or the production verifier. This does not validate Windows Schannel or live Tor/VPS behavior. Windows update/recovery and end-to-end TCP/UDP still need observation on the user's machine.

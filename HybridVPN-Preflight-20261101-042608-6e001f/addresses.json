@@ -1,0 +1,74 @@
+[
+  {
+    "InterfaceAlias": "vEthernet (Default Switch)",
+    "InterfaceIndex": 22,
+    "AddressFamily": 23,
+    "IPAddress": "fe80::f6f2:e978:d779:fda%22",
+    "PrefixLength": 64,
+    "AddressState": 4
+  },
+  {
+    "InterfaceAlias": "Loopback Pseudo-Interface 1",
+    "InterfaceIndex": 1,
+    "AddressFamily": 23,
+    "IPAddress": "::1",
+    "PrefixLength": 128,
+    "AddressState": 4
+  },
+  {
+    "InterfaceAlias": "vEthernet (Default Switch)",
+    "InterfaceIndex": 22,
+    "AddressFamily": 2,
+    "IPAddress": "172.24.32.1",
+    "PrefixLength": 20,
+    "AddressState": 4
+  },
+  {
+    "InterfaceAlias": "Local Area Connection* 2",
+    "InterfaceIndex": 19,
+    "AddressFamily": 2,
+    "IPAddress": "192.168.137.1",
+    "PrefixLength": 24,
+    "AddressState": 1
+  },
+  {
+    "InterfaceAlias": "Local Area Connection* 2",
+    "InterfaceIndex": 19,
+    "AddressFamily": 2,
+    "IPAddress": "169.254.128.37",
+    "PrefixLength": 16,
+    "AddressState": 1
+  },
+  {
+    "InterfaceAlias": "Local Area Connection* 1",
+    "InterfaceIndex": 10,
+    "AddressFamily": 2,
+    "IPAddress": "169.254.5.173",
+    "PrefixLength": 16,
+    "AddressState": 1
+  },
+  {
+    "InterfaceAlias": "WiFi",
+    "InterfaceIndex": 11,
+    "AddressFamily": 2,
+    "IPAddress": "192.168.1.171",
+    "PrefixLength": 24,
+    "AddressState": 4
+  },
+  {
+    "InterfaceAlias": "ProtonVPN",
+    "InterfaceIndex": 41,
+    "AddressFamily": 2,
+    "IPAddress": "10.2.0.2",
+    "PrefixLength": 32,
+    "AddressState": 4
+  },
+  {
+    "InterfaceAlias": "Loopback Pseudo-Interface 1",
+    "InterfaceIndex": 1,
+    "AddressFamily": 2,
+    "IPAddress": "127.0.0.1",
+    "PrefixLength": 8,
+    "AddressState": 4
+  }
+]

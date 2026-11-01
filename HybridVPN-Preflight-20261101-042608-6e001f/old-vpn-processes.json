@@ -1,0 +1,9 @@
+[
+  {
+    "ProcessName": "ProtonVPN.WireGuardService",
+    "Id": 16216,
+    "Path": null,
+    "CPU": null,
+    "WorkingSet64": 53256192
+  }
+]

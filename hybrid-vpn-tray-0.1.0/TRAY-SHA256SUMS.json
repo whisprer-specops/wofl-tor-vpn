@@ -1,0 +1,16 @@
+{
+  "BASE-FIX5.json": "63ad881ed89190aafee81a2a13e2baf1846a118adce479b29f28b2b8f1c9cc67",
+  "Install-Tray.ps1": "351403e58b7e6dd00339469b004d37adc5556508efdfd4bdd8d261275472e813",
+  "LICENSE": "467e58eea465fdbffcc768527bbaaefeaf82255a5dddf7d7e46147057ebd13a3",
+  "Open-Tray.ps1": "03883fac29510e0cf4662a10c46b899add72ad5fb9e1afe02fcd5119f73f6835",
+  "Prepare-Exit.ps1": "80c06a800b6d97fdce45fa4e976485ebaed53ea2a2b0bc54fed1ca5371533b50",
+  "README.md": "4f3f626b99651f75209a493b51be3bc1b8e39a1be3e27c1bb5ff8418537d3445",
+  "Remove-Tray.ps1": "935a33201c802918c169157f05df09900f5d48307319efab57f78f44a3a25dde",
+  "TEST-RESULTS.txt": "dfb10441ec53dd7b4aea22a1be1367b417c90c090e5a070a12694377ebc7881f",
+  "Tray.ps1": "2424a40c2ad1f9fa5b004a82cf9d91a00900a0658be088f543b2a0cfa20f1fa2",
+  "tests/Test-Model.ps1": "dddbdfaabcef48f20719c3fdc15a9ee124e8a57d0d54e7abc6dd4d36dea4b91e",
+  "tests/Test-Selection.ps1": "bf1d9e5e892f39f1c40eb119e1be3ec6db2ea5ac683ba3a3e86be84ccdbcbbfc",
+  "tests/test_install.py": "730fcd481471609eb240f39a28fb54493a1d81e75d4ef0517d8d17a9b321c052",
+  "tray/Model.ps1": "411e83a4faa894da2d7f4d5c9e0524814371359ff44570ef1e2b06f88cc81d39",
+  "tray/README.md": "4f3f626b99651f75209a493b51be3bc1b8e39a1be3e27c1bb5ff8418537d3445"
+}

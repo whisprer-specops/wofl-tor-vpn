@@ -1,0 +1,16 @@
+WireGuard transport fix5
+
+Observed on user's Windows: sing-box 1.14.4 reported unable to update bind: listen udp6 [::]:60880: An invalid argument was supplied; then failed to send handshake initiation: address family not supported by protocol. No WireGuard handshake was present on NYC1 and no UDP packets were recorded by its capture. The local socket error explains the missing handshake; end-to-end UDP remains unverified.
+
+Change: Get-HybridConfig now assigns the WireGuard endpoint detour=wg-transport. This dedicated direct outbound has inet4_bind_address=0.0.0.0. There is exactly one literal IPv4 server peer and no explicit listen_port. No application routing rule targets wg-transport. Application UDP still targets udp-exit, TCP still targets Tor, DNS still uses TCP through Tor. The existing global auto_detect_interface and server /32 TUN route exclusion remain. No Windows IPv6 binding, system file, guard binary, server config or key changes are made.
+
+Pinned v1.14.4 source was checked: transport/wireguard/endpoint.go selects standard bind for a dialer implementing UDPListener, otherwise ClientBind. A DetourDialer to protocol/direct.Outbound does not expose UDPListener through that outbound. With one literal peer ClientBind.connect uses DialContext to that IPv4 endpoint, avoiding the failed udp6 listener. Explicit inet4_bind_address also makes the dedicated direct outbound non-empty as required by common/dialer/detour.go. Sources:
+https://github.com/SagerNet/sing-box/blob/v1.14.4/transport/wireguard/endpoint.go
+https://github.com/SagerNet/sing-box/blob/v1.14.4/transport/wireguard/client_bind.go
+https://github.com/SagerNet/sing-box/blob/v1.14.4/common/dialer/detour.go
+https://github.com/SagerNet/sing-box/blob/v1.14.4/protocol/direct/outbound.go
+https://sing-box.sagernet.org/configuration/shared/dial/
+
+Updater requires a recovered, DISARMED installation and absent owned TUN, validates installed/source hashes and compatible base, then backs up/replaces Common.ps1, Session.ps1 and Verify-Tcp.ps1 plus installed checksums. Rollback on copy/check errors is retained. It requires elevated local PowerShell and no SSH/sudo. Session now prints successful TCP verification before attempting UDP.
+
+Validation: PowerShell parse and C# helper compilation; actual pinned sing-box IPv4 and dual-stack configuration checks; routing contract test (dedicated detour, no raw application UDP, preserved /32 exclusion/auto-detection/reject fallback); updater fixture with real PowerShell on Linux (ARMED refusal, old Common to new, repeat update, preserved device key and downloaded engine/hash entries); seven SOCKS/TLS TCP verifier cases. Windows ACL/WFP and actual Windows/VPS UDP are not exercised here. No connected status is granted without actual TCP/Tor and STUN exit verification.

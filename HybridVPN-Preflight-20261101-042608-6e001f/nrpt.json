@@ -1,0 +1,19 @@
+[
+  {
+    "Namespace": ".",
+    "NameServers": {
+      "AddressFamily": 2,
+      "ScopeId": null,
+      "IsIPv6Multicast": false,
+      "IsIPv6LinkLocal": false,
+      "IsIPv6SiteLocal": false,
+      "IsIPv6Teredo": false,
+      "IsIPv6UniqueLocal": false,
+      "IsIPv4MappedToIPv6": false,
+      "Address": 16777738,
+      "IPAddressToString": "10.2.0.1"
+    },
+    "DirectAccessEnabled": false,
+    "DnsSecValidationRequired": null
+  }
+]

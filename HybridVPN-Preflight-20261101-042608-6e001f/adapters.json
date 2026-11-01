@@ -1,0 +1,182 @@
+[
+  {
+    "Name": "Ethernet (Kernel Debugger)",
+    "InterfaceDescription": "Microsoft Kernel Debug Network Adapter",
+    "ifIndex": 20,
+    "InterfaceGuid": "{EBB14F7F-0A00-4DA3-9C52-D32F17318D50}",
+    "Status": "Not Present",
+    "LinkSpeed": "0 bps",
+    "Virtual": true,
+    "HardwareInterface": false
+  },
+  {
+    "Name": "Local Area Connection* 2",
+    "InterfaceDescription": "Microsoft Wi-Fi Direct Virtual Adapter #2",
+    "ifIndex": 19,
+    "InterfaceGuid": "{DFCC66AE-3608-459B-BE25-8EA7208EA448}",
+    "Status": "Disconnected",
+    "LinkSpeed": "0 bps",
+    "Virtual": true,
+    "HardwareInterface": false
+  },
+  {
+    "Name": "vEthernet (Default Switch)",
+    "InterfaceDescription": "Hyper-V Virtual Ethernet Adapter",
+    "ifIndex": 22,
+    "InterfaceGuid": "{D20CCF9B-7599-4EE9-B570-EC9EF6F24F5E}",
+    "Status": "Up",
+    "LinkSpeed": "10 Gbps",
+    "Virtual": true,
+    "HardwareInterface": false
+  },
+  {
+    "Name": "Local Area Connection* 9",
+    "InterfaceDescription": "WAN Miniport (IPv6)",
+    "ifIndex": 18,
+    "InterfaceGuid": "{C792C7F6-4570-4FD6-B07C-1F247985630A}",
+    "Status": "Up",
+    "LinkSpeed": "0 bps",
+    "Virtual": true,
+    "HardwareInterface": false
+  },
+  {
+    "Name": "Local Area Connection* 8",
+    "InterfaceDescription": "WAN Miniport (IP)",
+    "ifIndex": 17,
+    "InterfaceGuid": "{B24BF1F1-C496-4DD1-ADAA-72A914BEE94F}",
+    "Status": "Up",
+    "LinkSpeed": "0 bps",
+    "Virtual": true,
+    "HardwareInterface": false
+  },
+  {
+    "Name": "ProtonVPN",
+    "InterfaceDescription": "WireGuard Tunnel",
+    "ifIndex": 41,
+    "InterfaceGuid": "{AC128890-BDB1-CE5C-D1DB-EFB01DE370B2}",
+    "Status": "Up",
+    "LinkSpeed": "100 Gbps",
+    "Virtual": true,
+    "HardwareInterface": false
+  },
+  {
+    "Name": "Local Area Connection* 6",
+    "InterfaceDescription": "WAN Miniport (PPTP)",
+    "ifIndex": 15,
+    "InterfaceGuid": "{A659EF09-FDDE-49FE-BAF0-92307139715C}",
+    "Status": "Disconnected",
+    "LinkSpeed": "0 bps",
+    "Virtual": true,
+    "HardwareInterface": false
+  },
+  {
+    "Name": "Local Area Connection* 7",
+    "InterfaceDescription": "WAN Miniport (PPPOE)",
+    "ifIndex": 13,
+    "InterfaceGuid": "{9B9EF2E5-6492-4F15-95F8-A3A1F4A85B7C}",
+    "Status": "Disconnected",
+    "LinkSpeed": "0 bps",
+    "Virtual": true,
+    "HardwareInterface": false
+  },
+  {
+    "Name": "Teredo Tunneling Pseudo-Interface",
+    "InterfaceDescription": "",
+    "ifIndex": 12,
+    "InterfaceGuid": "{93123211-9629-4E04-82F0-EA2E4F221468}",
+    "Status": "Not Present",
+    "LinkSpeed": "0 bps",
+    "Virtual": true,
+    "HardwareInterface": false
+  },
+  {
+    "Name": "WiFi",
+    "InterfaceDescription": "Intel(R) Wi-Fi 6 AX201 160MHz",
+    "ifIndex": 11,
+    "InterfaceGuid": "{8BA8B6A6-387E-4454-85F1-92BEA3C9AF19}",
+    "Status": "Up",
+    "LinkSpeed": "576 Mbps",
+    "Virtual": false,
+    "HardwareInterface": true
+  },
+  {
+    "Name": "Local Area Connection* 1",
+    "InterfaceDescription": "Microsoft Wi-Fi Direct Virtual Adapter",
+    "ifIndex": 10,
+    "InterfaceGuid": "{7D7478BB-BCFD-4731-8291-6337971B056A}",
+    "Status": "Disconnected",
+    "LinkSpeed": "0 bps",
+    "Virtual": true,
+    "HardwareInterface": false
+  },
+  {
+    "Name": "Local Area Connection* 10",
+    "InterfaceDescription": "WAN Miniport (Network Monitor)",
+    "ifIndex": 9,
+    "InterfaceGuid": "{676CD38D-AC51-44A5-AA30-ACE9ECCC95F2}",
+    "Status": "Up",
+    "LinkSpeed": "0 bps",
+    "Virtual": true,
+    "HardwareInterface": false
+  },
+  {
+    "Name": "Local Area Connection* 3",
+    "InterfaceDescription": "WAN Miniport (SSTP)",
+    "ifIndex": 8,
+    "InterfaceGuid": "{3F5416AB-1826-4B27-A1E2-8847AAB6FDDB}",
+    "Status": "Disconnected",
+    "LinkSpeed": "0 bps",
+    "Virtual": true,
+    "HardwareInterface": false
+  },
+  {
+    "Name": "Local Area Connection* 4",
+    "InterfaceDescription": "WAN Miniport (IKEv2)",
+    "ifIndex": 7,
+    "InterfaceGuid": "{337DD8AE-78F1-4E24-8F25-BA42380A7A3E}",
+    "Status": "Disconnected",
+    "LinkSpeed": "0 bps",
+    "Virtual": true,
+    "HardwareInterface": false
+  },
+  {
+    "Name": "Microsoft IP-HTTPS Platform Interface",
+    "InterfaceDescription": "",
+    "ifIndex": 6,
+    "InterfaceGuid": "{2EE2C70C-A092-4D88-A654-98C8D7645CD5}",
+    "Status": "Not Present",
+    "LinkSpeed": "0 bps",
+    "Virtual": true,
+    "HardwareInterface": false
+  },
+  {
+    "Name": "vSwitch (Default Switch)",
+    "InterfaceDescription": "Hyper-V Virtual Switch Extension Adapter",
+    "ifIndex": 2,
+    "InterfaceGuid": "{2529168B-1002-4915-9CC9-8C2F6370BA15}",
+    "Status": "Up",
+    "LinkSpeed": "10 Gbps",
+    "Virtual": true,
+    "HardwareInterface": false
+  },
+  {
+    "Name": "Local Area Connection* 5",
+    "InterfaceDescription": "WAN Miniport (L2TP)",
+    "ifIndex": 5,
+    "InterfaceGuid": "{20F18903-939D-41CF-8AF4-8905738FC5CB}",
+    "Status": "Disconnected",
+    "LinkSpeed": "0 bps",
+    "Virtual": true,
+    "HardwareInterface": false
+  },
+  {
+    "Name": "6to4 Adapter",
+    "InterfaceDescription": "",
+    "ifIndex": 3,
+    "InterfaceGuid": "{07374750-E68B-490E-9330-9FD785CD71B6}",
+    "Status": "Not Present",
+    "LinkSpeed": "0 bps",
+    "Virtual": true,
+    "HardwareInterface": false
+  }
+]

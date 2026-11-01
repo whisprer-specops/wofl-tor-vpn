@@ -1,0 +1,13 @@
+Preparation evidence only. No VPN installed or activated. No integrity scans.
+Remote helper briefly binds an unprivileged UDP port and sends same-size token echoes.
+No firewall, route, driver, service, sysctl, startup, DNS or SSH configuration changed.
+Missing sudo-n access is expected on password-protected servers: do not change sudo policy.
+UDP echo is not a WireGuard handshake, sustained throughput test, or anonymity test.
+Loss/RTT are small-sample measurements from the CURRENT Windows routing state.
+An active VPN, ProxyJump, NAT or firewall can affect these results.
+No response does not mean the endpoint is slow or unavailable over a properly opened WG port.
+Endpoint geography does not establish stealth or unlinkability. All four VPSs share a provider.
+The report contains local/public IPs, usernames in SSH errors, paths and server firewall rules.
+Private WireGuard keys, Tor credentials and profile contents are not requested.
+The listener exits automatically; if SSH terminates early allow 20 seconds for its deadline.
+The replacement needs separate crash/leak testing before production use.

@@ -1,0 +1,83 @@
+[
+  {
+    "InterfaceAlias": "vEthernet (Default Switch)",
+    "InterfaceIndex": 22,
+    "AddressFamily": 23,
+    "ConnectionState": 1,
+    "Dhcp": 1,
+    "AutomaticMetric": 0,
+    "InterfaceMetric": 5000
+  },
+  {
+    "InterfaceAlias": "ProtonVPN",
+    "InterfaceIndex": 41,
+    "AddressFamily": 23,
+    "ConnectionState": 1,
+    "Dhcp": 0,
+    "AutomaticMetric": 1,
+    "InterfaceMetric": 5
+  },
+  {
+    "InterfaceAlias": "Loopback Pseudo-Interface 1",
+    "InterfaceIndex": 1,
+    "AddressFamily": 23,
+    "ConnectionState": 1,
+    "Dhcp": 0,
+    "AutomaticMetric": 1,
+    "InterfaceMetric": 75
+  },
+  {
+    "InterfaceAlias": "vEthernet (Default Switch)",
+    "InterfaceIndex": 22,
+    "AddressFamily": 2,
+    "ConnectionState": 1,
+    "Dhcp": 0,
+    "AutomaticMetric": 0,
+    "InterfaceMetric": 5000
+  },
+  {
+    "InterfaceAlias": "Local Area Connection* 2",
+    "InterfaceIndex": 19,
+    "AddressFamily": 2,
+    "ConnectionState": 0,
+    "Dhcp": 0,
+    "AutomaticMetric": 1,
+    "InterfaceMetric": 25
+  },
+  {
+    "InterfaceAlias": "Local Area Connection* 1",
+    "InterfaceIndex": 10,
+    "AddressFamily": 2,
+    "ConnectionState": 0,
+    "Dhcp": 1,
+    "AutomaticMetric": 1,
+    "InterfaceMetric": 25
+  },
+  {
+    "InterfaceAlias": "WiFi",
+    "InterfaceIndex": 11,
+    "AddressFamily": 2,
+    "ConnectionState": 1,
+    "Dhcp": 1,
+    "AutomaticMetric": 1,
+    "InterfaceMetric": 35
+  },
+  {
+    "InterfaceAlias": "ProtonVPN",
+    "InterfaceIndex": 41,
+    "AddressFamily": 2,
+    "ConnectionState": 1,
+    "Dhcp": 0,
+    "AutomaticMetric": 0,
+    "InterfaceMetric": null
+  },
+  {
+    "InterfaceAlias": "Loopback Pseudo-Interface 1",
+    "InterfaceIndex": 1,
+    "AddressFamily": 2,
+    "ConnectionState": 1,
+    "Dhcp": 0,
+    "AutomaticMetric": 1,
+    "InterfaceMetric": 75
+  }
+]

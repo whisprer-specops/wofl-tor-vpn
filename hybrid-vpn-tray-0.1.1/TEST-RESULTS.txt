@@ -1,0 +1,13 @@
+Tray/background add-on 0.1.1 validation
+
+PASS: actual PowerShell 7.6.9 parses all shipped PowerShell files.
+PASS: both new C# helpers compile using Add-Type.
+PASS: Windows process argument quoting handles empty arguments, spaces, embedded quotes, trailing backslashes and rejects NUL.
+PASS: real PowerShell child using the original Session.ps1 Console.ReadLine/Task behavior stays alive with held redirected stdin; no early EOF; explicit stop arrives correctly.
+PASS: unchanged tray status/profile tests, including UTC timestamp handling, stale/false-green rejection, disconnected-only selection, profile backup and wrong-device rejection.
+PASS: actual PowerShell installation fixture with Windows ACL/COM boundary substitutions: injected shortcut failure rollback, fresh install, repeat install, actual 0.1.0 six-file -> 0.1.1 eleven-file upgrade and removal preserve core file hashes, byte-for-byte core manifest, private device key, active peer, recorded live session and downloaded engine/hash entry.
+PASS: packaged source hashes, ZIP CRC and compatibility hashes against working fix5 checked.
+
+NOT RUN HERE: Windows native process/job operations, WinForms/UAC display and a live background VPN connection. Linux cannot exercise those APIs. The installer runs Test-Windows-Detached.ps1 on Windows BEFORE copying add-on files or disconnecting anything: checks native console-free startup, independent stdout/stderr files, no inherited parent job; starts harmless dummy processes to validate held input and nested-job cleanup. A self-check failure aborts without replacing the add-on or changing the working VPN. It changes no Windows settings or firewall policies.
+
+The existing working Start.ps1, Session.ps1, Recover.ps1, routing generator, verification scripts, transport binaries and WFP guard are byte-for-byte unchanged. A current console-owned session needs one intentional disconnect/reconnect to be started by the background host. Start.ps1 stays a console fallback; tray Connect and Start-Background.ps1 use the new independent host. No service, boot task, system file patch, driver change or new network protocol is added. Background host failure preserves the original explicit-recovery protection behavior.

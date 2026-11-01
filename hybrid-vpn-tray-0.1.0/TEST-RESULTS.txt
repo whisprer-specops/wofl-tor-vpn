@@ -1,0 +1,11 @@
+Tray add-on 0.1.0 validation
+
+PASS: all PowerShell files parsed by actual PowerShell 7.6.9.
+PASS: status model rejects unknown/disarmed guard, dead supervisor, missing TUN, stale/future/invalid timestamps. Parsed UTC DateTime status also tested under TZ=Europe/London with a summer timestamp.
+PASS: profile selection refuses connected state; selects a registered disconnected profile; saves previous peer; preserves device key; rejects a different device public key.
+PASS: actual PowerShell installation fixture against full fix5 source, with only Windows ACL/COM boundaries stubbed. New install, repeated install and removal preserve original core file hashes, byte-for-byte core checksum file, active peer, private key, session record and downloaded engine/hash entry. Injected shortcut creation failure rolls back installed add-on files and the separate add-on checksum file.
+PASS: release ZIP CRC and all source checksum entries checked at packaging.
+
+Not exercised: Windows WinForms display/notification interactions, UAC, actual Windows ACL/shortcut behavior, minimized-console start behavior and live endpoint provisioning from the tray. This Linux host cannot certify Windows UI behavior. The unchanged networking core has the user's earlier successful TCP/Tor, Discord voice/video and browsing observation. No new leak/crash certification is claimed.
+
+Runtime: Windows 11 x64, installed PowerShell 7.6.x, existing working hybrid-vpn-0.4.0-fix5. Add-on uses built-in WinForms/Drawing, not an extra GUI runtime. No dependency upgrades and no networking core patches are included.

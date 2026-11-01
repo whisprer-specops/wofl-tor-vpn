@@ -1,0 +1,4 @@
+Fix 1: adapter Up/presence is not proof of an active VPN connection.
+PowerShell runtime tests passed for residual adapter, six default/split-default route variants and unrelated physical routes.
+Actual PowerShell 7.6.9 parser, C# compilation and both routing configuration variants passed after this change.
+No change to the native guard or its outstanding Windows staging requirements.

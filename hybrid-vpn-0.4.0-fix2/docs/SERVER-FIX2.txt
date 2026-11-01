@@ -1,0 +1,5 @@
+Fix 2 regression: nft-backed iptables -C referencing a missing owned jump target returns code 2.
+Cleanup now enumerates the complete table and skips jump checks whose owned target does not exist.
+Four server planner tests pass, including first apply/reapply/remove with missing-target code-2 emulation and preservation of unrelated chains; table-read permission failures remain visible.
+PowerShell parser, C# compilation, both routing configuration variants and Proton route detection tests pass.
+These are local regression/model checks, not a live Linux firewall or Windows WFP validation.

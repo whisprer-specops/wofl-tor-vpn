@@ -1,0 +1,23 @@
+{
+  "BASE-FIX5.json": "63ad881ed89190aafee81a2a13e2baf1846a118adce479b29f28b2b8f1c9cc67",
+  "Install-Tray.ps1": "c673ff18988ba3aeecb71d3d241a2f71c1e1b64b3fc4f79d8cf59c03be9464ac",
+  "LICENSE": "467e58eea465fdbffcc768527bbaaefeaf82255a5dddf7d7e46147057ebd13a3",
+  "Open-Tray.ps1": "03883fac29510e0cf4662a10c46b899add72ad5fb9e1afe02fcd5119f73f6835",
+  "Prepare-Exit.ps1": "80c06a800b6d97fdce45fa4e976485ebaed53ea2a2b0bc54fed1ca5371533b50",
+  "README.md": "ca41a35d5db038d7ae49651d9247e19327710e9dfd3377ba4aa1d66a65a8c811",
+  "Remove-Tray.ps1": "21c3d50960d3149b80d5904e150afb2a318ebebe4dff4f3c6fd411a9fe539907",
+  "Start-Background.ps1": "a4c28b2aec5d09491c251dd2b56ec112387ec0084b938b644b803fc1607fedf2",
+  "TEST-RESULTS.txt": "a21b6a6fd247166d6e67c1b1f32dbc2269dfae01f3a30ca7f26064043e494f1b",
+  "Tray.ps1": "5daf4c651ab1a68cb12025559e4dea8daba3608165d4c86cc409205a06b70f8f",
+  "background/DetachedLauncher.cs": "c17474a8b1309b3d044166c0e5fd42b922738dbb9136e341ba0d16c2c9136636",
+  "background/Host.ps1": "c01b2ea0ebf9818c85f8bb874e41539847325b3ed7a85a398c7689d3d91be9b0",
+  "background/Launch.ps1": "859d25cd07f4eef414a649658f9e9318c47a6ab49118133eba27ee9af9103e4d",
+  "background/SessionHost.cs": "4ca34599a2a2ce0d33124c846d16bfb8227951d18cabc940159787ee4a3d8f9c",
+  "tests/Test-Background.ps1": "510ef23745fc8572303c004643e97434d7e43225e7c85b26f3dc54309323ae9e",
+  "tests/Test-Model.ps1": "dddbdfaabcef48f20719c3fdc15a9ee124e8a57d0d54e7abc6dd4d36dea4b91e",
+  "tests/Test-Selection.ps1": "bf1d9e5e892f39f1c40eb119e1be3ec6db2ea5ac683ba3a3e86be84ccdbcbbfc",
+  "tests/Test-Windows-Detached.ps1": "a1ccf04a1f4ab82b55f496e35e5a3f9baa071a5315e3717808136c80e53012e1",
+  "tests/test_install.py": "4980438c43a2959d08008681b3bcf7c83975c8b31fcf4cf5e021c96a01a16eaf",
+  "tray/Model.ps1": "0443783a7343d1a371950d15bb744bf6b6257e03c8d633806ffe5cd59e598779",
+  "tray/README.md": "ca41a35d5db038d7ae49651d9247e19327710e9dfd3377ba4aa1d66a65a8c811"
+}

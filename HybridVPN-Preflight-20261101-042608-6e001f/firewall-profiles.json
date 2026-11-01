@@ -1,0 +1,23 @@
+[
+  {
+    "Name": "Domain",
+    "Enabled": 1,
+    "DefaultInboundAction": 4,
+    "DefaultOutboundAction": 2,
+    "AllowLocalFirewallRules": 1
+  },
+  {
+    "Name": "Private",
+    "Enabled": 1,
+    "DefaultInboundAction": 4,
+    "DefaultOutboundAction": 2,
+    "AllowLocalFirewallRules": 1
+  },
+  {
+    "Name": "Public",
+    "Enabled": 1,
+    "DefaultInboundAction": 4,
+    "DefaultOutboundAction": 2,
+    "AllowLocalFirewallRules": 1
+  }
+]

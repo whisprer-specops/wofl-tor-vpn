@@ -1,0 +1,42 @@
+[
+  {
+    "Server": "nyc1",
+    "Address": "137.184.105.114",
+    "Sent": 8,
+    "Received": 0,
+    "LossPercent": 100.0,
+    "MedianMs": null,
+    "RttMs": [],
+    "Status": "No UDP echo; firewall/path unknown"
+  },
+  {
+    "Server": "lon1",
+    "Address": "138.68.142.181",
+    "Sent": 8,
+    "Received": 0,
+    "LossPercent": 100.0,
+    "MedianMs": null,
+    "RttMs": [],
+    "Status": "No UDP echo; firewall/path unknown"
+  },
+  {
+    "Server": "sgp1",
+    "Address": "68.183.227.135",
+    "Sent": 8,
+    "Received": 0,
+    "LossPercent": 100.0,
+    "MedianMs": null,
+    "RttMs": [],
+    "Status": "No UDP echo; firewall/path unknown"
+  },
+  {
+    "Server": "syd1",
+    "Address": "134.199.170.197",
+    "Sent": 8,
+    "Received": 0,
+    "LossPercent": 100.0,
+    "MedianMs": null,
+    "RttMs": [],
+    "Status": "No UDP echo; firewall/path unknown"
+  }
+]
