@@ -1,0 +1,4 @@
+Set-Location "$env:USERPROFILE\Downloads"
+Unblock-File .\whispr-vpn-group-1.0.0.zip
+Expand-Archive .\whispr-vpn-group-1.0.0.zip -DestinationPath .\whispr-vpn-group-1.0.0 -Force
+.\whispr-vpn-group-1.0.0\OPEN-GROUP.cmd

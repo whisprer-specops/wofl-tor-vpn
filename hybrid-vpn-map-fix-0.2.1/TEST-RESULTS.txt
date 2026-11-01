@@ -1,0 +1,20 @@
+Build checks: PowerShell 7.6.9 on Linux; 2026-11-01.
+PASS: all packaged PowerShell files parse.
+PASS: tray status/guard/freshness/liveness/tunnel/profile validation.
+PASS: disconnected-only profile selection, backup and wrong-device refusal.
+PASS: on-demand scheduler ownership/action/account/trigger rejection, ACL/password/battery/time-limit definition.
+PASS: offline map five-region coordinate hit testing, including distinct London/Frankfurt hits.
+PASS: resume endpoint/port/keys/owner/path/binary binding match and mismatch tests; live owner and different-TUN refusal.
+PASS: sign-in task current-user/highest privilege/no password/protected ACL, ten-second delay, hidden STA tray flags, enable/disable and foreign-action refusal.
+PASS: C# quoting/session-host helpers compile; real PowerShell held-input/stop fixture.
+PASS: actual PowerShell file installation fixture: injected failure rollback, install/reinstall, old add-on upgrade and removal; only intended startup core delta, downloaded binary hashes and private state retained.
+Windows ACL/COM/UI boundaries are mocked in Linux fixture tests. No real Windows reboot, WFP resume, WinForms or VPS connection is claimed tested here.
+The installed Windows on-demand background self-check runs disposable dummy processes before file installation; a failed check blocks installation.
+
+Map repair 0.2.1, 2026-11-01:
+PASS: PowerShell syntax for all packaged scripts.
+PASS: map projection, Frankfurt/world+inset presence, all seven marker hit targets, London/Frankfurt inset spacing and blank/inset-border rejection at 1000x450, 1120x572, 1680x858, 2240x1144 and 3200x1800.
+PASS: existing startup/scheduler/resume tests with updated coordinate model.
+PASS: actual PowerShell map-update fixture on a reconstructed 0.2.0 installation; injected mid-copy failure restores all previous bytes; install/reinstall change only Tray.ps1, Map.ps1, MapModel.ps1 and their add-on checksum entries. Core files/manifest, private keys, selected profile, session and resume-binding bytes remain identical.
+Visual geometry preview generated from actual PowerShell layout output and inspected using Pillow. This preview is not a Windows screenshot. Native WinForms/DPI rendering still requires live Windows confirmation.
+Map-only update does not invoke Task Scheduler, Recover, server setup, network configuration or firewall changes.

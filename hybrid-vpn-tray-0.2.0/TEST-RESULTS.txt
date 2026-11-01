@@ -1,0 +1,12 @@
+Build checks: PowerShell 7.6.9 on Linux; 2026-11-01.
+PASS: all packaged PowerShell files parse.
+PASS: tray status/guard/freshness/liveness/tunnel/profile validation.
+PASS: disconnected-only profile selection, backup and wrong-device refusal.
+PASS: on-demand scheduler ownership/action/account/trigger rejection, ACL/password/battery/time-limit definition.
+PASS: offline map five-region coordinate hit testing, including distinct London/Frankfurt hits.
+PASS: resume endpoint/port/keys/owner/path/binary binding match and mismatch tests; live owner and different-TUN refusal.
+PASS: sign-in task current-user/highest privilege/no password/protected ACL, ten-second delay, hidden STA tray flags, enable/disable and foreign-action refusal.
+PASS: C# quoting/session-host helpers compile; real PowerShell held-input/stop fixture.
+PASS: actual PowerShell file installation fixture: injected failure rollback, install/reinstall, old add-on upgrade and removal; only intended startup core delta, downloaded binary hashes and private state retained.
+Windows ACL/COM/UI boundaries are mocked in Linux fixture tests. No real Windows reboot, WFP resume, WinForms or VPS connection is claimed tested here.
+The installed Windows on-demand background self-check runs disposable dummy processes before file installation; a failed check blocks installation.
