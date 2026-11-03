@@ -1,0 +1,11 @@
+whispr VPN friend pack 1.0.0 — 2026-11-01
+Executed with Python 3.12.14 and PowerShell 7.6.9 on Linux.
+
+PASS: real PowerShell file-flow tests for fresh install, private-key retention on reinstall, stable public request, correct profile import, replacement of the approved exit list, wrong-request rejection, connected-state refusal and injected import failure rollback.
+PASS: initial download failure leaves a recoverable installation phase; retry completes without activating a VPN or exporting a private key.
+PASS: existing owner installation is rejected before any owner files/state are changed.
+PASS: protocol tests for request/key/fingerprint/device identity, JSON round trip, duplicate/unknown exits, private address and malformed interface/port rejection, extra private fields, zero keys and shell punctuation rejection.
+PASS: all PowerShell files parse; package/core/add-on checksums and ZIP CRC validated.
+
+Windows/ACL/COM/download/guard boundaries are explicitly mocked in file-flow tests. Actual Windows WFP, Task Scheduler, WinForms, boot/crash/coexistence and a friend's live connection are not executed here. The installer runs its real Windows dummy-process background-lifetime test before producing a ready installation; live connection still requires both TCP/Tor and UDP exit verification.
+Packet routing/configuration, guard binary and TCP/UDP verification are byte-identical to the working fix5 baseline; the supervisor/background implementation is reused from tray 0.2.1. No server administration credentials or installed private identity are included. Pinned downloads are verified against the same archive hashes as the working baseline; no new download was needed for Linux fixture tests.

@@ -1,0 +1,25 @@
+whispr shared-exit group add-on 1.0.1 — flag UI update, 2026-11-01
+
+New validation for this release:
+PASS: standalone UI patch install, repeat-run no-op and exact restore on owner and friend layouts, with the connected boundary deliberately set to reject disconnect-dependent operations.
+PASS: files outside Tray.ps1 and its two hash manifests retained byte-for-byte; existing private key, profiles, session, resume binding and sign-in sentinel retained.
+PASS: updated full group installer/import/publish/rollback file-flow on both client types.
+PASS: five country mappings, neutral unknown-country fallback, embedded PNG signatures and 96x64 image dimensions.
+PASS: existing group contract/merge/map tests; all PowerShell scripts parse.
+PASS: original protocol, server and runtime group payload bytes unchanged; archive hashes and CRC checked.
+Native Windows Forms/GDI rendering was not executed on Linux. Icon artwork was rendered and visually inspected locally. There were no live VPS, WFP or reboot changes/tests for this appearance-only update.
+
+Previous release validation, retained for the unchanged group functionality:
+whispr shared-exit group add-on 1.0.0 — 2026-11-01
+Build environment: Python 3.12.14, PowerShell 7.6.9, Linux.
+
+PASS: all PowerShell scripts parse.
+PASS: PowerShell schema/merge/map contract: key/member/node identity, public address/subnet/map coordinate/port validation, old-file additive merge, newer node revision selection, same-revision conflict rejection, membership-removal assignment pruning, dynamic node aliases, and overlapping Frankfurt-dot selection.
+PASS: Python peer/group suite: 28 checks including inherited/repeated baseline checks (18 distinct peer/group cases). Covers fresh-bootstrap owner registration, existing-server no-reprovisioning, multiple group devices, idempotence, member removal, wrong group/owner/old roster refusal, protected native peers, legacy friend adoption, partial failure retry, kernel-command/write rollback, interrupted journal recovery, conflicting-change refusal, public-report staging and legacy render compatibility.
+PASS: actual PowerShell file-flow fixture on both owner tray 0.2.1 and friend 1.0.0 layouts: injected install copy failure rolls back, installation/reinstallation, initial public roster, profile import rollback, wrong-member refusal, dynamic profiles, selected exit/private key/session/sign-in state retention, mocked SSH publication with automatic local import, and integrity-checked restoration to the previous client files.
+PASS: legacy setup/firewall/manage sources are unchanged; client networking, session supervisor, WFP guard binary, Tor/UDP verification and background host are not shipped for replacement.
+PASS: archive CRC, package hashes and matching runtime protocol copies.
+
+Boundary notes: Windows ACL, guard-status and SSH/SCP boundaries are explicitly mocked in Linux file-flow tests. Python wg commands are mocked and use temporary root-owned files. Initial server setup invocation is tested with the existing installer boundary mocked. No live VPS, fresh kernel/module/package installation, provider firewall or Windows native GUI/WFP/boot behavior was exercised here. The first real contributed exit must pass the existing TCP/Tor and UDP exit verification. No leak/crash certification or completed live deployment is claimed.
+
+Editable my-vps.json and generated group.json/results are not static package checksum entries. Exchange JSON files through a trusted channel; they are not cryptographically signed. No private user identity, SSH credential, pre-generated access file or cloud token is included.

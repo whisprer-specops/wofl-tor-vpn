@@ -1,0 +1,5 @@
+Replaced compound recursive icacls edits with complete .NET explicit DACLs, applied top-down.
+Existing device key and cached downloads are not deleted or rewritten by permission repair.
+Recognized existing markers are read after repair rather than overwritten.
+PowerShell 7.6.9 parser, C# compilation, both engine configuration variants and four server model tests passed.
+Windows ACL regression test is supplied but not executed here; Windows runtime validation remains outstanding.

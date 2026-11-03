@@ -1,0 +1,10 @@
+{
+  "name": "whispr VPN",
+  "version": "1.0.1",
+  "product_code": "{B3CB5E52-AFB6-455A-B2DF-869111A0D101}",
+  "upgrade_code": "{260C4308-9E2C-4C71-B65B-05199CB8262E}",
+  "files": 823,
+  "sha256": "1ce240bedc3b108113e8dd18024587dabe3e355ef538ac4e3227a4325be55fcc",
+  "bytes": 115552768,
+  "windows_native_install_tested": false
+}

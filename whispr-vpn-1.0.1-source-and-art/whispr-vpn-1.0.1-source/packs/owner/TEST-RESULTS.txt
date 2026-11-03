@@ -1,0 +1,10 @@
+whispr VPN owner enrolment pack 1.0.0 — 2026-11-01
+Executed with Python 3.12.14 and PowerShell 7.6.9 on Linux.
+
+PASS: 10 peer transaction/CLI tests: multiple independent peers, repeat registration, revocation, owner/wrong-request rejection, managed config/live mismatch refusal, exhausted pool and invalid keys, write/kernel-command rollback, abrupt-interruption journal recovery, unrelated-change refusal, public-report staging preflight/permissions and compatibility with the fix5 render contract.
+PASS: real PowerShell owner orchestration: all five aliases, sudo/root invocation, hash-checked isolated helper command, no provisioning/firewall command, full/partial access export and revocation receipts. SSH/SCP are mocked; no live server was contacted.
+PASS: all PowerShell scripts parse; Python server helper compiles.
+PASS: package checksum and ZIP CRC verification.
+
+Related friend pack tests: real PowerShell install/reinstall/request/import flow, interrupted-download retry, owner-install rejection, exact public request/access protocol validation and injected import rollback. Windows ACL/COM/download/guard boundaries are mocked explicitly. No actual friend's Windows connection, VPS mutation, WFP/reboot/Task Scheduler/WinForms behavior or new leak/crash certification is claimed.
+The existing transport/configuration, guard binary and background implementation are reused from the working fix5/tray 0.2.1 baseline. New server enrolment never invokes firewall/sysctl/service/package/interface management.

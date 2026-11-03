@@ -1,0 +1,2 @@
+Original geometric flag artwork for whispr VPN. SVG sources and antialiased PNGs are bundled. No downloads at runtime. US has 50 stars; GB uses offset diagonals; AU includes the seven-point Commonwealth star and Southern Cross. Letterboxing preserves national flag proportions. XX is a neutral globe for endpoints without a known country. Assets use the package MIT license.
+Known-country assignment follows the original endpoint aliases, not IP geolocation. Unknown shared nodes use XX, never a guessed national flag.

@@ -1,0 +1,20 @@
+{
+  "result": "PASS",
+  "msi_sha256": "1ce240bedc3b108113e8dd18024587dabe3e355ef538ac4e3227a4325be55fcc",
+  "payload_files_verified": 823,
+  "dialogs_checked": 11,
+  "licence_exact_text": true,
+  "acceptance_prechecked": false,
+  "quiet_install_acceptance_required": true,
+  "existing_vpn_auto_modified": false,
+  "windows_native_ui_tested": false,
+  "windows_native_preflight_tested": false,
+  "embedded_inventory_and_uninstall": true,
+  "checks": [
+    "actual MSI tables/references and tab cycles",
+    "licence acceptance conditions in UI and execution",
+    "embedded native inventory in UI and execution; elevated enforcement before all file/component changes; independent of installed scripts; upgrade sequence",
+    "all static/package SHA-256 manifests",
+    "independent cabinet extraction: every payload file byte-for-byte"
+  ]
+}

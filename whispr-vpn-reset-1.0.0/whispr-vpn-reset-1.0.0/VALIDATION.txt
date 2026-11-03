@@ -1,0 +1,28 @@
+whispr VPN reset 1.0.0 — 2026-11-02
+
+PASS: PowerShell parser checks for reset and launcher sources.
+PASS: key/approved-profile preservation with byte-for-byte key comparison.
+PASS: malformed/mismatched identity/profile rejection.
+PASS: stale session and engine configuration excluded from fresh state.
+PASS: original friend installer's real file flow accepts re-seeded state,
+      reaches ready, preserves the key and approved exit, exports the same
+      public identity, and does not resurrect an armed session.
+      Windows ACL, COM, download and scheduler boundaries are mocked.
+PASS: process/script path scoping, including prefix-collision and data-argument rejection.
+PASS: owned task source/principal binding and foreign runtime consumer stop.
+PASS: repeated quarantine preserves the original backup.
+PASS: bundled original MSI and guard SHA-256 match the released files.
+
+NOT EXECUTED HERE: Windows Installer service repair/uninstall and recovery
+fallback, Windows PowerShell 5.1 runtime, scheduler COM mutation, Windows ACLs,
+PnP adapter removal, actual WFP recovery or a real VPN connection.
+Build/test host: Linux, PowerShell 7.6.9. Native APIs/flags checked against
+Microsoft documentation. The tool stops and retains backup/logs on an
+unconfirmed native operation; native success is not claimed by these tests.
+
+Reference pages:
+https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/msiexec
+https://learn.microsoft.com/en-us/windows/win32/msi/reinstallmode
+https://learn.microsoft.com/en-us/windows/win32/msi/upgradingproductcode
+https://learn.microsoft.com/en-us/windows/win32/api/msi/nf-msi-msiqueryproductstatew
+https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/icacls

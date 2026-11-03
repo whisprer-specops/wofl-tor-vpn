@@ -1,0 +1,15 @@
+Test-Source.ps1
+PASS: 78 PowerShell sources parsed; six host-selection branches; JSON size/round-trip and private-field export rejection; installed static manifest.
+
+Test-HostChoice.ps1
+PASS: valid Store/preview host reuse; standard and fresh fallbacks; mixed, missing, invalid-signature, wrong-publisher, old, non-x64 and redirected-host rejection.
+
+Test-Workspace.ps1
+PASS: first-run workspace creation separates owner/DACL commands; existing workspace performs neither. Native command boundary mocked.
+
+Test-SetupPlan.ps1
+PASS: setup planning detects fresh, orphaned, interrupted, missing-identity and existing-client states without writing device state.
+
+PASS: fresh, legacy, managed, partial, cache-missing, orphaned, missing-key, resumable, protected, newer and removal-dependency policy cases.
+
+Native Windows Installer execution and native API adapter execution: NOT TESTED on this Linux build host.
